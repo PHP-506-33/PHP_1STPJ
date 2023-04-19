@@ -1,4 +1,8 @@
 <?php
+include_once( "todo_index_f.php" );
+include_once( "todo_detail_f.php" );
+include_once( "todo_insert_f.php" );
+include_once( "todo_update_f.php" );
 
 function db_conn( &$param_conn )
 {

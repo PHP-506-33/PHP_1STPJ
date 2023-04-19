@@ -1,4 +1,7 @@
 <?php 
+
+include_once( "common/db_connect.php" );
+
 /*********************************************
 함수 : todo_select_detail_info
 기능 : list에서 선택한 값에 대한 상세 내용 출력

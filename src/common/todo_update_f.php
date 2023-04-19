@@ -1,4 +1,6 @@
 <?php
+
+include_once( "common/db_connect.php" );
 //-------------------------------------------------------------
 
 function update_todo_list_info_no( &$arr_post )
