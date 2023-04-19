@@ -25,4 +25,5 @@ function db_conn( &$param_conn )
         throw new Exception( $e->getMessage() );
     }
 }
+
 ?>
