@@ -1,6 +1,6 @@
 <?php
 
-include_once( "common/db_connect.php" );
+include_once( "db_connect.php" );
 
 // --------------------
 // 리스트 제목 검색하는 함수
@@ -60,6 +60,92 @@ function select_list_search( &$param_arr )
     return $result;
 }
 
+function select_list_paging( $param_page, $param_max, $param_search )
+{
+    if($param_max <= 5)
+    {
+        for($i=1; $i <= $param_max; $i++)
+        {
+            echo "<a href='todo_index.php?page_num=".$i."&search=".$param_search.">".$i."</a>";
+        }
+    }
+    else
+    {
+        if($param_page < 4)
+        {
+            for($i=1; $i <= 5; $i++)
+            {
+                echo "<a href='todo_index.php?page_num=".$i."&search=".$param_search.">".$i."</a>";
+            }
+        }
+        else if($param_page < $param_max - 1)
+        {
+            for($i = $param_page - 2; $i <= $param_page + 2; $i++)
+            {
+                echo "<a href='todo_index.php?page_num=".$i."&search=".$param_search.">".$i."</a>";
+            }
+        }
+        else
+        {
+            for($i = $param_max - 4; $i <= $param_max; $i++)
+            {
+                echo "<a href='todo_index.php?page_num=".$i."&search=".$param_search.">".$i."</a>";
+            }
+        }
+    }
+}
+
+// --------------------
+// 포인트 계산 함수
+// --------------------
+function point_cal()
+{
+    $sql = 
+    " SELECT "
+    ."      COUNT(*) point "
+    ." FROM "
+    ."      todo_list_info "
+    ." WHERE "
+    ."      list_clear_flg = '1' "
+    ;
+
+    $arr_prepare = array();
+
+    $conn = null;
+    try
+    {
+        db_conn( $conn );
+        $stmt = $conn->prepare( $sql );
+        $stmt->execute( $arr_prepare );
+        $result = $stmt->fetchAll();
+    }
+    catch( Exception $e )
+    {
+        return $e->getMessage();
+    }
+    finally
+    {
+        $conn = null;
+    }
+
+    return $result[0]["point"];
+}
+
+// --------------------
+// 레벨 계산 함수
+// --------------------
+function level_cal()
+{
+    $result = ceil(point_cal() / 10);
+    return $result;
+}
+
+function trim_date( $param_str )
+{
+    $result = substr($param_str, 5, 5);
+    return $result;
+}
+
 // TODO: start
 // $arr = array(
 //     "list_start_date"         => "2023-04-19 12:00:00"
@@ -70,6 +156,10 @@ function select_list_search( &$param_arr )
 //     );
 // $result = select_list_search( $arr );
 // print_r( $result );
+// TODO: end
+
+// TODO: start
+// echo level_cal();
 // TODO: end
 
 ?>

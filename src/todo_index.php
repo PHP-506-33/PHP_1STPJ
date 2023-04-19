@@ -3,7 +3,6 @@
 define( "SRC_ROOT", $_SERVER["DOCUMENT_ROOT"]."/PHP_1STPJ-main/src/" );
 define( "URL_DB", SRC_ROOT."common/db_connect.php" );
 include_once( URL_DB );
-include_once( "todo_index_f.php" );
 
 if( array_key_exists("page_num", $_GET) )
 {
@@ -72,7 +71,7 @@ $result_paging = select_list_search( $arr_prepare );
                 <div class="profile_section"></div>
                 <span>이름</span>
                 <br>
-                <span>Lv. 10</span>
+                <span>Lv. <?php echo level_cal() ?></span>
             </div>
             <div class="calendar">
                 <form method="get" action="todo_index.php">
@@ -90,7 +89,7 @@ $result_paging = select_list_search( $arr_prepare );
                     <?php
                     foreach ($result_paging as $val) {
                     ?>
-                    <li><a href="#"><div class="list_container"><span><?php echo $val["list_title"]?></span><span><?php echo $val["list_start_date"]." ~ ".$val["list_due_date"] ?></span></div></a></li>
+                    <li><a href="todo_detail.php"><div class="list_container"><span><?php echo $val["list_title"]?></span><span><?php echo trim_date($val["list_start_date"])." ~ ".trim_date($val["list_due_date"]) ?></span></div></a></li>
                     <?php
                     }
                     ?>
