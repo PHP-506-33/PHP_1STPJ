@@ -31,12 +31,14 @@
                 ,"list_imp_flg" => $imp_flg
             );
         $insert_list_info = insert_todo_info($arr_info);
+
+        header( "Location: todo_detail.php?list_no=".$insert_page_num );
+        exit;
     }
     else
     {
         $insert_page_num = null;
     }
-
 ?>
 
 <!DOCTYPE html>
@@ -54,21 +56,21 @@
     <div class="form_container">
         <form class="form_contents" method="post" action="todo_insert.php">
                 <label for="title">퀘스트 제목</label>
-                <input type="text" id="title" name="todo_title">
+                <input type="text" id="title" name="todo_title" required>
             <br>
                 <label for="contents">퀘스트 내용</label>
                 <input type="text" id="contents" name="todo_contents">
             <br>
                 <label for="start_date">시작</label>
-                <input type="datetime-local" id="start_date" name="todo_start">
+                <input type="datetime-local" id="start_date" name="todo_start" required>
                 <label for="end_date">종료</label>
-                <input type="datetime-local" id="end_date" name="todo_end">
+                <input type="datetime-local" id="end_date" name="todo_end" required>
             <br>
                 <label for="important">중요<label>
                 <input type="checkbox" name="todo_imp" id="important" value="1">
             <br>
                 <button><a href="todo_index.php">취소<a></button>
-                <button type="submit"><a href="todo_detail.php?list_no=<?php echo $insert_page_num ?>">수락<a></button>
+                <button type="submit">수락</button>
         </form>
     </div>
     </div>
