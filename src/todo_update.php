@@ -22,11 +22,11 @@ else
   $arr_post = $_POST;
   $arr_info =
   array(
-    ":list_title" => $param_arr["list_title"]
-    ,":list_detail" => $param_arr["list_detail"]
-    ,":list_start_date" => $param_arr["list_start_date"]
-    ,":list_due_date" => $param_arr["list_due_date"] 
-    ,":list_imp_flg" => $param_arr["list_imp_flg"] 
+    "list_title" => $param_arr["list_title"]
+    ,"list_detail" => $param_arr["list_detail"]
+    ,"list_start_date" => $param_arr["list_start_date"]
+    ,"list_due_date" => $param_arr["list_due_date"] 
+    ,"list_imp_flg" => $param_arr["list_imp_flg"] 
     );
 
 
