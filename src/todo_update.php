@@ -13,9 +13,10 @@ if( $http_method === "GET" )
   $list_no = 1;
   if( array_key_exists( "list_no", $_GET ) )
   {
+    // var_dump( $_GET );
     $list_no = $_GET["list_no"];
   }
-  $result_info = select_todo_list_info_no( $list_no );
+  $result_info = select_list_info_no( $list_no );
 }
 else
 {
