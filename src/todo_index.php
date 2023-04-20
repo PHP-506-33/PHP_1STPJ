@@ -111,7 +111,7 @@ $max_page_num = ceil( $result_cnt[0]["cnt"] / $limit_num );
                 </ul>
             </div>
             <div class="page_section">
-                <?php select_list_paging( $page_num, $max_page_num, $search ) ?>
+                <?php select_list_paging( $page_num, $max_page_num, $date_ymd, $search ) ?>
             </div>
             <div class="search_section">
                 <form method="get" action="todo_index.php">

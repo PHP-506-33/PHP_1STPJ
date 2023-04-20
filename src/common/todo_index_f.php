@@ -103,13 +103,13 @@ function select_list_cnt( &$param_arr )
     return $result;
 }
 
-function select_list_paging( $param_page, $param_max, $param_search )
+function select_list_paging( $param_page, $param_max, $param_date, $param_search )
 {
     if($param_max <= 5)
     {
         for($i=1; $i <= $param_max; $i++)
         {
-            echo "<a href='todo_index.php?page_num=".$i."&search=".$param_search."'>".$i."</a>";
+            echo "<a href='todo_index.php?page_num=".$i."&date_pick=".$param_date."&search=".$param_search."'>".$i."</a>";
         }
     }
     else
@@ -118,21 +118,21 @@ function select_list_paging( $param_page, $param_max, $param_search )
         {
             for($i=1; $i <= 5; $i++)
             {
-                echo "<a href='todo_index.php?page_num=".$i."&search=".$param_search."'>".$i."</a>";
+                echo "<a href='todo_index.php?page_num=".$i."&date_pick=".$param_date."&search=".$param_search."'>".$i."</a>";
             }
         }
         else if($param_page < $param_max - 1)
         {
             for($i = $param_page - 2; $i <= $param_page + 2; $i++)
             {
-                echo "<a href='todo_index.php?page_num=".$i."&search=".$param_search."'>".$i."</a>";
+                echo "<a href='todo_index.php?page_num=".$i."&date_pick=".$param_date."&search=".$param_search."'>".$i."</a>";
             }
         }
         else
         {
             for($i = $param_max - 4; $i <= $param_max; $i++)
             {
-                echo "<a href='todo_index.php?page_num=".$i."&search=".$param_search."'>".$i."</a>";
+                echo "<a href='todo_index.php?page_num=".$i."&date_pick=".$param_date."&search=".$param_search."'>".$i."</a>";
             }
         }
     }
