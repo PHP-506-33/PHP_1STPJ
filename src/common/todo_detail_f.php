@@ -16,15 +16,17 @@ function todo_select_detail_info( &$param_arr ){
         ." ,list_detail "
         ." ,list_start_date "
         ." ,list_due_date "
+        ." ,list_clear_flg "
+        ." ,list_imp_flg "
         ." FROM "
         ." todo_list_info "
         ." WHERE "
         ." list_no = :list_no ";
 
     $arr_prepare = 
-                array(
-                    ":list_no" => $param_arr["list_no"]
-                );
+            array(
+                ":list_no" => $param_arr["list_no"]
+            );
     $conn = null; 
     try {
         db_conn($conn);
@@ -82,7 +84,7 @@ function todo_update_detail_list( &$param_no ){
 파라미터 : &$parma_arr (레퍼런스 참조)
 리턴 값 : $result
 **********************************************/
-function todo_select_detail_list( &$param_no ){
+function todo_select_detail_list(){
     $sql =
         " SELECT "
         ." list_title "
@@ -91,15 +93,14 @@ function todo_select_detail_list( &$param_no ){
         ." FROM "
         ." todo_list_info "
         ." WHERE "
-        ." list_no = :list_no "
-        ." AND "
+        // ." list_start_date = :list_start_date "
+        // ." AND "
         ." list_clear_flg = '0' "
-        ." ORDER BY "
-        ." list_start_date "
+        ." ORDER BY list_start_date "
         ." LIMIT 3 ";
 
     $arr_prepare = array(
-        ":list_no" => $param_no["list_no"]
+        // ":list_start_date" => $param_date
     );
     $conn = null;
     try {
@@ -114,4 +115,7 @@ function todo_select_detail_list( &$param_no ){
     }
     return $result;
 }
+
+// todo 
+// var_dump(todo_select_detail_list('2023-04-19 09:00:00'));
 ?>

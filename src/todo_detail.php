@@ -8,26 +8,22 @@
         "list_no"   => (int)$arr_get["list_no"]
     );
     $detail_info = todo_select_detail_info( $arr_prepare );
-    $detail_today = todo_select_detail_list( $arr_prepare );
-    $today_list = $arr_get["date_pick"];
-    // $today = date("Y-m-d", (int)$detail_today[0]["list_start_date"]);
-    // var_dump($today_list);
-    // var_dump($detail_today);
-    // var_dump($today);
+    $detail_today = todo_select_detail_list();
+    $today_list = date("Y-m-d", strtotime($detail_info["list_start_date"]));
+    $today = date("Y-m-d", strtotime($detail_info["list_start_date"]));
 
     // update
-    $result_cnt = todo_update_detail_list( $arr_get["list_no"] );
-    // if(isset($_POST[check])){
-        $check_post = $_POST;
+    $check_post = $_POST;
     if($check_post === '0'){
-        $todo_com = todo_update_detail_list( $arr_prepare );
+        $result_cnt = todo_update_detail_list( $arr_get["list_no"] );
+        $todo_com = todo_update_detail_list( $arr_prepare["list_no"] );
             if($result_cnt === 1){
                 header( "Location: todo_index.php");
             }
-        }else{
-            $check_post = null;
-        }
-    
+    }else{
+        $check_post = null;
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -77,24 +73,52 @@
                 </table>
             </div>
             <div class="detail_today"> <!-- 현재 선택한 할 일과 같은 날의 남은 할 일 표시 -->
-                <h3>Today</h3>
+                <h3>Left to do</h3>
                 <div class="today_info"> <!-- foreach로 남은 할 일 출력하기/CSS : 할 일 당 색 다르게 설정 -->
-                    
+                    <ul>
+                    <?php 
+                        if($today_list === $today){
+                            foreach ($detail_today as $key => $value) { 
+                    ?>
+                        <li>
+                                <?php 
+                                if(isset($value)){ ?>
+                                    <a href="#"><?php echo $value["list_title"]." ".date("m.d / H : i", strtotime($value["list_start_date"]))." ~ ".date("H : i", strtotime($value["list_due_date"]));?></a>
+                                <?php }else{ ?>
+                                    <a href="#"><?php echo "오늘의 남은 할 일은 더 이상 없습니다."; ?></a>
+                                <?php }
+                                ?>
+                        </li>
+                    <?php 
+                            } 
+                        }else{ ?>
+                            <li><?php echo "오늘의 남은 할 일은 더 이상 없습니다."; ?></li>
+                        <?php } ?>
+                    </ul>
                 </div>
             </div>
         </div>
         <div class="detail_info"> <!-- 현재 선택한 할 일 제목, 날짜, 상세 내용 -->
             <div class="info_title"> 
-                <h2><?php ?></h2>
+                <h2><?php echo $detail_info["list_title"] ?></h2>
                 <span class="todo_date">
                     <!-- strtotime() : 문자열 형태의 날짜를 입력받아 UNIX timestamp(초 단위로 세어지는 정수로 표현한 값) 형식의 값을 돌려주는 함수 -->
                     <?php echo date("m.d", strtotime($detail_info["list_start_date"]))." ~ ".date("m.d", strtotime($detail_info["list_due_date"])); ?>
+                    <?php if($detail_info["list_imp_flg"] === '1'){ ?>
+                        <span class="imp">★</span>
+                    <?php }else{ ?>
+                        <span class="no_imp">☆</span>
+                    <?php } ?>
                 <span>
                 <hr>
             </div>
                 <div class="detail_content">
                     <form action="todo_index.php" method="post" class="detail_title">
-                        <input type="checkbox" name="check" class="todo_check" value="0">
+                        <?php if($detail_info["list_clear_flg"] === '1'){ ?>
+                            <input type="checkbox" name="check" class="todo_check" value="0" checked>
+                        <?php }else{ ?>
+                            <input type="checkbox" name="check" class="todo_check" value="0">
+                        <?php } ?>
                         <span class="todo_title"><?php echo $detail_info["list_title"] ?><span>
                         <span class="todo_date">
                             <?php echo date("H : i", strtotime($detail_info["list_start_date"]))." ~ ".date("H : i", strtotime($detail_info["list_due_date"])); ?>
