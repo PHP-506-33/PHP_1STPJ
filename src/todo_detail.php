@@ -71,7 +71,12 @@
             <div class="detail_today"> <!-- 현재 선택한 할 일과 같은 날의 남은 할 일 표시 -->
                 <h3>Today</h3>
                 <div class="today_info"> <!-- foreach로 남은 할 일 출력하기/CSS : 할 일 당 색 다르게 설정 -->
-                
+                    <?php if($today_list == date("Y-m-d", $detail_today["list_start_date"])){
+                            foreach($detail_today as $value){ ?>
+                            <span>|
+                            <?php echo $detail_today["list_start_date"]." ".$detail_today["list_title"] ?>
+                            </span>
+                    <?php } } ?>
                 </div>
             </div>
         </div>
