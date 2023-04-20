@@ -9,7 +9,8 @@ function select_list_search( &$param_arr )
 {
     $sql = 
     " SELECT "
-    ."      list_title "
+    ."      list_no "
+    ."      ,list_title "
     ."      ,list_start_date "
     ."      ,list_due_date "
     ."      ,list_imp_flg "
@@ -60,13 +61,55 @@ function select_list_search( &$param_arr )
     return $result;
 }
 
+function select_list_cnt( &$param_arr )
+{
+    $sql = 
+    " SELECT "
+    ."      COUNT(*) cnt "
+    ." FROM "
+    ."      todo_list_info "
+    ." WHERE "
+    ."      DATE_SUB(list_start_date, INTERVAL 1 DAY) <= :list_start_date "
+    ."      AND "
+    ."      list_due_date >= :list_due_date "
+    ."      AND "
+    ."      list_title LIKE CONCAT('%', :searchword, '%') "
+    ;
+
+    $arr_prepare =
+        array(
+            ":list_start_date"        => $param_arr["list_start_date"]
+            ,":list_due_date"        => $param_arr["list_due_date"]
+            ,":searchword"           => $param_arr["searchword"]
+        );
+
+    $conn = null;
+    try
+    {
+        db_conn( $conn );
+        $stmt = $conn->prepare( $sql );
+        $stmt->execute( $arr_prepare );
+        $result = $stmt->fetchAll();
+    }
+    catch( Exception $e )
+    {
+        return $e->getMessage();
+    }
+    finally
+    {
+        $conn = null;
+    }
+
+    return $result;
+}
+
 function select_list_paging( $param_page, $param_max, $param_search )
 {
     if($param_max <= 5)
     {
         for($i=1; $i <= $param_max; $i++)
         {
-            echo "<a href='todo_index.php?page_num=".$i."&search=".$param_search.">".$i."</a>";
+            echo "<a href='todo_index.php?page_num=".$i."&search=".$param_search."'>".$i."</a>";
         }
     }
     else
@@ -75,21 +118,21 @@ function select_list_paging( $param_page, $param_max, $param_search )
         {
             for($i=1; $i <= 5; $i++)
             {
-                echo "<a href='todo_index.php?page_num=".$i."&search=".$param_search.">".$i."</a>";
+                echo "<a href='todo_index.php?page_num=".$i."&search=".$param_search."'>".$i."</a>";
             }
         }
         else if($param_page < $param_max - 1)
         {
             for($i = $param_page - 2; $i <= $param_page + 2; $i++)
             {
-                echo "<a href='todo_index.php?page_num=".$i."&search=".$param_search.">".$i."</a>";
+                echo "<a href='todo_index.php?page_num=".$i."&search=".$param_search."'>".$i."</a>";
             }
         }
         else
         {
             for($i = $param_max - 4; $i <= $param_max; $i++)
             {
-                echo "<a href='todo_index.php?page_num=".$i."&search=".$param_search.">".$i."</a>";
+                echo "<a href='todo_index.php?page_num=".$i."&search=".$param_search."'>".$i."</a>";
             }
         }
     }

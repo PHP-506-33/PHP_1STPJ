@@ -34,21 +34,37 @@ if( array_key_exists("date_pick", $_GET))
 if( array_key_exists("search", $_GET))
 {
     $search = $_GET["search"];
-    $date_pick = "검색 결과";
+    if( $search === "" )
+    {
+        $date_pick = $date_ymd;
+    }
+    else
+    {
+        $date_pick = "검색 결과";
+    }
 }
 else
 {
     $search = "";
 }
 
-$arr_prepare = array(
+$arr_prepare1 = array(
     "list_start_date"   => $date_ymd
     ,"list_due_date"    => $date_ymd
     ,"searchword"       => $search
     ,"limit_num"        => $limit_num
     ,"offset"           => $offset
     );
-$result_paging = select_list_search( $arr_prepare );
+$result_paging = select_list_search( $arr_prepare1 );
+
+$arr_prepare2 = array(
+    "list_start_date"   => $date_ymd
+    ,"list_due_date"    => $date_ymd
+    ,"searchword"       => $search
+    );
+
+$result_cnt = select_list_cnt( $arr_prepare2 );
+$max_page_num = ceil( $result_cnt[0]["cnt"] / $limit_num );
 
 ?>
 
@@ -89,11 +105,14 @@ $result_paging = select_list_search( $arr_prepare );
                     <?php
                     foreach ($result_paging as $val) {
                     ?>
-                    <li><a href="todo_detail.php"><div class="list_container"><span><?php echo $val["list_title"]?></span><span><?php echo trim_date($val["list_start_date"])." ~ ".trim_date($val["list_due_date"]) ?></span></div></a></li>
+                    <li><a href="todo_detail.php?list_no=<? echo $val["list_no"] ?>&date_pick=<? echo $date_ymd ?>"><div class="list_container"><span><?php echo $val["list_title"]?></span><span><?php echo trim_date($val["list_start_date"])." ~ ".trim_date($val["list_due_date"]) ?></span></div></a></li>
                     <?php
                     }
                     ?>
                 </ul>
+            </div>
+            <div class="page_section">
+                <?php select_list_paging( $page_num, $max_page_num, $search ) ?>
             </div>
             <div class="search_section">
                 <form method="get" action="todo_index.php">
