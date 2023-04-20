@@ -91,15 +91,15 @@ function todo_select_detail_list( &$param_no ){
         ." FROM "
         ." todo_list_info "
         ." WHERE "
-        // ." list_no = :list_no "
-        // ." AND "
+        ." list_no = :list_no "
+        ." AND "
         ." list_clear_flg = '0' "
         ." ORDER BY "
         ." list_start_date "
         ." LIMIT 3 ";
 
     $arr_prepare = array(
-        ":list_no" => &$param_no["list_no"]
+        ":list_no" => $param_no["list_no"]
     );
     $conn = null;
     try {
