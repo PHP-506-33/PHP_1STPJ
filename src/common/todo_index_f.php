@@ -109,7 +109,7 @@ function select_list_paging( $param_page, $param_max, $param_date, $param_search
     {
         for($i=1; $i <= $param_max; $i++)
         {
-            echo "<a href='todo_index.php?page_num=".$i."&date_pick=".$param_date."&search=".$param_search."'>".$i."</a>";
+            echo "<a href='todo_index.php?page_num=".$i."&list_start_date=".$param_date."&search=".$param_search."'>".$i."</a>";
         }
     }
     else
@@ -118,23 +118,31 @@ function select_list_paging( $param_page, $param_max, $param_date, $param_search
         {
             for($i=1; $i <= 5; $i++)
             {
-                echo "<a href='todo_index.php?page_num=".$i."&date_pick=".$param_date."&search=".$param_search."'>".$i."</a>";
+                echo "<a href='todo_index.php?page_num=".$i."&list_start_date=".$param_date."&search=".$param_search."'>".$i."</a>";
             }
         }
         else if($param_page < $param_max - 1)
         {
             for($i = $param_page - 2; $i <= $param_page + 2; $i++)
             {
-                echo "<a href='todo_index.php?page_num=".$i."&date_pick=".$param_date."&search=".$param_search."'>".$i."</a>";
+                echo "<a href='todo_index.php?page_num=".$i."&list_start_date=".$param_date."&search=".$param_search."'>".$i."</a>";
             }
         }
         else
         {
             for($i = $param_max - 4; $i <= $param_max; $i++)
             {
-                echo "<a href='todo_index.php?page_num=".$i."&date_pick=".$param_date."&search=".$param_search."'>".$i."</a>";
+                echo "<a href='todo_index.php?page_num=".$i."&list_start_date=".$param_date."&search=".$param_search."'>".$i."</a>";
             }
         }
+    }
+}
+
+function li_display( $param_arr, $param_date )
+{
+    foreach ($param_arr as $val)
+    {
+    echo "<li><a href='todo_detail.php?list_no=".$val['list_no']."&list_start_date=".$param_date."'><div class='list_container'><i class='fa-regular fa-square-check'></i><span>".$val['list_title']."</span><span>".trim_date($val['list_start_date'])." ~ ".trim_date($val['list_due_date'])."</span><i class='fa-solid fa-angle-right'></i></div></a></li>";
     }
 }
 
@@ -183,6 +191,9 @@ function level_cal()
     return $result;
 }
 
+// --------------------
+// 날짜 다듬는 함수
+// --------------------
 function trim_date( $param_str )
 {
     $result = substr($param_str, 5, 5);

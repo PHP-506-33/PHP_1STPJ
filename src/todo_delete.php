@@ -9,9 +9,6 @@
         );
         $result_cnt = delete_todo_info( $arr_prepare["list_no"] );
 
-    
-    // 취소버튼에 a태그 상세페이지로 가는거 리스트 넘버가져오는 함수 사용해서 넣기
-    // 삭제버튼 누르면 list DB에서 삭제하고 리스트페이지로 가도록
 ?>
 
 

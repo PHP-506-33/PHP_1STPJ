@@ -48,31 +48,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>todo_insert</title>
-    <link ref="stylesheet" href="./css/todo_insert.css">
+    <link rel="stylesheet" href="css/todo_insert_c.css">
 </head>
 <body>
     <div class="container">
         <h1>todo_list</h1>
-    <div class="form_container">
+    
         <form class="form_contents" method="post" action="todo_insert.php">
+        <div class="contents_container">
                 <label for="title">퀘스트 제목</label>
                 <input type="text" id="title" name="todo_title" required>
             <br>
                 <label for="contents">퀘스트 내용</label>
-                <input type="text" id="contents" name="todo_contents">
+                <textarea id="contents" name="todo_contents"cols="50" rows="10" ></textarea>
             <br>
                 <label for="start_date">시작</label>
                 <input type="datetime-local" id="start_date" name="todo_start" required>
                 <label for="end_date">종료</label>
                 <input type="datetime-local" id="end_date" name="todo_end" required>
             <br>
-                <label for="important">중요<label>
                 <input type="checkbox" name="todo_imp" id="important" value="1">
-            <br>
+                <label for="important">중요<label>
+        </div>
+            
                 <button type="submit">수락</button>
+                <a href="todo_index.php"><button type="button">취소</button></a>
         </form>
-        <a href="todo_index.php">취소</a>
-    </div>
+        
+        
     </div>
 </body>
 </html>

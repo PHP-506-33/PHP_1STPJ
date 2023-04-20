@@ -15,6 +15,24 @@
   font-style: normal;
 }
 
-.form_contents{
-  font-family: 'NEXON Lv2 Gothic';
+/* 나중에 textarea 따라 라벨 위로 붙도록 하기
+textarea 최소 최대 가로 폭 값넣기
+.imp_label{
+  vertical-align: top;
+} */
+
+
+/* 
+타이틀 배경색 C0601A1
+컨텐츠 바깥 배경색 00005C
+컨텐츠 안쪽 배경색 F0CAA3
+컨텐츠 입력 배경색 D4A87F
+취소버튼 C2C2C2
+수락버튼 FFDA56
+*/
+
+
+
+a{
+  text-decoration: none;
 }
