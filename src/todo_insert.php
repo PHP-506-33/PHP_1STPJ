@@ -2,8 +2,14 @@
     define( "SRC_ROOT", $_SERVER["DOCUMENT_ROOT"]."/PHP_1STPJ-main/src/" );
     define( "URL_DB", SRC_ROOT."common/db_connect.php" );
     include_once( URL_DB );
-    
+    include_once( "common/todo_insert_f.php");
+
     $http_method = $_SERVER["REQUEST_METHOD"];
+
+    // DB의 가장 최근 list_no 구하기
+    $result_no = select_list_no_desc();
+    // 구해온 list_no에서 + 1해서 새로 작성한 리스트의 상세페이지 번호로
+    $insert_page_num = $result_no["list_no"] + 1;
 
     if( $http_method === "POST" )
     {
@@ -24,13 +30,13 @@
                 ,"list_due_date" => $arr_post["todo_end"]
                 ,"list_imp_flg" => $imp_flg
             );
-
-        // DB의 list_no의 총 갯수구하기
-        $result_cnt = select_list_no_cnt();
-
-        // list_no의 갯수구한 거에서 + 1해서 이걸로 새로 작성한 리스트의 상세페이지 넘버로
-        $insert_page_num = $result_cnt["cnt"] + 1;
+        $insert_list_info = insert_todo_info($arr_info);
     }
+    else
+    {
+        $insert_page_num = null;
+    }
+
 ?>
 
 <!DOCTYPE html>
