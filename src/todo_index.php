@@ -73,7 +73,7 @@ $max_page_num = ceil( $result_cnt[0]["cnt"] / $limit_num );
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="todo_index_c.php">
+    <link rel="stylesheet" href="css/todo_index_c.css">
     <title>Index</title>
 </head>
 <body>
@@ -81,6 +81,7 @@ $max_page_num = ceil( $result_cnt[0]["cnt"] / $limit_num );
         <div class="header">
             <h1>TITLE</h1>
         </div>
+        <div class="paper">
         <div class="sidebar">
             <div class="profile">
                 <div class="profile_section"></div>
@@ -124,8 +125,9 @@ $max_page_num = ceil( $result_cnt[0]["cnt"] / $limit_num );
                     <a href="todo_index.php?date_pick=<? echo date("Y-m-d", strtotime($date_ymd." +1 day")) ?>">▶</a>
             </div>
         </div>
+        </div>
         <div class="button_section">
-            <a href="todo_insert.php">작성하기</a>
+            <a href="todo_insert.php"><span class="insert_btn">작성하기</span></a>
         </div>
     </div>
 </body>

@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #432C7A;
+}
+
+a {
+    text-decoration: none;
+}
+
+.header {
+    background-color: #C060A1;
+    height: 7rem;
+}
+
+.paper {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+.sidebar {
+    background-color: #F0CAA3;
+    border: 3px solid black;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+.main {
+    background-color: #F0CAA3;
+    border: 3px solid black;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    margin-right: 5rem;
+    position: relative;
+}
+
+.button_section {
+    position: absolute;
+    right: 1rem;
+    top: 15rem;
+}
+
+.insert_btn {
+    border: 3px solid black;
+    background-color: #FFDA56;
+    padding: 0.5rem;
+}
+
