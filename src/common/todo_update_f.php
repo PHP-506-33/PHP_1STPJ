@@ -81,7 +81,7 @@ function select_list_info_no( &$param_no )
 	
 	$arr_prepare =
 		array(
-			":list_no"	=> &$param_no["list_no"]
+			":list_no"	=> $param_no["list_no"]
 		);
 
 	$conn = null;

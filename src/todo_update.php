@@ -1,5 +1,5 @@
 <?php
-define( "SRC_ROOT", $_SERVER["DOCUMENT_ROOT"]."/PHP_1STPJ-main/src/" );
+define( "SRC_ROOT", $_SERVER["DOCUMENT_ROOT"]."/PHP_1STPJ/src/" );
 define( "URL_DB", SRC_ROOT."common/db_connect.php" );
 define( "URL_UPDATE_F", SRC_ROOT."todo_update.php" );
 include_once( URL_DB );

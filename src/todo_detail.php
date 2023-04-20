@@ -1,5 +1,5 @@
 <?php 
-    define( "SRC_ROOT", $_SERVER["DOCUMENT_ROOT"]."/PHP_1STPJ-main/src/" );
+    define( "SRC_ROOT", $_SERVER["DOCUMENT_ROOT"]."/PHP_1STPJ/src/" );
     define( "URL_DB", SRC_ROOT."common/db_connect.php" );
     include_once( URL_DB );
     // $arr_prepare = array(
@@ -9,8 +9,11 @@
     // $detail_today = todo_select_detail_list( $arr_prepare );
     // select
     $arr_get = $_GET;
-    $detail_info = todo_select_detail_info( $arr_get["list_no"]);
-    $detail_today = todo_select_detail_list( $arr_get["list_no"] );
+    $arr_prepare = array(
+        "list_no" => $arr_get["list_no"]
+    );
+    $detail_info = todo_select_detail_info( $arr_prepare );
+    // $detail_today = todo_select_detail_list( $arr_get["list_no"] );
     var_dump($arr_get);
 
     // update
