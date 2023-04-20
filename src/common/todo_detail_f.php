@@ -51,8 +51,7 @@ function todo_update_detail_list( &$param_no ){
         ." todo_list_info "
         ." SET "
         ." list_clear_flg = '1' "
-        ." AND "
-        ." list_clear_date = now() "
+        ." ,list_clear_date = now() "
         ." WHERE "
         ." list_no = :list_no ";
 
@@ -83,26 +82,27 @@ function todo_update_detail_list( &$param_no ){
 파라미터 : &$parma_arr (레퍼런스 참조)
 리턴 값 : $result
 **********************************************/
-function todo_select_detail_list( &$param_arr ){
+function todo_select_detail_list( &$param_no ){
     $sql =
         " SELECT "
-        ." list_no "
         ." ,list_title "
         ." ,list_start_date "
         ." ,list_due_date "
         ." FROM "
         ." todo_list_info "
         ." WHERE "
-        ." list_start_date <= now() "
-        ." AND "
-        ." list_due_date >= now() "
+        ." list_no = :list_no "
         ." AND "
         ." list_clear_flg = '0' "
+        ." AND "
+        ." list_start_date >= :list_no "
         ." ORDER BY "
         ." todo_list_info "
         ." LIMIT 3 ";
 
-    $arr_prepare = array();
+    $arr_prepare = array(
+        ":list_no" => &$param_no["list_no"]
+    );
     $conn = null;
     try {
         db_conn($conn);
