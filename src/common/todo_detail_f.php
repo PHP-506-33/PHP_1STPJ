@@ -1,6 +1,6 @@
 <?php 
 
-include_once( "common/db_connect.php" );
+include_once( "db_connect.php" );
 
 /*********************************************
 함수 : todo_select_detail_info

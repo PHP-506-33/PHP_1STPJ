@@ -30,10 +30,10 @@
                 ,"list_due_date" => $arr_post["todo_end"]
                 ,"list_imp_flg" => $imp_flg
             );
-        $insert_list_info = insert_todo_info($arr_info);
+    $insert_list_info = insert_todo_info($arr_info);
 
-        header( "Location: todo_detail.php?list_no=".$insert_page_num );
-        exit;
+    header( "Location: todo_detail.php?list_no=".$insert_page_num );
+    exit;
     }
     else
     {
@@ -69,9 +69,9 @@
                 <label for="important">중요<label>
                 <input type="checkbox" name="todo_imp" id="important" value="1">
             <br>
-                <button><a href="todo_index.php">취소<a></button>
                 <button type="submit">수락</button>
         </form>
+        <a href="todo_index.php">취소</a>
     </div>
     </div>
 </body>
