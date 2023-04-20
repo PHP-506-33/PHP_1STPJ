@@ -33,6 +33,7 @@ ul {
 .sidebar {
     background-color: #F0CAA3;
     border-top: 3px solid black;
+    border-left: 3px solid black;
     border-bottom: 3px solid black;
     border-radius: 1rem;
     padding: 2rem;
