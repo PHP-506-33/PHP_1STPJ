@@ -85,17 +85,17 @@ function todo_update_detail_list( &$param_no ){
 function todo_select_detail_list( &$param_no ){
     $sql =
         " SELECT "
-        ." ,list_title "
+        ." list_title "
         ." ,list_start_date "
         ." ,list_due_date "
         ." FROM "
         ." todo_list_info "
         ." WHERE "
-        ." list_no = :list_no "
-        ." AND "
+        // ." list_no = :list_no "
+        // ." AND "
         ." list_clear_flg = '0' "
         ." ORDER BY "
-        ." todo_list_info "
+        ." list_start_date "
         ." LIMIT 3 ";
 
     $arr_prepare = array(

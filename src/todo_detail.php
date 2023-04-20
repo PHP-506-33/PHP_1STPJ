@@ -15,6 +15,8 @@
     $detail_info = todo_select_detail_info( $arr_prepare );
     $detail_today = todo_select_detail_list( $arr_prepare );
     $today_list = $arr_get["date_pick"];
+    var_dump($today_list);
+    var_dump($detail_today);
 
     // update
     
@@ -33,7 +35,7 @@
         <div class="detail">
             <div class="profile"> <!-- 프로필 -->
                 <div class="prof_img">
-                    <img src="./common/grow1.png" alt="profile">
+                    <!-- <img src="./common/grow1.png" alt="profile"> -->
                 </div>
                 <span class="prof_name_level">
                     Lv.<?php  ?><br>
@@ -69,10 +71,7 @@
             <div class="detail_today"> <!-- 현재 선택한 할 일과 같은 날의 남은 할 일 표시 -->
                 <h3>Today</h3>
                 <div class="today_info"> <!-- foreach로 남은 할 일 출력하기/CSS : 할 일 당 색 다르게 설정 -->
-                <?php if($today_list === $detail_today["list_start_date"]){
-                        foreach($detail_today as $value){ ?>
-                        <span>| <?php echo $value; ?> </span>
-                <?php } } ?>
+                
                 </div>
             </div>
         </div>
