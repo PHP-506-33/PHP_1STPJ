@@ -94,8 +94,6 @@ function todo_select_detail_list( &$param_no ){
         ." list_no = :list_no "
         ." AND "
         ." list_clear_flg = '0' "
-        ." AND "
-        ." list_start_date >= :list_no "
         ." ORDER BY "
         ." todo_list_info "
         ." LIMIT 3 ";

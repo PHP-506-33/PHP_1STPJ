@@ -9,9 +9,12 @@
     // $detail_today = todo_select_detail_list( $arr_prepare );
     // select
     $arr_get = $_GET;
-    $detail_info = todo_select_detail_info( $arr_get["list_no"]);
-    $detail_today = todo_select_detail_list( $arr_get["list_no"] );
-    var_dump($arr_get);
+    $arr_prepare = array(
+        "list_no"   => (int)$arr_get["list_no"]
+    );
+    $detail_info = todo_select_detail_info( $arr_prepare );
+    $detail_today = todo_select_detail_list( $arr_prepare );
+    $today_list = $arr_get["date_pick"];
 
     // update
     
@@ -66,17 +69,10 @@
             <div class="detail_today"> <!-- 현재 선택한 할 일과 같은 날의 남은 할 일 표시 -->
                 <h3>Today</h3>
                 <div class="today_info"> <!-- foreach로 남은 할 일 출력하기/CSS : 할 일 당 색 다르게 설정 -->
-                    <?php if(!empty($detail_today)){ // !empty : $detail_today가 빈 배열인지 확인
-                    foreach ($detail_today as $key => $value) { 
-                    if($key === "list_title"){ ?>
-                        <span class="today_1">| </span>
-                        <span><?php echo $value; ?></span>
-                    <?php } else if($key === "list_start_date"){ ?>
-                        <span><?php echo date("H : i", strtotime((int)$value)); ?></span>
-                    <?php } } } ?>
-                    <!-- <p class="today_1">| <?php //echo date("H : i", time()); ?></p>
-                    <p class="today_2">| <?php //echo date("H : i", time()); ?></p>
-                    <p class="today_3">| <?php //echo date("H : i", time()); ?></p>  -->
+                <?php if($today_list === $detail_today["list_start_date"]){
+                        foreach($detail_today as $value){ ?>
+                        <span>| <?php echo $value; ?> </span>
+                <?php } } ?>
                 </div>
             </div>
         </div>
@@ -105,7 +101,7 @@
             </div>
             <button type="submit" class="com">완료</button>
         </div>
-        <button><a href="todo_update.php?list_no=<?php ?>">수정</a></button>
+        <button><a href="todo_update.php?list_no=<?php echo $arr_prepare["list_no"] ?>">수정</a></button>
         <button><a href="todo_index.php">돌아가기</a></button>
     </form>
 </body>
