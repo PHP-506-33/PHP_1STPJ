@@ -99,8 +99,8 @@ exit();
 <label for="list_imp_flg">중요</label>
 <input type="checkbox" name="list_imp_flg" id="list_imp_flg" value="<?php echo $result_info["list_imp_flg"] ?>" >
 
-<button type="submit">수정</button>
-<button type="submit"><a href>취소</button>
+<button type="input">수정</button>
+<button type="input"><a href = "list_detail.php?list_no=<?php echo $result_info["list_no"] ?> 취소 </a> </button>
 <button type="submit">삭제</button>
 
 <div>      
