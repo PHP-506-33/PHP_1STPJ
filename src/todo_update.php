@@ -62,6 +62,9 @@ else
 
 header( "Location: list_detail.php?list_no=".$arr_post["list_no"] );
 exit();
+
+header( "Location: list_delete.php?list_no=".$arr_post["list_no"] );
+exit();
 }
 ?>
 
@@ -97,7 +100,7 @@ exit();
 <input type="checkbox" name="list_imp_flg" id="list_imp_flg" value="<?php echo $result_info["list_imp_flg"] ?>" >
 
 <button type="submit">수정</button>
-<button type="submit">취소</button>
+<button type="submit"><a href>취소</button>
 <button type="submit">삭제</button>
 
 <div>      
