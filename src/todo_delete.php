@@ -4,15 +4,12 @@
     include_once( URL_DB );
 
         $arr_get = $_GET;
-        var_dump($arr_get);
         $arr_prepare = array(
             "list_no" => (int)$arr_get["list_no"]
         );
-        $result_cnt = delete_todo_info( $arr_get["list_no"] );
+        $result_cnt = delete_todo_info( $arr_prepare["list_no"] );
 
     
-            // header( "Location: todo_index.php" );
-        // exit;
     // 취소버튼에 a태그 상세페이지로 가는거 리스트 넘버가져오는 함수 사용해서 넣기
     // 삭제버튼 누르면 list DB에서 삭제하고 리스트페이지로 가도록
 ?>
@@ -34,9 +31,9 @@
         <p>주의! 포기한 퀘스트는 사라집니다</p>
     </div>
         <button><a href="todo_detail.php?list_no=<?php echo $arr_get["list_no"] ?>">취소</a></button>
-        <button type="submit">삭제</button>
-
-        
+        <form action="todo_delete" method="get">
+        <a href="todo_index.php">삭제<a>
+        </form>
     </div>
 </body>
 </html>
