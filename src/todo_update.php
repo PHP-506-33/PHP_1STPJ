@@ -23,14 +23,15 @@ else
   $arr_post = $_POST;
   $arr_info =
   array(
-    "list_title" => $param_arr["list_title"]
-    ,"list_detail" => $param_arr["list_detail"]
-    ,"list_start_date" => $param_arr["list_start_date"]
-    ,"list_due_date" => $param_arr["list_due_date"] 
-    ,"list_imp_flg" => $param_arr["list_imp_flg"] 
+    "list_title" => $arr_post["list_title"]
+    ,"list_detail" => $arr_post["list_detail"]
+    ,"list_start_date" => $arr_post["list_start_date"]
+    ,"list_due_date" => $arr_post["list_due_date"] 
+    ,"list_imp_flg" => $arr_post["list_imp_flg"] 
     );
 
-
+  $list_imp_flg = $list_imp_flg == 0 ? 1 : 0;
+  
   $result_cnt = update_todo_list_info_no( $arr_info );
 
 
@@ -60,10 +61,13 @@ else
 // $result_cnt = update_todo_list_info_no( $arr_info );
 
 
-header( "Location: list_detail.php?list_no=".$arr_post["list_no"] );
+header( "Location: todo_detail.php?list_no=".$arr_post["list_no"] );
 exit();
 
-header( "Location: list_delete.php?list_no=".$arr_post["list_no"] );
+header( "Location: todo_delete.php?list_no=".$arr_post["list_no"] );
+exit();
+
+header( "Location: todo_index.php?list_no=".$arr_post["list_no"] );
 exit();
 }
 ?>
@@ -79,31 +83,30 @@ exit();
 </head>
 <body>
 <form method="post" action="todo_update.php">
-<div>
-<label for="list_no">목록 번호</label>
-<input type="text" name="list_no" value="<?php echo $result_info["list_no"] ?>" require>
-
-<label for="list_title">제목</label>
-<input type="text" name="list_title" value="<?php echo $result_info["list_title"] ?>">
-
-<input type="text" name="list_detail" id="list_detail" value="<?php echo $result_info["list_detail"] ?>">
-<label for="list_detail">내용</label>
-<textarea name="list_detail" id="list_detail">asd</textarea>
-
-<label for="list_start_date">시작 날짜</label>
-<input type="datetime-local" name="list_start_date" id="list_start_date" value="<?php echo $result_info["list_start_date"] ?>" >
-
-<label for="list_due_date">마감 날짜</label>
-<input type="datetime-local" name="list_due_date" id="list_due_date" value="<?php echo $result_info["list_due_date"] ?>">
-
-<label for="list_imp_flg">중요</label>
-<input type="checkbox" name="list_imp_flg" id="list_imp_flg" value="<?php echo $result_info["list_imp_flg"] ?>" >
-
-<button type="input">수정</button>
-<button type="input"><a href = "list_detail.php?list_no=<?php echo $result_info["list_no"] ?> 취소 </a> </button>
-<button type="submit">삭제</button>
-
-<div>      
+  <div class= "list_edit">
+      <label for="list_no">목록 번호</label>
+      <input type="text" name="list_no" value="<?php echo $result_info["list_no"] ?>" readonly>
+      <br>
+      <label for="list_title">제목</label>
+      <input type="text" name="list_title" value="<?php echo $result_info["list_title"] ?>" required>
+      <br>
+      <label for="list_detail">내용</label>
+      <input type="text" name="list_detail" id="list_detail" value="<?php echo $result_info["list_detail"] ?>" required>
+      <br>
+      <label for="list_start_date">시작 날짜</label>
+      <input type="datetime-local" name="list_start_date" id="list_start_date" value="<?php echo $result_info["list_start_date"] ?>" required>
+      <br>
+      <label for="list_due_date">마감 날짜</label>
+      <input type="datetime-local" name="list_due_date" id="list_due_date" value="<?php echo $result_info["list_due_date"] ?>" required>
+      <br>
+      <label for="list_imp_flg">중요</label>
+      <input type="checkbox" name="list_imp_flg" id="list_imp_flg" value="<?php echo $result_info["list_imp_flg"] ?>" >
+      <br>
+      <button type="submit"><a href = "todo_detail.php?list_no=<?php echo $result_info["list_no"] ?>">수정</button>
+      <button type="input"><a href = "todo_index.php?list_no=<?php echo $result_info["list_no"] ?>"> 취소 </button>
+      <button type="input"><a href = "todo_delete.php?list_no=<?php echo $result_info["list_no"] ?>">삭제</button>
+  <div>      
 </form>
+<!-- <button type="button" ><a href= "list_detail.php" id="hii">목록</a></button> -->
 </body>
 </html>
