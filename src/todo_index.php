@@ -13,21 +13,21 @@ else
 }
 
 $date_ymd = date("Y-m-d");
-$date_pick = $date_ymd;
+$list_start_date = $date_ymd;
 $limit_num = 5;
 $offset = ( $page_num - 1 ) * $limit_num;
 
-if( array_key_exists("date_pick", $_GET))
+if( array_key_exists("list_start_date", $_GET))
 {
-    if( $_GET["date_pick"] === "" )
+    if( $_GET["list_start_date"] === "" )
     {
         $date_ymd = date("Y-m-d");
     }
     else
     {
-        $date_ymd = $_GET["date_pick"];
+        $date_ymd = $_GET["list_start_date"];
     }
-    $date_pick = $date_ymd;
+    $list_start_date = $date_ymd;
 }
 
 if( array_key_exists("search", $_GET))
@@ -35,11 +35,11 @@ if( array_key_exists("search", $_GET))
     $search = $_GET["search"];
     if( $search === "" )
     {
-        $date_pick = $date_ymd;
+        $list_start_date = $date_ymd;
     }
     else
     {
-        $date_pick = "검색 결과";
+        $list_start_date = "검색 결과";
     }
 }
 else
@@ -74,41 +74,41 @@ $max_page_num = ceil( $result_cnt[0]["cnt"] / $limit_num );
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/todo_index_c.css">
+    <script src="https://kit.fontawesome.com/15c1734573.js" crossorigin="anonymous"></script>
     <title>Index</title>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>TITLE</h1>
+            <h1><a href="todo_index.php"><img src="common/img/title.png" alt="title"></a></h1>
         </div>
         <div class="paper">
         <div class="sidebar">
             <div class="profile">
-                <div class="profile_section"></div>
-                <span>이름</span>
-                <br>
-                <span>Lv. <?php echo level_cal() ?></span>
+                <div class="profile_img">
+                    <img src="common/img/grow<?php echo level_cal() ?>.png" alt="grow1">
+                </div>
+                <div class="profile_text">
+                    <span>이름</span>
+                    <br>
+                    <span>Lv. <?php echo level_cal() ?></span>
+                </div>
             </div>
             <div class="calendar">
                 <form method="get" action="todo_index.php">
-                    <input type="date" name="date_pick">
+                    <input type="date" name="list_start_date">
                     <button type="submit">날짜이동</button>
                 </form>
             </div>
         </div>
         <div class="main">
             <div class="date_section">
-                <h2><?php echo $date_pick ?></h2>
+                <h2><?php echo $list_start_date ?></h2>
+                <hr>
             </div>
             <div class="list_section">
                 <ul>
-                    <?php
-                    foreach ($result_paging as $val) {
-                    ?>
-                    <li><a href="todo_detail.php?list_no=<? echo $val["list_no"] ?>&date_pick=<? echo $date_ymd ?>"><div class="list_container"><span><?php echo $val["list_title"]?></span><span><?php echo trim_date($val["list_start_date"])." ~ ".trim_date($val["list_due_date"]) ?></span></div></a></li>
-                    <?php
-                    }
-                    ?>
+                    <?php li_display( $result_paging, $date_ymd ) ?>
                 </ul>
             </div>
             <div class="page_section">
@@ -121,13 +121,13 @@ $max_page_num = ceil( $result_cnt[0]["cnt"] / $limit_num );
                 </form>
             </div>
             <div class="move_section">
-                    <a href="todo_index.php?date_pick=<? echo date("Y-m-d", strtotime($date_ymd." -1 day")) ?>">◀</a>
-                    <a href="todo_index.php?date_pick=<? echo date("Y-m-d", strtotime($date_ymd." +1 day")) ?>">▶</a>
+                    <a class=left_btn href="todo_index.php?list_start_date=<? echo date("Y-m-d", strtotime($date_ymd." -1 day")) ?>">◀</a>
+                    <a class=right_btn href="todo_index.php?list_start_date=<? echo date("Y-m-d", strtotime($date_ymd." +1 day")) ?>">▶</a>
+            </div>
+            <div class="button_section">
+                <a href="todo_insert.php"><span class="insert_btn">작성하기</span></a>
             </div>
         </div>
-        </div>
-        <div class="button_section">
-            <a href="todo_insert.php"><span class="insert_btn">작성하기</span></a>
         </div>
     </div>
 </body>

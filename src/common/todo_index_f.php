@@ -138,6 +138,14 @@ function select_list_paging( $param_page, $param_max, $param_date, $param_search
     }
 }
 
+function li_display( $param_arr, $param_date )
+{
+    foreach ($param_arr as $val)
+    {
+    echo "<li><a href='todo_detail.php?list_no=".$val['list_no']."&date_pick=".$param_date."'><div class='list_container'><i class='fa-regular fa-square-check'></i><span>".$val['list_title']."</span><span>".trim_date($val['list_start_date'])." ~ ".trim_date($val['list_due_date'])."</span><i class='fa-solid fa-angle-right'></i></div></a></li>";
+    }
+}
+
 // --------------------
 // 포인트 계산 함수
 // --------------------
@@ -183,6 +191,9 @@ function level_cal()
     return $result;
 }
 
+// --------------------
+// 날짜 다듬는 함수
+// --------------------
 function trim_date( $param_str )
 {
     $result = substr($param_str, 5, 5);
