@@ -62,7 +62,7 @@ function todo_update_detail_list( &$param_no ){
     $conn = null;
     try {
         db_conn($conn);
-        $stmt->beginTransaction();
+        $conn->beginTransaction();
         $stmt = $conn->prepare( $sql );
         $stmt->execute( $arr_prepare );
         $result_cnt = $stmt->rowCount();

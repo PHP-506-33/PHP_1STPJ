@@ -2,11 +2,6 @@
     define( "SRC_ROOT", $_SERVER["DOCUMENT_ROOT"]."/PHP_1STPJ-main/src/" );
     define( "URL_DB", SRC_ROOT."common/db_connect.php" );
     include_once( URL_DB );
-    // $arr_prepare = array(
-    //     "list_no" => 1
-    // );
-    // $detail_info = todo_select_detail_info( $arr_prepare );
-    // $detail_today = todo_select_detail_list( $arr_prepare );
     // select
     $arr_get = $_GET;
     $arr_prepare = array(
@@ -15,10 +10,23 @@
     $detail_info = todo_select_detail_info( $arr_prepare );
     $detail_today = todo_select_detail_list( $arr_prepare );
     $today_list = $arr_get["date_pick"];
-    var_dump($today_list);
-    var_dump($detail_today);
+    // $today = date("Y-m-d", (int)$detail_today[0]["list_start_date"]);
+    // var_dump($today_list);
+    // var_dump($detail_today);
+    // var_dump($today);
 
     // update
+    $result_cnt = todo_update_detail_list( $arr_get["list_no"] );
+    // if(isset($_POST[check])){
+        $check_post = $_POST;
+    if($check_post === '0'){
+        $todo_com = todo_update_detail_list( $arr_prepare );
+            if($result_cnt === 1){
+                header( "Location: todo_index.php");
+            }
+        }else{
+            $check_post = null;
+        }
     
 ?>
 <!DOCTYPE html>
@@ -38,7 +46,7 @@
                     <!-- <img src="./common/grow1.png" alt="profile"> -->
                 </div>
                 <span class="prof_name_level">
-                    Lv.<?php  ?><br>
+                    Lv. 이름<br>
                     name
                 </span>
             </div>
@@ -71,12 +79,7 @@
             <div class="detail_today"> <!-- 현재 선택한 할 일과 같은 날의 남은 할 일 표시 -->
                 <h3>Today</h3>
                 <div class="today_info"> <!-- foreach로 남은 할 일 출력하기/CSS : 할 일 당 색 다르게 설정 -->
-                    <?php if($today_list == date("Y-m-d", $detail_today["list_start_date"])){
-                            foreach($detail_today as $value){ ?>
-                            <span>|
-                            <?php echo $detail_today["list_start_date"]." ".$detail_today["list_title"] ?>
-                            </span>
-                    <?php } } ?>
+                    
                 </div>
             </div>
         </div>
@@ -89,21 +92,21 @@
                 <span>
                 <hr>
             </div>
-            <div class="detail_content">
-                <div class="detail_title">
-                    <input type="checkbox" class="todo_check">
-                    <span class="todo_title"><?php echo $detail_info["list_title"] ?><span>
-                    <span class="todo_date">
-                        <?php echo date("H : i", strtotime($detail_info["list_start_date"]))." ~ ".date("H : i", strtotime($detail_info["list_due_date"])); ?>
-                    <span>
+                <div class="detail_content">
+                    <form action="todo_index.php" method="post" class="detail_title">
+                        <input type="checkbox" name="check" class="todo_check" value="0">
+                        <span class="todo_title"><?php echo $detail_info["list_title"] ?><span>
+                        <span class="todo_date">
+                            <?php echo date("H : i", strtotime($detail_info["list_start_date"]))." ~ ".date("H : i", strtotime($detail_info["list_due_date"])); ?>
+                        <span>
+                    <div class="detila_content">
+                        <textarea name="" id="" cols="50" rows="10" readonly>
+                            <?php echo $detail_info["list_detail"]?>
+                        </textarea>
+                    </div>
                 </div>
-                <div class="detila_content">
-                    <textarea name="" id="" cols="50" rows="10">
-                        <?php echo $detail_info["list_detail"]?>
-                    </textarea>
-                </div>
-            </div>
-            <button type="submit" class="com">완료</button>
+                <button type="submit" class="com">완료</button>
+            </form>
         </div>
         <button><a href="todo_update.php?list_no=<?php echo $arr_prepare["list_no"] ?>">수정</a></button>
         <button><a href="todo_index.php">돌아가기</a></button>
