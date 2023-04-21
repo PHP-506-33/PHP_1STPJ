@@ -15,6 +15,7 @@
         );
         $detail_info = todo_select_detail_info( $arr_prepare );
         $detail_today = todo_select_detail_list( $arr_prepare_2 );
+        // strtotime() : 문자열 형태의 날짜를 입력받아 UNIX timestamp(초 단위로 세어지는 정수로 표현한 값) 형식의 값을 돌려주는 함수
         $today_list = date("Y-m-d", strtotime($detail_info["list_start_date"]));
         $today = date("Y-m-d", strtotime($detail_today[0]["list_start_date"]));
         // $today_search = array_search(strtotime($detail_info["list_start_date"]) ,$today);
@@ -113,7 +114,6 @@
         <div class="detail_info"> <!-- 현재 선택한 할 일 제목, 날짜, 상세 내용 -->
             <div class="info_title"> 
                 <span class="todo_date">
-                    <!-- strtotime() : 문자열 형태의 날짜를 입력받아 UNIX timestamp(초 단위로 세어지는 정수로 표현한 값) 형식의 값을 돌려주는 함수 -->
                     <?php echo date("m.d", strtotime($detail_info["list_start_date"]))." ~ ".date("m.d", strtotime($detail_info["list_due_date"])); ?>
                 <span>
                 <hr>
