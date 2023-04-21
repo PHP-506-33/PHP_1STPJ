@@ -29,7 +29,7 @@ if( $http_method === "GET" )
     }
   }
   
-
+  
 else
   {
     $arr_post = $_POST;
@@ -103,7 +103,7 @@ else
 
 // <div class= "contents_no"> 
 // <label for="list_no">목록 번호</label>
-//   <input type="text" name="list_no" value="<?php echo $result_info["list_no"] ?>" readonly >
+  // <input type="text" name="list_no" value="<?php echo $result_info["list_no"] readonly >
 ?>
 
 <!DOCTYPE html>
@@ -116,23 +116,36 @@ else
 <title>수정하기</title>
 </head>
 <body>
+
 <div class="container">
+
     <div class="header">
         <h1><a href="todo_index.php"><img src="common/img/title.png" alt="title"></a></h1>
     </div>
+
   <br>
+
+  
     <div class="contents_outside">
+
+
     <form method="post" action="todo_update.php">
+
+
     <div class= "contents_title">
         <label for="list_title">제목</label>
         <input type="text" name="list_title" value="<?php echo $result_info["list_title"] ?>" required>
     </div>
+
   <br>
+
     <div class= "contents_detail">
       <label for="list_detail">내용</label>
       <input type="text" name="list_detail" id="list_detail" value="<?php echo $result_info["list_detail"] ?>" required>
     </div>
+
   <br>
+
     <div class="start_end_date">
         <span class="start_date_dir">
           <label for="list_start_date">시작 날짜</label>
@@ -143,12 +156,14 @@ else
           <input type="datetime-local" name="list_due_date" id="list_due_date" value="<?php echo$result_info["list_due_date"] ?>" required>
         </span>
     </div>
+ 
   <br>
+
     <div class="contents_imp">
         <label for="list_imp_flg">중요</label>
         <input type="checkbox" name="list_imp_flg" id="list_imp_flg" value="1" <?php echo $one_1; ?>>
     </div>
-    </div>
+    
       <button type="submit">수정</button>
       <a href = "todo_detail.php?list_no=<?php echo $result_info["list_no"]."&list_start_date=".substr($result_info["list_start_date"],0,10) ?>"><button type="button">취소</button></a> 
       <a href = "todo_delete.php?list_no=<?php echo $result_info["list_no"]."&list_start_date=".substr($result_info["list_start_date"],0,10) ?>"><button type="button">삭제</button></a>

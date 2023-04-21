@@ -38,7 +38,7 @@ textarea 최소 최대 가로 폭 값넣기
     margin:0;
   }
   body{
-    background-color: #00005C;
+    background-color: #432C7A;
     font-family: 'NEXON Lv2 Gothic';
   }
   
@@ -91,10 +91,10 @@ textarea 최소 최대 가로 폭 값넣기
   }
   
   input{
-    background-color: red;
+    background-color:   beige;
   }
   textarea{
-    background-color: red;
+    background-color: beige;
   }
   input:focus{
     background-color: blue;
