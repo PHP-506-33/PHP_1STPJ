@@ -117,12 +117,12 @@ $max_page_num = ceil( $result_cnt[0]["cnt"] / $limit_num );
             <div class="search_section">
                 <form method="get" action="todo_index.php">
                     <input type="search" name="search">
-                    <button type="submit">검색</button>
+                    <button type="submit" class="search_btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
             </div>
             <div class="move_section">
-                    <a class=left_btn href="todo_index.php?list_start_date=<? echo date("Y-m-d", strtotime($date_ymd." -1 day")) ?>">◀</a>
-                    <a class=right_btn href="todo_index.php?list_start_date=<? echo date("Y-m-d", strtotime($date_ymd." +1 day")) ?>">▶</a>
+                    <a class=left_btn href="todo_index.php?list_start_date=<? echo date("Y-m-d", strtotime($date_ymd." -1 day")) ?>"><i class="fa-solid fa-chevron-left"></i></a>
+                    <a class=right_btn href="todo_index.php?list_start_date=<? echo date("Y-m-d", strtotime($date_ymd." +1 day")) ?>"><i class="fa-solid fa-chevron-right"></i></a>
             </div>
             <div class="button_section">
                 <a href="todo_insert.php"><span class="insert_btn">작성하기</span></a>
