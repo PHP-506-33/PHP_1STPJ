@@ -1,0 +1,79 @@
+@font-face{
+    font-family:'bitbit';
+    src:url('//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff'),url('//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff2') ;
+  }
+  @font-face {
+    font-family: 'NEXON Lv2 Gothic';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'NeoDunggeunmoPro-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/NeoDunggeunmoPro-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  .list_edit {
+    border: 2px solid #000;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #fffafa;
+    max-width: 600px;
+    margin: auto;
+    font-family: "Times New Roman", Times, serif;
+  }
+  
+  .list_edit label {
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+  
+  .list_edit input[type="text"], .list_edit input[type="datetime-local"], .list_edit input[type="checkbox"], .list_edit button[type="submit"], .list_edit button[type="button"] {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    padding: 5px;
+    font-size: 18px;
+    border: 2px solid #000;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #000;
+    font-family: "Times New Roman", Times, serif;
+  }
+  
+  .list_edit input[type="checkbox"] {
+    display: inline;
+    margin-right: 10px;
+    margin-top: 20px;
+  }
+  
+  .list_edit button[type="submit"], .list_edit button[type="button"] {
+    cursor: pointer;
+    margin-top: 30px;
+    margin-right: 10px;
+    padding: 5px 20px;
+    background-color: #000;
+    color: #fff;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+  
+  .list_edit button[type="submit"]:hover, .list_edit button[type="button"]:hover {
+    background-color: #fff;
+    color: #000;
+    border-color: #000;
+  }
+  
+  .list_edit a {
+    text-decoration: none;
+    color: #000;
+  }
+  
+  .list_edit a:hover {
+    text-decoration: underline;
+  }
