@@ -71,7 +71,7 @@
                 <div class="start_end_date">
                     <span class="start_date_dir">    
                         <label for="start_date">시작</label>
-                        <input type="datetime-local" id="start_date" name="todo_start" required>
+                        <input type="datetime-local" id="start_date" name="todo_start" required value="">
                     </span>
                     <span class="end_date_dir">
                         <label for="end_date">종료</label>
