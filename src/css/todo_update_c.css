@@ -57,33 +57,40 @@ textarea 최소 최대 가로 폭 값넣기
     margin: 3rem;
   }
   .contents_detail{
+    margin: 10em;
     padding: 1rem;
     background-color:#D4A87F;
+    height: 20em;
+    font-weight: 900;
   }
   .contents_title{
+    margin: 10em;
     padding: 1rem;
     background-color:#D4A87F;
+    height: 20em;
+    font-weight: 900;
   }
   .start_end_date{
     position:relative;
+    font-weight: 900;
   }
   .start_date_dir{
     padding: 1rem;
     background-color:#D4A87F;
     position: absolute;
-  
-  
+    font-weight: 900;
   }
   .end_date_dir{
     padding: 1rem;
     background-color:#D4A87F;
     position: absolute;
     right:0;
-  
+    font-weight: 900;
   }
   
   .contents_imp{
     padding: 1rem;
+    font-weight: 900;
   }
   
   a{
