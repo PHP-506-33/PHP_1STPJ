@@ -68,7 +68,7 @@ function insert_todo_info( &$param_arr )
 // 리턴 값 : $result_cnt(디버그에서 1나오면 정상작동)
 // **********************************
 
-function delete_todo_info( &$param_no )
+function delete_todo_info( $param_no )
 {
     $sql =
     " DELETE "

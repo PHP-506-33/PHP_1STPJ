@@ -30,9 +30,72 @@ textarea 최소 최대 가로 폭 값넣기
 취소버튼 C2C2C2
 수락버튼 FFDA56
 */
+*{
+  padding:0;
+  margin:0;
+}
+body{
+  background-color: #00005C;
+  font-family: 'NEXON Lv2 Gothic';
+}
+
+.header {
+  background-color: #C060A1;
+  height: 9rem;
+  margin-bottom: 2rem;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 5px 5px 5px rgba(0, 0, 0, 0.253);
+}
+
+.contents_container{
+  background-color: #F0CAA3;
+  padding: 3rem;
+  margin: 3rem;
+}
+.contents_detail{
+  padding: 1rem;
+  background-color:#D4A87F;
+}
+.contents_title{
+  padding: 1rem;
+  background-color:#D4A87F;
+}
+.start_end_date{
+  position:relative;
+}
+.start_date_dir{
+  padding: 1rem;
+  background-color:#D4A87F;
+  position: absolute;
 
 
+}
+.end_date_dir{
+  padding: 1rem;
+  background-color:#D4A87F;
+  position: absolute;
+  right:0;
+
+}
+
+.contents_imp{
+  padding: 1rem;
+}
 
 a{
   text-decoration: none;
+}
+
+input{
+  background-color: red;
+}
+textarea{
+  background-color: red;
+}
+input:focus{
+  background-color: blue;
+}
+textarea:focus{
+  background-color: blue;
 }

@@ -3,11 +3,17 @@
     define( "URL_DB", SRC_ROOT."common/db_connect.php" );
     include_once( URL_DB );
 
-        $arr_get = $_GET;
-        $arr_prepare = array(
-            "list_no" => (int)$arr_get["list_no"]
-        );
-        $result_cnt = delete_todo_info( $arr_prepare["list_no"] );
+    $http_method = $_SERVER["REQUEST_METHOD"];
+    $arr_get = $_GET;
+
+    if($http_method === "POST")
+    {
+        $result_list_no = $arr_get["list_no"];
+        $result_cnt = delete_todo_info( $arr_get["list_no"] );
+        header( "Location: todo_index.php" );
+        exit;
+    }
+    // $result_info = todo_select_detail_info($arr_get["list_no"]);
 
 ?>
 
@@ -27,10 +33,14 @@
         <p>퀘스트를 포기하시겠습니까?</p>
         <p>주의! 포기한 퀘스트는 사라집니다</p>
     </div>
-        <button><a href="todo_detail.php?list_no=<?php echo $arr_get["list_no"] ?>">취소</a></button>
-        <form action="todo_delete" method="get">
-        <a href="todo_index.php">삭제<a>
+        
+        <a href="todo_detail.php?list_no=<?php echo $arr_get["list_no"]."&list_start_date=".$arr_get["list_start_date"] ?>">취소</a>
+        
+        <form method="post" action="todo_delete.php?list_no=<?php echo $arr_get["list_no"]."&list_start_date=".$arr_get["list_start_date"] ?>">
+        <input type="hidden" name="list_no" value="<?php echo $arr_get["list_no"] ?>">
+        <button type="submit">삭제</button>
         </form>
+        
     </div>
 </body>
 </html>

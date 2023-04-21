@@ -105,35 +105,11 @@ function select_list_cnt( &$param_arr )
 
 function select_list_paging( $param_page, $param_max, $param_date, $param_search )
 {
-    if($param_max <= 5)
+    if($param_max > 1)
     {
         for($i=1; $i <= $param_max; $i++)
         {
             echo "<a href='todo_index.php?page_num=".$i."&list_start_date=".$param_date."&search=".$param_search."'>".$i."</a>";
-        }
-    }
-    else
-    {
-        if($param_page < 4)
-        {
-            for($i=1; $i <= 5; $i++)
-            {
-                echo "<a href='todo_index.php?page_num=".$i."&list_start_date=".$param_date."&search=".$param_search."'>".$i."</a>";
-            }
-        }
-        else if($param_page < $param_max - 1)
-        {
-            for($i = $param_page - 2; $i <= $param_page + 2; $i++)
-            {
-                echo "<a href='todo_index.php?page_num=".$i."&list_start_date=".$param_date."&search=".$param_search."'>".$i."</a>";
-            }
-        }
-        else
-        {
-            for($i = $param_max - 4; $i <= $param_max; $i++)
-            {
-                echo "<a href='todo_index.php?page_num=".$i."&list_start_date=".$param_date."&search=".$param_search."'>".$i."</a>";
-            }
         }
     }
 }
@@ -145,22 +121,33 @@ function li_display( $param_arr, $param_date )
         if($val['list_clear_flg'] === '1')
         {
             $checkbox = "<i class='fa-solid fa-square-check'></i>";
+            if($val['list_imp_flg'] === '1')
+            {
+                $impmark = "<i class='fa-solid fa-star'></i>";
+                $list_class = "cle_imp";
+            }
+            else
+            {
+                $impmark = "<i></i>";
+                $list_class = "cle_nimp";
+            }
         }
         else
         {
             $checkbox = "<i class='fa-regular fa-square'></i>";
+            if($val['list_imp_flg'] === '1')
+            {
+                $impmark = "<i class='fa-solid fa-star'></i>";
+                $list_class = "unc_imp";
+            }
+            else
+            {
+                $impmark = "<i></i>";
+                $list_class = "unc_nimp";
+            }
         }
 
-        if($val['list_imp_flg'] === '1')
-        {
-            $impmark = "<i class='fa-solid fa-star'></i>";
-        }
-        else
-        {
-            $impmark = "<i></i>";    
-        }
-
-        echo "<li><a href='todo_detail.php?list_no=".$val['list_no']."&list_start_date=".$param_date."'><div class='list_container'>".$checkbox.$impmark."<span class='list_title_s'>".$val['list_title']."</span><span class='list_date'>".trim_date($val['list_start_date'])." ~ ".trim_date($val['list_due_date'])."</span><i class='fa-solid fa-angle-right'></i></div></a></li>";
+        echo "<li><a href='todo_detail.php?list_no=".$val['list_no']."&list_start_date=".$param_date."'><div class='list_container ".$list_class."'>".$checkbox.$impmark."<span class='list_title_s'>".$val['list_title']."</span><span class='list_date'>".trim_date($val['list_start_date'])." ~ ".trim_date($val['list_due_date'])."</span><i class='fa-solid fa-angle-right'></i></div></a></li>";
     }
 }
 

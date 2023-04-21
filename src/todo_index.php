@@ -102,6 +102,7 @@ $max_page_num = ceil( $result_cnt[0]["cnt"] / $limit_num );
             </div>
         </div>
         <div class="main">
+            <div class="upper_section">
             <div class="date_section">
                 <h2><?php echo $list_start_date ?></h2>
                 <hr>
@@ -111,6 +112,8 @@ $max_page_num = ceil( $result_cnt[0]["cnt"] / $limit_num );
                     <?php li_display( $result_paging, $date_ymd ) ?>
                 </ul>
             </div>
+            </div>
+            <div class="lower_section">
             <div class="page_section">
                 <?php select_list_paging( $page_num, $max_page_num, $date_ymd, $search ) ?>
             </div>
@@ -123,6 +126,7 @@ $max_page_num = ceil( $result_cnt[0]["cnt"] / $limit_num );
             <div class="move_section">
                     <a class=left_btn href="todo_index.php?list_start_date=<? echo date("Y-m-d", strtotime($date_ymd." -1 day")) ?>"><i class="fa-solid fa-chevron-left"></i></a>
                     <a class=right_btn href="todo_index.php?list_start_date=<? echo date("Y-m-d", strtotime($date_ymd." +1 day")) ?>"><i class="fa-solid fa-chevron-right"></i></a>
+            </div>
             </div>
             <div class="button_section">
                 <a href="todo_insert.php"><span class="insert_btn">작성하기</span></a>
