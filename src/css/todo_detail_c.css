@@ -53,7 +53,7 @@ form{
 .prof_hr{
     width:245px;
     position: relative;
-    bottom:25px;
+    bottom:20px;
 }
 .profile{
     height:120px;
@@ -93,6 +93,8 @@ li{
     border-radius: 15px;
     padding:2em;
     margin-top:2em;
+    display: flex;
+    flex-direction: column;
 }
 hr{
     width:190px;
@@ -124,6 +126,7 @@ hr{
     max-width:980px;
     height:35vh;
     margin-top:1em;
+    
 }
 .detail_title{
     border:2px solid #000;
@@ -155,4 +158,39 @@ textarea{
     text-align: left;
     position:relative;
     left:20px;
+}
+.com_btn{
+    /* display: flex;
+    flex-direction: column; */
+    /* justify-content: center; */
+    align-items: center;
+    margin-top: 15px;
+}
+.com{
+    color:#fff;
+    width:55px;
+    height:30px;
+    background-color: #645cbb;
+    border-radius: 20px;
+    
+}
+.modify_btn{
+    width:85px;
+    height:40px;
+    background-color: #FFDA56;
+    box-shadow: 2px 2px 2px #3f3f3f;
+    border-radius: 5px;
+    position: relative;
+    top:550px;
+    right:33px;
+}
+.return_btn{
+    width:85px;
+    height:40px;
+    background-color: #c2c2c2;
+    box-shadow: 2px 2px 2px 1px #3f3f3f;
+    border-radius: 5px;
+    position: relative;
+    top:610px;
+    right:105px;
 }

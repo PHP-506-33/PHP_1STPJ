@@ -45,9 +45,10 @@
     <title>Detail</title>
 </head>
 <header>
-    <img src="./common/img/title.png" alt="header_title">
+    <a href="todo_index.php"><img src="./common/img/title.png" alt="header_title"></a>
 </header>
 <body>
+    <div class="total_detail">
     <form action="todo_detail.php" method="post">
         <div class="detail">
             <div class="profile"> <!-- 프로필 -->
@@ -128,26 +129,29 @@
             <div class="detail_content">
                 <div class="detail_title">
                     <div class="detail_info_title">
-                        <input type="hidden" value="<?= $arr_prepare["list_no"] ?>" name="list_no">
-                        <?php if($detail_info["list_clear_flg"] === '1'){ ?>
-                            <input type="checkbox" value="0" checked>
-                        <?php }else{ ?>
-                            <input type="checkbox" name="check" class="todo_check" value="check">
-                        <?php } ?>
-                        <span class="todo_title"><?= $detail_info["list_title"] ?> <span>
-                        <span class="todo_date_time">
-                            <?php echo date("H : i", strtotime($detail_info["list_start_date"]))." ~ ".date("H : i", strtotime($detail_info["list_due_date"])); ?>
-                        <span>
+                            <input type="hidden" value="<?= $arr_prepare["list_no"] ?>" name="list_no">
+                            <?php if($detail_info["list_clear_flg"] === '1'){ ?>
+                                <input type="checkbox" value="0" checked>
+                            <?php }else{ ?>
+                                <input type="checkbox" name="check" class="todo_check" value="check">
+                            <?php } ?>
+                            <span class="todo_title"><?= $detail_info["list_title"] ?> <span>
+                            <span class="todo_date_time">
+                                <?php echo date("H : i", strtotime($detail_info["list_start_date"]))." ~ ".date("H : i", strtotime($detail_info["list_due_date"])); ?>
+                            <span>
                     </div>
                 </div>
                     <textarea name="" id="" cols="50" rows="10" readonly>
                         <?php echo $detail_info["list_detail"]?>
                     </textarea>
-                </div>
+            </div>
+                <div class="com_btn">
                 <button type="submit" class="com">완료</button>
+                </div>
         </div>
-        <a href="todo_update.php?list_no=<?php echo $arr_prepare["list_no"] ?>"><button type="button">수정</button></a>
-        <a href="todo_index.php"><button type="button">돌아가기</button></a>
+        <a href="todo_update.php?list_no=<?php echo $arr_prepare["list_no"] ?>"><button class="modify_btn" type="button">수정</button></a>
+        <a href="todo_index.php"><button class="return_btn" type="button">돌아가기</button></a>
     </form>
+    </div>
 </body>
 </html>
