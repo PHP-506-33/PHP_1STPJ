@@ -47,9 +47,9 @@ else
     $result_cnt = update_todo_list_info_no( $arr_info );
 
 
-  header( "Location: todo_detail.php?list_no=".$arr_post["list_no"] );
+  header( "Location: todo_detail.php?list_no=".$arr_post["list_no"]."&list_start_date=".substr($arr_post["list_start_date"],0,10) );
   exit();
-
+  
   }
 
 // if($arr_post["list_imp_flg"] == "1" )
@@ -127,13 +127,13 @@ else
       <input type="datetime-local" name="list_start_date" id="list_start_date" value="<?php echo $result_info["list_start_date"] ?>" required>
       <br>
       <label for="list_due_date">마감 날짜</label>
-      <input type="datetime-local" name="list_due_date" id="list_due_date" value="<?php echo $result_info["list_due_date"] ?>" required>
+      <input type="datetime-local" name="list_due_date" id="list_due_date" value="<?php echo$result_info["list_due_date"] ?>" required>
       <br>
       <label for="list_imp_flg">중요</label>
       <input type="checkbox" name="list_imp_flg" id="list_imp_flg" value="1" <?php echo $one_1; ?>>
       <br>
       <button type="submit">수정</button>
-      <a href = "todo_detail.php?list_no=<?php echo $result_info["list_no"] ?>"><button type="button">취소</button></a> 
+      <a href = "todo_detail.php?list_no=<?php echo $result_info["list_no"]."&list_start_date=".substr($result_info["list_start_date"],0,10) ?>"><button type="button">취소</button></a> 
       <a href = "todo_delete.php?list_no=<?php echo $result_info["list_no"] ?>"><button type="button">삭제</button></a>
   <div>
 </form>
