@@ -15,132 +15,137 @@
     font-style: normal;
   }
 
+
+  /* 나중에 textarea 따라 라벨 위로 붙도록 하기
+textarea 최소 최대 가로 폭 값넣기
+.imp_label{
+  vertical-align: top;
+} */
+
+
+/* 
+타이틀 배경색 C0601A1
+컨텐츠 바깥 배경색 00005C
+컨텐츠 안쪽 배경색 F0CAA3
+컨텐츠 입력 배경색 D4A87F
+취소버튼 C2C2C2
+수락버튼 FFDA56
+*/
+
+
   * {
     margin: 0;
     padding: 0;
+    text-align: center;
     }
 
-body {
-    background-color: #432C7A;
-}
+    body {
+        background-color: #37005cda;
+      }
+    
+      .container {
+        background-color: #F0CAA3;
+        margin: 50px auto;
+        max-width: 600px;
+        padding: 20px;
+      }
+    
+      /* 제목 입력창 스타일 */
+      label[for="list_title"] {
+        display: block;
+        margin-bottom: 10px;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        background-color: #C0601A;
+        padding: 10px;
+      }
+    
+      input[name="list_title"] {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #D4A87F;
+        margin-bottom: 20px;
+      }
+    
+      /* 내용 입력창 스타일 */
+      label[for="list_detail"] {
+        display: block;
+        margin-bottom: 10px;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        background-color: #c92ac1;
+        padding: 10px;
+      }
+    
+      input[name="list_detail"] {
+        width: 100%;
+        height: 100px;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #D4A87F;
+        margin-bottom: 20px;
+      }
+    
+      /* 시작 날짜, 마감 날짜 입력창 스타일 */
+      label[for="list_start_date"], label[for="list_due_date"] {
+        display: inline-block;
+        width: 49%;
+        margin-bottom: 10px;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        background-color: #C0601A;
+        padding: 10px;
+      }
+    
+      input[name="list_start_date"], input[name="list_due_date"] {
+        display: inline-block;
+        width: 49%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #D4A87F;
+        margin-bottom: 20px;
+      }
+    
+      /* 중요 체크박스 스타일 */
+      label[for="list_imp_flg"] {
+        display: inline-block;
+        width: auto;
+        margin-right: 20px;
+        font-size: 18px;
+        font-weight: bold;
+        color: white;
+        background-color: #c0601e;
+        padding: 10px;
+      }
+    
+      input[name="list_imp_flg"] {
+        margin-bottom: 20px;
+      }
+    
+      /* 버튼 스타일 */
+      button[type="submit"], button[type="button"] {
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        font-weight: bold;
+        color: white;
+        cursor: pointer;
+      }
+    
+      button[type="submit"] {
+        background-color: #FFDA56;
+      }
+    
+      button[type="button"] {
+        background-color: #C2C2C2;
+        margin-right: 10px;
+      }
 
-.list_edit {
-    text-decoration: none;
-}
-
-ul {
-    list-style-type: none;
-}
-
-.list_edit {
-    background-color: #C060A1;
-    height: 9rem;
-    margin-bottom: 2rem;
-    display: grid;
-    place-items: center;
-    box-shadow: 0 5px 5px 5px rgba(0, 0, 0, 0.253);
-    display: grid;
-    grid-template-columns: 250px minmax(300px, 800px);
-    justify-content: center;
-}
-
-
-.sidebar {
-    background-color: #F0CAA3;
-    border-top: 3px solid black;
-    border-left: 3px solid black;
-    border-bottom: 3px solid black;
-    border-radius: 1rem;
-    padding: 2rem;
-    box-shadow: 0 5px 5px 5px rgba(0, 0, 0, 0.253);
-    min-height: 30rem;
-}
-
-.main {
-    background-color: #F0CAA3;
-    border: 3px solid black;
-    border-radius: 1rem;
-    margin-right: 5rem;
-    position: relative;
-    padding: 2rem;
-    box-shadow: 0 5px 5px 5px rgba(0, 0, 0, 0.253);
-    display: grid;
-    min-height: 30rem;
-}
-
-.button_section {
-    position: absolute;
-    right: -4rem;
-    top: 4.5rem;
-}
-
-.insert_btn {
-    border: 3px solid black;
-    background-color: #FFDA56;
-    padding: 0.5rem;
-    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.253);
-}
-
-.profile {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-
-.profile_img {
-    width: 80px;
-    height: 80px;
-    border: 3px solid black;
-    border-radius: 50%;
-    background-color: white;
-    position: relative;
-}
-
-img[alt=grow1] {
-    width: 80px;
-    height: 80px;
-}
-
-hr {
-    border: 0;
-    border-top: 3px solid black;
-    margin-top: 1rem;
-    margin-bottom: 1.5rem;
-}
-
-.list_container {
-    background-color: #BFACE2;
-    border: 3px solid black;
-    border-radius: 0.5rem;
-    margin-bottom: 0.5rem;
-    padding: 0.5rem;
-}
-
-.page_section {
-    position: absolute;
-    bottom: 7rem;
-    justify-self: center;
-    margin: 1rem;
-}
-
-.search_section {
-    position: absolute;
-    bottom: 4rem;
-    justify-self: center;
-    margin-bottom: 1rem;
-}
-
-.left_btn {
-    position: absolute;
-    left: 2rem;
-    bottom: 2rem;
-}
-
-.right_btn {
-    position: absolute;
-    right: 2rem;
-    bottom: 2rem;
-}
-
-.fa-angle-right {
-    float: right;
-}
