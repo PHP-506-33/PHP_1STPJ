@@ -118,4 +118,67 @@ function todo_select_detail_list( &$param_date ){
     }
     return $result;
 }
+
+function select_list_detail( &$param_arr )
+{
+    $sql = 
+    " SELECT "
+    ."      list_no "
+    ."      ,list_title "
+    ."      ,list_start_date "
+    ."      ,list_due_date "
+    ."      ,list_imp_flg "
+    ."      ,list_clear_flg "
+    ." FROM "
+    ."      todo_list_info "
+    ." WHERE "
+    ."      DATE_SUB(list_start_date, INTERVAL 1 DAY) <= :list_start_date "
+    ."      AND "
+    ."      list_due_date >= :list_due_date "
+    ."      AND "
+    ."      list_clear_flg = '0' "
+    ." ORDER BY "
+    ."      list_clear_flg ASC "
+    ."      ,list_imp_flg DESC "
+    ."      ,list_due_date ASC "
+    ."      ,list_start_date DESC "
+    ."      ,list_no DESC "
+    ." LIMIT :limit_num "
+    ;
+
+    $arr_prepare =
+        array(
+            ":list_start_date"        => $param_arr["list_start_date"]
+            ,":list_due_date"        => $param_arr["list_due_date"]
+            ,":limit_num"       => $param_arr["limit_num"]
+        );
+
+    $conn = null;
+    try
+    {
+        db_conn( $conn );
+        $stmt = $conn->prepare( $sql );
+        $stmt->execute( $arr_prepare );
+        $result = $stmt->fetchAll();
+    }
+    catch( Exception $e )
+    {
+        return $e->getMessage();
+    }
+    finally
+    {
+        $conn = null;
+    }
+
+    return $result;
+}
+
+function li_display_detail( $param_arr, $param_date )
+{
+    foreach ($param_arr as $val)
+    {
+        echo "<li><a href='todo_detail.php?list_no=".$val['list_no']."&list_start_date=".$param_date."'><div class='list_container'><span class='list_title_s'>".$val['list_title']."</span><span class='list_date'>".trim_date($val['list_start_date'])." ~ ".trim_date($val['list_due_date'])."</span></div></a></li>";
+    }
+}
+
 ?>

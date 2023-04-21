@@ -35,9 +35,7 @@
     </div>
         
         <a href="todo_detail.php?list_no=<?php echo $arr_get["list_no"]."&list_start_date=".$arr_get["list_start_date"] ?>">취소</a>
-        
         <form method="post" action="todo_delete.php?list_no=<?php echo $arr_get["list_no"]."&list_start_date=".$arr_get["list_start_date"] ?>">
-        <input type="hidden" name="list_no" value="<?php echo $arr_get["list_no"] ?>">
         <button type="submit">삭제</button>
         </form>
         

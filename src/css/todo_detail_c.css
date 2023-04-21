@@ -1,3 +1,4 @@
+/* ****************** 전체 적용 CSS ****************** */
 * {
     margin:0;
 }
@@ -12,6 +13,7 @@ form{
     flex-direction: row;
     margin:0px;
 }
+/* ****************** 프로필 영역 ****************** */
 .detail{
     background-color: #f0caa3;
     width:250px;
@@ -21,7 +23,6 @@ form{
     padding:2em;
     margin-top:2em;
 }
-
 .prof_img{
     width: 80px;
     height: 80px;
@@ -53,7 +54,7 @@ form{
 .prof_hr{
     width:245px;
     position: relative;
-    bottom:25px;
+    bottom:20px;
 }
 .profile{
     height:120px;
@@ -77,12 +78,14 @@ td{
     margin-top:0.3em;
 }
 li{
-    list-style: none;
+    list-style: circle;
+    /* text-align: center; */
 }
 .left_todo{
     text-decoration: none;
     color:#000;
 }
+/* ****************** 상세 정보 영역 ****************** */
 .detail_info{
     background-color: #f0caa3;
     width:65vw;
@@ -151,48 +154,42 @@ textarea{
     height:auto;
     resize: none;
     background:transparent;
-    
     text-align: left;
     position:relative;
     left:20px;
 }
-
-.com{
-    font-size: 25px;
-    color: white;
-    height: auto;
-    margin: 10px;
-    font-family: 'VT323';
-
-    position: relative;
-    display: inline-block;
-    vertical-align: top;
-    text-transform: uppercase;
-
-    cursor: pointer;
-
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    line-height: 0;
-    
-    image-rendering: optimizeSpeed;
-    image-rendering: -moz-crisp-edges; /* Firefox */
-    image-rendering: -o-crisp-edges; /* Opera */
-    image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming) */
-    image-rendering: crisp-edges;
-    -ms-interpolation-mode: nearest-neighbor; /* IE (non-standard property) */
-    
-    border-style: solid;
-    border-width: 20px;
-    -moz-border-image: url(https://i.imgur.com/sREM8Yn.png) 20 stretch;
-    -webkit-border-image: url(https://i.imgur.com/sREM8Yn.png) 20 stretch;
-    -o-border-image: url(https://i.imgur.com/sREM8Yn.png) 20 stretch;
-    border-image: url(https://i.imgur.com/sREM8Yn.png) 20 stretch;
+/* ****************** 버튼 ****************** */
+.com_btn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
 }
-.com:active{
-    top: 2px;
+.com{
+    color:#fff;
+    width:55px;
+    height:30px;
+    background-color: #645cbb;
+    border-radius: 20px;
+    
+}
+.modify_btn{
+    width:85px;
+    height:40px;
+    background-color: #FFDA56;
+    box-shadow: 2px 2px 2px #3f3f3f;
+    border-radius: 5px;
+    position: relative;
+    top:550px;
+    right:33px;
+}
+.return_btn{
+    width:85px;
+    height:40px;
+    background-color: #c2c2c2;
+    box-shadow: 2px 2px 2px 1px #3f3f3f;
+    border-radius: 5px;
+    position: relative;
+    top:610px;
+    right:105px;
 }

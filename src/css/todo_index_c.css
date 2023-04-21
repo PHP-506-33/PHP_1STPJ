@@ -67,6 +67,7 @@ ul {
     display: grid;
     align-content: space-between;
     min-width: 20rem;
+    min-height: 35rem;
 }
 
 .move_section {
@@ -135,7 +136,7 @@ hr {
     margin-bottom: 1rem;
     padding: 0.5rem;
     display: grid;
-    grid-template-columns: 1fr 1fr 8fr 5fr 1fr;
+    grid-template-columns: 1fr 1fr 8fr 5fr 2fr;
     place-items: center;
 }
 
@@ -187,4 +188,14 @@ input[type="date"] {
 
 .fa-square-check, .fa-square, .fa-star {
     margin-right: 0.4rem;
+}
+
+.d_day, .d_1 {
+    background-color: #432C7A;
+    color: #EBC7E6;
+    font-size: 0.7rem;
+    padding: 0.2rem;
+    width: 2.2rem;
+    text-align: center;
+    border-radius: 0.6rem;
 }

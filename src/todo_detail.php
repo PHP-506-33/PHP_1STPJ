@@ -15,6 +15,7 @@
         );
         $detail_info = todo_select_detail_info( $arr_prepare );
         $detail_today = todo_select_detail_list( $arr_prepare_2 );
+        // strtotime() : 문자열 형태의 날짜를 입력받아 UNIX timestamp(초 단위로 세어지는 정수로 표현한 값) 형식의 값을 돌려주는 함수
         $today_list = date("Y-m-d", strtotime($detail_info["list_start_date"]));
         $today = date("Y-m-d", strtotime($detail_today[0]["list_start_date"]));
         // $today_search = array_search(strtotime($detail_info["list_start_date"]) ,$today);
@@ -33,6 +34,16 @@
             $check_post = null;
         }
     }
+
+    $list_start_date = $arr_get["list_start_date"];
+    $limit_num = 5;
+
+    $arr_prepare1 = array(
+        "list_start_date"   => $list_start_date
+        ,"list_due_date"    => $list_start_date
+        ,"limit_num"        => $limit_num
+        );
+    $result_paging = select_list_detail( $arr_prepare1 );
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -44,9 +55,10 @@
     <title>Detail</title>
 </head>
 <header>
-    <img src="./common/img/title.png" alt="header_title">
+    <a href="todo_index.php"><img src="./common/img/title.png" alt="header_title"></a>
 </header>
 <body>
+    <div class="total_detail">
     <form action="todo_detail.php" method="post">
         <div class="detail">
             <div class="profile"> <!-- 프로필 -->
@@ -91,21 +103,7 @@
                 <h3>Left to do</h3>
                 <div class="today_info"> <!-- foreach로 남은 할 일 출력하기/CSS : 할 일 당 색 다르게 설정 -->
                     <ul>
-                    <?php 
-                    
-                        foreach ($detail_today as $key => $value) {
-                            // if(){
-                    ?>
-                        <li>
-                            <?php 
-                                // if(1 == $today_list){ 
-                                ?>
-                                <a class="left_todo" href="todo_detail.php?list_no=<?php echo $value["list_no"]?>&list_start_no=<?php echo date("Y-m-d", strtotime($value["list_start_date"])) ?>">
-                                    <?php echo $value["list_title"]." ".date("m.d / H : i", strtotime($value["list_start_date"]))." ~ ".date("H : i", strtotime($value["list_due_date"]));?>
-                                </a>
-                            <?php } ?>
-                        </li>
-                    <?php //} ?>
+                        <?php li_display_detail( $result_paging, $list_start_date ) ?>
                     </ul>
                 </div>
             </div>
@@ -113,7 +111,6 @@
         <div class="detail_info"> <!-- 현재 선택한 할 일 제목, 날짜, 상세 내용 -->
             <div class="info_title"> 
                 <span class="todo_date">
-                    <!-- strtotime() : 문자열 형태의 날짜를 입력받아 UNIX timestamp(초 단위로 세어지는 정수로 표현한 값) 형식의 값을 돌려주는 함수 -->
                     <?php echo date("m.d", strtotime($detail_info["list_start_date"]))." ~ ".date("m.d", strtotime($detail_info["list_due_date"])); ?>
                 <span>
                 <hr>
@@ -128,26 +125,29 @@
             <div class="detail_content">
                 <div class="detail_title">
                     <div class="detail_info_title">
-                        <input type="hidden" value="<?= $arr_prepare["list_no"] ?>" name="list_no">
-                        <?php if($detail_info["list_clear_flg"] === '1'){ ?>
-                            <input type="checkbox" value="0" checked>
-                        <?php }else{ ?>
-                            <input type="checkbox" name="check" class="todo_check" value="check">
-                        <?php } ?>
-                        <span class="todo_title"><?= $detail_info["list_title"] ?> <span>
-                        <span class="todo_date_time">
-                            <?php echo date("H : i", strtotime($detail_info["list_start_date"]))." ~ ".date("H : i", strtotime($detail_info["list_due_date"])); ?>
-                        <span>
+                            <input type="hidden" value="<?= $arr_prepare["list_no"] ?>" name="list_no">
+                            <?php if($detail_info["list_clear_flg"] === '1'){ ?>
+                                <input type="checkbox" value="0" checked>
+                            <?php }else{ ?>
+                                <input type="checkbox" name="check" class="todo_check" value="check">
+                            <?php } ?>
+                            <span class="todo_title"><?= $detail_info["list_title"] ?> <span>
+                            <span class="todo_date_time">
+                                <?php echo date("H : i", strtotime($detail_info["list_start_date"]))." ~ ".date("H : i", strtotime($detail_info["list_due_date"])); ?>
+                            <span>
                     </div>
                 </div>
                     <textarea name="" id="" cols="50" rows="10" readonly>
                         <?php echo $detail_info["list_detail"]?>
                     </textarea>
-                </div>
+            </div>
+                <div class="com_btn">
                 <button type="submit" class="com">완료</button>
+                </div>
         </div>
-        <a href="todo_update.php?list_no=<?php echo $arr_prepare["list_no"] ?>"><button type="button">수정</button></a>
-        <a href="todo_index.php"><button type="button">돌아가기</button></a>
+        <a href="todo_update.php?list_no=<?php echo $arr_prepare["list_no"] ?>"><button class="modify_btn" type="button">수정</button></a>
+        <a href="todo_index.php"><button class="return_btn" type="button">돌아가기</button></a>
     </form>
+    </div>
 </body>
 </html>
