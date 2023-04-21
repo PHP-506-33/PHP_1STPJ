@@ -17,19 +17,22 @@ if( $http_method === "GET" )
     $list_no = $_GET["list_no"];
   }
 
+
+  
   $result_info = select_list_info_no( $list_no );
   
-  // $result_imp_flg = $result_info["list_imp_flg"];
-  //   if($result_imp_flg == "1" )
-  //   {
-  //     $one_1 = "checked";
-  //   }
-  //   else
-  //   {
-  //     $one_1 ="";
-  //   }
-  // }
+  $result_imp_flg = $result_info["list_imp_flg"];
+    if($result_imp_flg == "1" )
+    {
+      $one_1 = "checked";
+    }
+    else
+    {
+      $one_1 ="";
+    }
   }
+  
+
 else
   {
     $arr_post = $_POST;
@@ -130,11 +133,11 @@ else
       <input type="datetime-local" name="list_due_date" id="list_due_date" value="<?php echo $result_info["list_due_date"] ?>" required>
       <br>
       <label for="list_imp_flg">중요</label>
-      <input type="checkbox" name="list_imp_flg" id="list_imp_flg" value="1" <?php if ($list_imp_flg == 1) echo "checked"; ?>>>
+      <input type="checkbox" name="list_imp_flg" id="list_imp_flg" value="1" <?php echo $one_1; ?>>
       <br>
-      <a href = "todo_detail.php?list_no=<?php echo $result_info["list_no"] ?>"><button type="submit">수정</button></a>
-      <a href = "todo_detail.php?list_no=<?php echo $result_info["list_no"] ?>"><button type="input">취소</button></a> 
-      <a href = "todo_delete.php?list_no=<?php echo $result_info["list_no"] ?>"><button type="input">삭제</button></a>
+      <button type="submit">수정</button>
+      <a href = "todo_detail.php?list_no=<?php echo $result_info["list_no"] ?>"><button type="button">취소</button></a> 
+      <a href = "todo_delete.php?list_no=<?php echo $result_info["list_no"] ?>"><button type="button">삭제</button></a>
   <div>      
 </form>
 <!-- <button type="button" ><a href= "list_detail.php" id="hii">목록</a></button> -->
