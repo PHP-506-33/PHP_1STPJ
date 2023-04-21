@@ -1,25 +1,139 @@
-/* form{
-} */
-/* .detail{
-    width: 385px;
-    height:816px;
-    border: 3px solid #000;
-    border-radius: 20px;
-    
+* {
+    margin:0;
+}
+body{
+    background-color: #432C7A;
+}
+header{
+    background-color: #c060a1;
+}
+form{
+    display:flex;
+    flex-direction: row;
+    margin:0px;
+}
+.detail{
+    background-color: #f0caa3;
+    width:250px;
+    height:65.5vh;
+    border: 3px solid black;
+    border-radius: 15px;
+    padding:2em;
+    margin-top:2em;
+}
+.prof_img{
+    border-radius: 50%;
+    border:1px solid #000;
+    width:70px;
+    height:70px;
+}
+.detail_total_calender{
+    margin-top:1em;
+}
+.detail_calender{
+    border:2px solid #000;
+    border-radius: 15px;
+    width:245px;
+    height:180px;
+    text-align: center;
+    margin-top:0.3em;
+}
+.prof_hr{
+    width:245px;
+}
+table{
+    text-align:center;
+}
+td{
+    text-align: center;
+}
+.detail_today{
+    margin-top: 1em;
+}
+.today_info{
+    border:2px solid #000;
+    border-radius: 15px;
+    width:245px;
+    height:180px;
+    text-align: center;
+    margin-top:0.3em;
+}
+li{
+    list-style: none;
+}
+.left_todo{
+    text-decoration: none;
+    color:#000;
 }
 .detail_info{
-    width:920px;
-    height:820px;
-    border: 3px solid #000;
-    border-radius: 20px
-} */
-textarea{
-    resize:none;
-    border: none;
-    text-align: left;
+    background-color: #f0caa3;
+    width:65vw;
+    min-width: 325px;
+    max-width: 1020px;
+    height:65.5vh;
+    border: 3px solid black;
+    border-radius: 15px;
+    padding:2em;
+    margin-top:2em;
 }
-img{
-    width: 80px;
-    height:80px;
-    border-radius: 50%;
+hr{
+    width:190px;
+    border:1px solid #000;
+}
+.imp_star{
+    position: relative;
+    font-size: 20px;;
+}
+.imp{
+    position: absolute;
+    right:2px;
+    color:#FFDA56;
+    /* border: 1px solid #000; */
+    font-size: 50px;
+}
+.no_imp{
+    position: absolute;
+    right:2px;
+    color:#ccc;
+    /* border: 1px solid #000; */
+}
+.detail_content{
+    border:2px solid #000;
+    border-radius: 15px;
+    /* width:58vw; */
+    min-width: 200px;
+    max-width:980px;
+    height:35vh;
+    margin-top:1em;
+}
+.detail_title{
+    border:2px solid #000;
+    border-radius: 15px;
+    /* width:50vw; */
+    min-width: 200px;
+    max-width: 845px;
+    height:5vh;
+    margin:1em;
+}
+.todo_date{
+    font-size: 30px;
+}
+.info_title{
+    margin-top:30px;
+}
+.detail_info_title{
+    position: relative;
+    top:13px;
+    left:10px;
+}
+textarea{
+    border:none;
+    outline: none;
+    height:auto;
+    resize: none;
+    background:transparent;
+    
+    text-align: left;
+    position:relative;
+    left:20px;
 }
