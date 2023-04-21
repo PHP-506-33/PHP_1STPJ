@@ -33,119 +33,73 @@ textarea 최소 최대 가로 폭 값넣기
 */
 
 
-  * {
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    }
-
-    body {
-        background-color: #37005cda;
-      }
-    
-      .container {
-        background-color: #F0CAA3;
-        margin: 50px auto;
-        max-width: 600px;
-        padding: 20px;
-      }
-    
-      /* 제목 입력창 스타일 */
-      label[for="list_title"] {
-        display: block;
-        margin-bottom: 10px;
-        color: white;
-        font-size: 18px;
-        font-weight: bold;
-        background-color: #C0601A;
-        padding: 10px;
-      }
-    
-      input[name="list_title"] {
-        width: 100%;
-        padding: 10px;
-        border: none;
-        border-radius: 5px;
-        background-color: #D4A87F;
-        margin-bottom: 20px;
-      }
-    
-      /* 내용 입력창 스타일 */
-      label[for="list_detail"] {
-        display: block;
-        margin-bottom: 10px;
-        color: white;
-        font-size: 18px;
-        font-weight: bold;
-        background-color: #c92ac1;
-        padding: 10px;
-      }
-    
-      input[name="list_detail"] {
-        width: 100%;
-        height: 100px;
-        padding: 10px;
-        border: none;
-        border-radius: 5px;
-        background-color: #D4A87F;
-        margin-bottom: 20px;
-      }
-    
-      /* 시작 날짜, 마감 날짜 입력창 스타일 */
-      label[for="list_start_date"], label[for="list_due_date"] {
-        display: inline-block;
-        width: 49%;
-        margin-bottom: 10px;
-        color: white;
-        font-size: 18px;
-        font-weight: bold;
-        background-color: #C0601A;
-        padding: 10px;
-      }
-    
-      input[name="list_start_date"], input[name="list_due_date"] {
-        display: inline-block;
-        width: 49%;
-        padding: 10px;
-        border: none;
-        border-radius: 5px;
-        background-color: #D4A87F;
-        margin-bottom: 20px;
-      }
-    
-      /* 중요 체크박스 스타일 */
-      label[for="list_imp_flg"] {
-        display: inline-block;
-        width: auto;
-        margin-right: 20px;
-        font-size: 18px;
-        font-weight: bold;
-        color: white;
-        background-color: #c0601e;
-        padding: 10px;
-      }
-    
-      input[name="list_imp_flg"] {
-        margin-bottom: 20px;
-      }
-    
-      /* 버튼 스타일 */
-      button[type="submit"], button[type="button"] {
-        padding: 10px;
-        border: none;
-        border-radius: 5px;
-        font-size: 18px;
-        font-weight: bold;
-        color: white;
-        cursor: pointer;
-      }
-    
-      button[type="submit"] {
-        background-color: #FFDA56;
-      }
-    
-      button[type="button"] {
-        background-color: #C2C2C2;
-        margin-right: 10px;
-      }
+*{
+    padding:0;
+    margin:0;
+  }
+  body{
+    background-color: #00005C;
+    font-family: 'NEXON Lv2 Gothic';
+  }
+  
+  .header {
+    background-color: #C060A1;
+    height: 9rem;
+    margin-bottom: 2rem;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 5px 5px 5px rgba(0, 0, 0, 0.253);
+  }
+  
+  .contents_container{
+    background-color: #F0CAA3;
+    padding: 3rem;
+    margin: 3rem;
+  }
+  .contents_detail{
+    padding: 1rem;
+    background-color:#D4A87F;
+  }
+  .contents_title{
+    padding: 1rem;
+    background-color:#D4A87F;
+  }
+  .start_end_date{
+    position:relative;
+  }
+  .start_date_dir{
+    padding: 1rem;
+    background-color:#D4A87F;
+    position: absolute;
+  
+  
+  }
+  .end_date_dir{
+    padding: 1rem;
+    background-color:#D4A87F;
+    position: absolute;
+    right:0;
+  
+  }
+  
+  .contents_imp{
+    padding: 1rem;
+  }
+  
+  a{
+    text-decoration: none;
+  }
+  
+  input{
+    background-color: red;
+  }
+  textarea{
+    background-color: red;
+  }
+  input:focus{
+    background-color: blue;
+  }
+  textarea:focus{
+    background-color: blue;
+  }
 
