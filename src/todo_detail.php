@@ -34,6 +34,16 @@
             $check_post = null;
         }
     }
+
+    $list_start_date = $arr_get["list_start_date"];
+    $limit_num = 5;
+
+    $arr_prepare1 = array(
+        "list_start_date"   => $list_start_date
+        ,"list_due_date"    => $list_start_date
+        ,"limit_num"        => $limit_num
+        );
+    $result_paging = select_list_detail( $arr_prepare1 );
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -93,21 +103,7 @@
                 <h3>Left to do</h3>
                 <div class="today_info"> <!-- foreach로 남은 할 일 출력하기/CSS : 할 일 당 색 다르게 설정 -->
                     <ul>
-                    <?php 
-                    
-                        foreach ($detail_today as $key => $value) {
-                            // if(){
-                    ?>
-                        <li>
-                            <?php 
-                                // if(1 == $today_list){ 
-                                ?>
-                                <a class="left_todo" href="todo_detail.php?list_no=<?php echo $value["list_no"]?>&list_start_no=<?php echo date("Y-m-d", strtotime($value["list_start_date"])) ?>">
-                                    <?php echo $value["list_title"]." ".date("m.d / H : i", strtotime($value["list_start_date"]))." ~ ".date("H : i", strtotime($value["list_due_date"]));?>
-                                </a>
-                            <?php } ?>
-                        </li>
-                    <?php //} ?>
+                        <?php li_display_detail( $result_paging, $list_start_date ) ?>
                     </ul>
                 </div>
             </div>
