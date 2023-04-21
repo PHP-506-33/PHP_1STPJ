@@ -86,7 +86,7 @@ $max_page_num = ceil( $result_cnt[0]["cnt"] / $limit_num );
         <div class="sidebar">
             <div class="profile">
                 <div class="profile_img">
-                    <img src="common/img/grow<?php echo level_cal() ?>.png" alt="grow1">
+                    <img class="grow_img" src="common/img/grow<?php echo level_cal() ?>.png" alt="grow1">
                 </div>
                 <div class="profile_text">
                     <span>이름</span>
@@ -97,7 +97,7 @@ $max_page_num = ceil( $result_cnt[0]["cnt"] / $limit_num );
             <div class="calendar">
                 <form method="get" action="todo_index.php">
                     <input type="date" name="list_start_date">
-                    <button type="submit">날짜이동</button>
+                    <button type="submit">이동</button>
                 </form>
             </div>
         </div>

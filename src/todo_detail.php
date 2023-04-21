@@ -51,10 +51,10 @@
         <div class="detail">
             <div class="profile"> <!-- 프로필 -->
                 <div class="prof_img">
-                    
+                    <img class="grow_img" src="./common/img/grow<?php echo level_cal() ?>.png" alt="grow1">
                 </div>
                 <span class="prof_name_level">
-                    Lv. 이름<br>
+                    Lv. <?php echo level_cal() ?><br>
                     name
                 </span>
                 <hr class="prof_hr">
