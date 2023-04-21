@@ -2,28 +2,37 @@
     define( "SRC_ROOT", $_SERVER["DOCUMENT_ROOT"]."/PHP_1STPJ-main/src/" );
     define( "URL_DB", SRC_ROOT."common/db_connect.php" );
     include_once( URL_DB );
-    // select
-    $arr_get = $_GET;
-    $arr_prepare = array(
-        "list_no"   => (int)$arr_get["list_no"]
-    );
-    $detail_info = todo_select_detail_info( $arr_prepare );
-    $detail_today = todo_select_detail_list();
-    $today_list = date("Y-m-d", strtotime($detail_info["list_start_date"]));
-    $today = date("Y-m-d", strtotime($detail_info["list_start_date"]));
 
-    // update
-    $check_post = $_POST;
-    if($check_post === '0'){
-        $result_cnt = todo_update_detail_list( $arr_get["list_no"] );
-        $todo_com = todo_update_detail_list( $arr_prepare["list_no"] );
-            if($result_cnt === 1){
-                header( "Location: todo_index.php");
-            }
+    $http_method = $_SERVER["REQUEST_METHOD"];
+    if($http_method === "GET"){
+        // select
+        $arr_get = $_GET;
+        $arr_prepare = array(
+            "list_no"   => (int)$arr_get["list_no"]
+        );
+        $arr_prepare_2 = array(
+            "list_start_date" => $arr_get["list_start_date"]
+        );
+        $detail_info = todo_select_detail_info( $arr_prepare );
+        $detail_today = todo_select_detail_list( $arr_prepare_2 );
+        $today_list = date("Y-m-d", strtotime($detail_info["list_start_date"]));
+        $today = date("Y-m-d", strtotime($detail_today[0]["list_start_date"]));
+        // $today_search = array_search(strtotime($detail_info["list_start_date"]) ,$today);
+        // var_dump($today_search);
     }else{
+        // update
+        $list_no_post = $_POST["list_no"];
         $check_post = null;
+        if($check_post = "check"){
+            $result_cnt = todo_update_detail_list( $list_no_post );
+            if($result_cnt === 1){
+                header( "Location: todo_index.php" );
+                exit();
+            }
+        }else{
+            $check_post = null;
+        }
     }
-
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -35,7 +44,7 @@
     <title>Detail</title>
 </head>
 <body>
-    <form action="todo_index.php">
+    <form action="todo_detail.php" method="post">
         <div class="detail">
             <div class="profile"> <!-- 프로필 -->
                 <div class="prof_img">
@@ -77,23 +86,20 @@
                 <div class="today_info"> <!-- foreach로 남은 할 일 출력하기/CSS : 할 일 당 색 다르게 설정 -->
                     <ul>
                     <?php 
-                        if($today_list === $today){
-                            foreach ($detail_today as $key => $value) { 
+                    
+                        foreach ($detail_today as $key => $value) {
+                            // if(){
                     ?>
                         <li>
-                                <?php 
-                                if(isset($value)){ ?>
-                                    <a href="#"><?php echo $value["list_title"]." ".date("m.d / H : i", strtotime($value["list_start_date"]))." ~ ".date("H : i", strtotime($value["list_due_date"]));?></a>
-                                <?php }else{ ?>
-                                    <a href="#"><?php echo "오늘의 남은 할 일은 더 이상 없습니다."; ?></a>
-                                <?php }
+                            <?php 
+                                // if(1 == $today_list){ 
                                 ?>
+                                <a href="todo_detail.php?list_no=<?php echo $value["list_no"]?>&list_start_no=<?php echo date("Y-m-d", strtotime($value["list_start_date"])) ?>">
+                                    <?php echo $value["list_title"]." ".date("m.d / H : i", strtotime($value["list_start_date"]))." ~ ".date("H : i", strtotime($value["list_due_date"]));?>
+                                </a>
+                            <?php } ?>
                         </li>
-                    <?php 
-                            } 
-                        }else{ ?>
-                            <li><?php echo "오늘의 남은 할 일은 더 이상 없습니다."; ?></li>
-                        <?php } ?>
+                    <?php //} ?>
                     </ul>
                 </div>
             </div>
@@ -113,16 +119,17 @@
                 <hr>
             </div>
                 <div class="detail_content">
-                    <form action="todo_index.php" method="post" class="detail_title">
-                        <?php if($detail_info["list_clear_flg"] === '1'){ ?>
-                            <input type="checkbox" name="check" class="todo_check" value="0" checked>
-                        <?php }else{ ?>
-                            <input type="checkbox" name="check" class="todo_check" value="0">
-                        <?php } ?>
-                        <span class="todo_title"><?php echo $detail_info["list_title"] ?><span>
-                        <span class="todo_date">
-                            <?php echo date("H : i", strtotime($detail_info["list_start_date"]))." ~ ".date("H : i", strtotime($detail_info["list_due_date"])); ?>
-                        <span>
+                    <!-- <form action="todo_index.php" method="post" class="detail_title"> -->
+                    <input type="hidden" value="<?= $arr_prepare["list_no"] ?>" name="list_no">
+                    <?php if($detail_info["list_clear_flg"] === '1'){ ?>
+                        <input type="checkbox" value="0" checked>
+                    <?php }else{ ?>
+                        <input type="checkbox" name="check" class="todo_check" value="check">
+                    <?php } ?>
+                    <span class="todo_title"><?= $detail_info["list_title"] ?> <span>
+                    <span class="todo_date">
+                        <?php echo date("H : i", strtotime($detail_info["list_start_date"]))." ~ ".date("H : i", strtotime($detail_info["list_due_date"])); ?>
+                    <span>
                     <div class="detila_content">
                         <textarea name="" id="" cols="50" rows="10" readonly>
                             <?php echo $detail_info["list_detail"]?>
@@ -130,7 +137,7 @@
                     </div>
                 </div>
                 <button type="submit" class="com">완료</button>
-            </form>
+            <!-- </form> -->
         </div>
         <button><a href="todo_update.php?list_no=<?php echo $arr_prepare["list_no"] ?>">수정</a></button>
         <button><a href="todo_index.php">돌아가기</a></button>

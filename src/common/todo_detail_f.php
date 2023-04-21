@@ -84,29 +84,32 @@ function todo_update_detail_list( &$param_no ){
 파라미터 : &$parma_arr (레퍼런스 참조)
 리턴 값 : $result
 **********************************************/
-function todo_select_detail_list(){
+function todo_select_detail_list( &$param_date ){
     $sql =
         " SELECT "
-        ." list_title "
+        ." list_no "
+        ." ,list_title "
         ." ,list_start_date "
         ." ,list_due_date "
         ." FROM "
         ." todo_list_info "
         ." WHERE "
-        // ." list_start_date = :list_start_date "
-        // ." AND "
         ." list_clear_flg = '0' "
+        ." AND "
+        ." DATE_SUB(list_start_date, INTERVAL 1 DAY) <= :list_start_date "
+        // ." AND "
+        // ." list_start_date = :list_start_date "
         ." ORDER BY list_start_date "
         ." LIMIT 3 ";
 
-    $arr_prepare = array(
-        // ":list_start_date" => $param_date
+    $arr_prepare_2 = array(
+        ":list_start_date" => $param_date['list_start_date']
     );
     $conn = null;
     try {
         db_conn($conn);
         $stmt = $conn->prepare( $sql );
-        $stmt->execute( $arr_prepare );
+        $stmt->execute( $arr_prepare_2 );
         $result = $stmt->fetchAll();
     } catch (Exception $e) {
         return $e->getMessage();
