@@ -134,7 +134,7 @@ else
       <br>
       <button type="submit">수정</button>
       <a href = "todo_detail.php?list_no=<?php echo $result_info["list_no"]."&list_start_date=".substr($result_info["list_start_date"],0,10) ?>"><button type="button">취소</button></a> 
-      <a href = "todo_delete.php?list_no=<?php echo $result_info["list_no"] ?>"><button type="button">삭제</button></a>
+      <a href = "todo_delete.php?list_no=<?php echo $result_info["list_no"]."&list_start_date=".substr($result_info["list_start_date"],0,10) ?>"><button type="button">삭제</button></a>
   <div>
 </form>
 <!-- <button type="button" ><a href= "list_detail.php" id="hii">목록</a></button> -->
