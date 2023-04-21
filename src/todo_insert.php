@@ -32,7 +32,7 @@
             );
     $insert_list_info = insert_todo_info($arr_info);
 
-    header( "Location: todo_detail.php?list_no=".$insert_page_num );
+    header( "Location: todo_detail.php?list_no=".$insert_page_num."&list_start_date=".substr($arr_post["todo_start"], 0, 10)  );
     exit;
     }
     else
@@ -52,28 +52,44 @@
 </head>
 <body>
     <div class="container">
-        <h1>todo_list</h1>
-    
+        <div class="header">
+            <h1><a href="todo_index.php"><img src="common/img/title.png" alt="title"></a></h1>
+        </div>
+        <div class="contents_outside">
         <form class="form_contents" method="post" action="todo_insert.php">
         <div class="contents_container">
-                <label for="title">퀘스트 제목</label>
-                <input type="text" id="title" name="todo_title" required>
+                <div class="contents_title">
+                    <label for="title">퀘스트 제목</label>
+                    <input type="text" id="title" name="todo_title" required>
+                </div>
+            <br>    
+                <div class="contents_detail">
+                    <label for="contents">퀘스트 내용</label>
+                    <textarea id="contents" name="todo_contents"></textarea>
+                </div>
             <br>
-                <label for="contents">퀘스트 내용</label>
-                <textarea id="contents" name="todo_contents"cols="50" rows="10" ></textarea>
-            <br>
-                <label for="start_date">시작</label>
-                <input type="datetime-local" id="start_date" name="todo_start" required>
-                <label for="end_date">종료</label>
-                <input type="datetime-local" id="end_date" name="todo_end" required>
-            <br>
-                <input type="checkbox" name="todo_imp" id="important" value="1">
-                <label for="important">중요<label>
-        </div>
-            
-                <button type="submit">수락</button>
-                <a href="todo_index.php"><button type="button">취소</button></a>
+                <div class="start_end_date">
+                    <span class="start_date_dir">    
+                        <label for="start_date">시작</label>
+                        <input type="datetime-local" id="start_date" name="todo_start" required>
+                    </span>
+                    <span class="end_date_dir">
+                        <label for="end_date">종료</label>
+                        <input type="datetime-local" id="end_date" name="todo_end" required>
+                    </span>
+                </div>
+            <br>    
+                <div class="contents_imp">
+                    <input type="checkbox" name="todo_imp" id="important" value="1">
+                    <label for="important">중요<label>
+                </div>
+                </div>  
+                    <a href="todo_index.php"><button type="button">취소</button></a>
+                    
+                    <button type="submit">수락</button>
+                </form>
         </form>
+</div>
         
         
     </div>
