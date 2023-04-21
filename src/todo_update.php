@@ -113,8 +113,11 @@ else
 </head>
 <body>
 <form method="post" action="todo_update.php">
-  <div class= "list_edit">
-     <label for="list_no">목록 번호</label>
+  <div class="contents_container">    
+  <div class="header">
+    <h1><a href="todo_index.php"><img src="common/img/title.png" alt="title"></a></h1>
+  </div> 
+    <label for="list_no">목록 번호</label>
       <input type="text" name="list_no" value="<?php echo $result_info["list_no"] ?>" readonly >
       <br>
       <label for="list_title">제목</label>
@@ -136,7 +139,15 @@ else
       <a href = "todo_detail.php?list_no=<?php echo $result_info["list_no"]."&list_start_date=".substr($result_info["list_start_date"],0,10) ?>"><button type="button">취소</button></a> 
       <a href = "todo_delete.php?list_no=<?php echo $result_info["list_no"]."&list_start_date=".substr($result_info["list_start_date"],0,10) ?>"><button type="button">삭제</button></a>
   <div>
+</div>   
 </form>
 <!-- <button type="button" ><a href= "list_detail.php" id="hii">목록</a></button> -->
 </body>
 </html>
+
+
+
+
+
+
+
