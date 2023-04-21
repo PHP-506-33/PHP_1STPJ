@@ -36,7 +36,6 @@ textarea 최소 최대 가로 폭 값넣기
 }
 body{
   background-color: #00005C;
-  font-family: 'NEXON Lv2 Gothic';
 }
 
 .header {
@@ -50,10 +49,19 @@ body{
 
 .contents_container{
   background-color: #F0CAA3;
-  padding: 3rem;
-  margin: 3rem;
+  border: 3px solid black;
+  border-radius: 1rem;
+  margin-right: 5rem;
+  margin-left: 5rem;
+  position: relative;
+  padding: 2rem;
+  box-shadow: 0 5px 5px 5px rgba(0, 0, 0, 0.253);
+  display: grid;
+  /* align-content: space-between; */
+  min-width: 30rem;
+  min-height: 35rem;
 }
-.contents_detail{
+/* .contents_detail{
   padding: 1rem;
   background-color:#D4A87F;
 }
@@ -80,7 +88,12 @@ body{
 }
 
 .contents_imp{
-  padding: 1rem;
+  position: absolute;
+  bottom: 25rem;
+} */
+
+.submit_button{
+  text-align:center;
 }
 
 a{
