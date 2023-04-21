@@ -86,7 +86,7 @@ $max_page_num = ceil( $result_cnt[0]["cnt"] / $limit_num );
         <div class="sidebar">
             <div class="profile">
                 <div class="profile_img">
-                    <img src="common/img/grow<?php echo level_cal() ?>.png" alt="grow1">
+                    <img class="grow_img" src="common/img/grow<?php echo level_cal() ?>.png" alt="grow1">
                 </div>
                 <div class="profile_text">
                     <span>이름</span>

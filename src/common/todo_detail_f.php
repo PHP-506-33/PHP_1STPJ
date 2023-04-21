@@ -118,7 +118,4 @@ function todo_select_detail_list( &$param_date ){
     }
     return $result;
 }
-
-// todo 
-// var_dump(todo_select_detail_list('2023-04-19 09:00:00'));
 ?>
