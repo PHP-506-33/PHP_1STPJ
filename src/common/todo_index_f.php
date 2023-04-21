@@ -26,7 +26,7 @@ function select_list_search( &$param_arr )
     ." ORDER BY "
     ."      list_clear_flg ASC "
     ."      ,list_imp_flg DESC "
-    ."      ,list_due_date DESC "
+    ."      ,list_due_date ASC "
     ."      ,list_start_date DESC "
     ."      ,list_no DESC "
     ." LIMIT :limit_num OFFSET :offset "
@@ -118,6 +118,18 @@ function li_display( $param_arr, $param_date )
 {
     foreach ($param_arr as $val)
     {
+        if( $param_date === substr($val['list_due_date'], 0, 10) )
+        {
+            $alert = "<span class='d_day'>D-DAY</span>";
+        }
+        else if( $param_date === date("Y-m-d", strtotime($val['list_due_date']." -1 day")) )
+        {
+            $alert = "<span class='d_1'>D-1</span>";
+        }
+        else
+        {
+            $alert = "<i class='fa-solid fa-angle-right'></i>";
+        }
         if($val['list_clear_flg'] === '1')
         {
             $checkbox = "<i class='fa-solid fa-square-check'></i>";
@@ -147,7 +159,7 @@ function li_display( $param_arr, $param_date )
             }
         }
 
-        echo "<li><a href='todo_detail.php?list_no=".$val['list_no']."&list_start_date=".$param_date."'><div class='list_container ".$list_class."'>".$checkbox.$impmark."<span class='list_title_s'>".$val['list_title']."</span><span class='list_date'>".trim_date($val['list_start_date'])." ~ ".trim_date($val['list_due_date'])."</span><i class='fa-solid fa-angle-right'></i></div></a></li>";
+        echo "<li><a href='todo_detail.php?list_no=".$val['list_no']."&list_start_date=".$param_date."'><div class='list_container ".$list_class."'>".$checkbox.$impmark."<span class='list_title_s'>".$val['list_title']."</span><span class='list_date'>".trim_date($val['list_start_date'])." ~ ".trim_date($val['list_due_date'])."</span>".$alert."</div></a></li>";
     }
 }
 
