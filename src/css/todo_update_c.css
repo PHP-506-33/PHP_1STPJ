@@ -19,9 +19,10 @@
 *{
     padding:0;
     margin:0;
+    text-align: center;
   }
   body{
-    background-color: #00005C;
+    background-color: #432C7A;
   }
   
   .header {
@@ -43,7 +44,6 @@
     padding: 2rem;
     box-shadow: 0 5px 5px 5px rgba(0, 0, 0, 0.253);
     display: grid;
-    /* align-content: space-between; */
     min-width: 30rem;
     min-height: 35rem;
   }
@@ -57,18 +57,17 @@
   }
   
   input{
-    background-color: red;
+    background-color: beige;
   }
   textarea{
-    background-color: red;
+    background-color: beige;
   }
   input:focus{
-    background-color: blue;
+    background-color: beige;
   }
   textarea:focus{
-    background-color: blue;
+    background-color: beige;
   }
-  
   
   
   .submit_button{
@@ -80,14 +79,19 @@
   }
   
   input{
-    background-color: red;
+    background-color: beige;
   }
   textarea{
-    background-color: red;
+    background-color: beige;
   }
   input:focus{
-    background-color: blue;
+    background-color: beige;
   }
   textarea:focus{
-    background-color: blue;
+    background-color: beige;
   }
+
+ .list_title_1 {
+    height: 70px;
+    width: 1600px;
+ }
