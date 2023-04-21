@@ -83,10 +83,12 @@
                     <input type="checkbox" name="todo_imp" id="important" value="1">
                     <label for="important">중요<label>
                 </div>
-                </div>  
+                </div> 
+                <div class="submit_button">
                     <a href="todo_index.php"><button type="button">취소</button></a>
                     
                     <button type="submit">수락</button>
+                </div>
                 </form>
         </form>
 </div>
