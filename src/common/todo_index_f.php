@@ -192,7 +192,18 @@ function point_cal()
 // --------------------
 function level_cal()
 {
-    $result = ceil(point_cal() / 10);
+    if(point_cal() === 0)
+    {
+        $result = 1;
+    }
+    else if(point_cal() <= 50)
+    {
+        $result = ceil(point_cal() / 10);
+    }
+    else
+    {
+        $result = 5;
+    }
     return $result;
 }
 
