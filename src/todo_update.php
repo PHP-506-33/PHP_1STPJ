@@ -5,8 +5,6 @@ define( "URL_UPDATE_F", SRC_ROOT."todo_update.php" );
 include_once( URL_DB );
 include_once( URL_UPDATE_F ); 
 
-
-
 $http_method = $_SERVER["REQUEST_METHOD"];
 
 if( $http_method === "GET" )
@@ -16,11 +14,10 @@ if( $http_method === "GET" )
   {
     $list_no = $_GET["list_no"];
   }
-
-
-  
   $result_info = select_list_info_no( $list_no );
   
+
+
   $result_imp_flg = $result_info["list_imp_flg"];
     if($result_imp_flg == "1" )
     {
@@ -50,10 +47,10 @@ else
     $result_cnt = update_todo_list_info_no( $arr_info );
 
 
-  header( "Location: todo_detail.php?list_no=".$arr_post["list_no"] );
+  header( "Location: todo_detail.php?list_no=".$arr_post["list_no"]."&list_start_date=".substr($arr_post["list_start_date"],0,10) );
   exit();
-
- }
+  
+  }
 
 // if($arr_post["list_imp_flg"] == "1" )
 //   {
@@ -111,7 +108,7 @@ else
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel='stylesheet' href='../src/css/common.css'>
+<link rel='stylesheet' href='../src/css/todo_update_c.css'>
 <title>수정하기</title>
 </head>
 <body>
@@ -130,15 +127,15 @@ else
       <input type="datetime-local" name="list_start_date" id="list_start_date" value="<?php echo $result_info["list_start_date"] ?>" required>
       <br>
       <label for="list_due_date">마감 날짜</label>
-      <input type="datetime-local" name="list_due_date" id="list_due_date" value="<?php echo $result_info["list_due_date"] ?>" required>
+      <input type="datetime-local" name="list_due_date" id="list_due_date" value="<?php echo$result_info["list_due_date"] ?>" required>
       <br>
       <label for="list_imp_flg">중요</label>
       <input type="checkbox" name="list_imp_flg" id="list_imp_flg" value="1" <?php echo $one_1; ?>>
       <br>
       <button type="submit">수정</button>
-      <a href = "todo_detail.php?list_no=<?php echo $result_info["list_no"] ?>"><button type="button">취소</button></a> 
-      <a href = "todo_delete.php?list_no=<?php echo $result_info["list_no"] ?>"><button type="button">삭제</button></a>
-  <div>      
+      <a href = "todo_detail.php?list_no=<?php echo $result_info["list_no"]."&list_start_date=".substr($result_info["list_start_date"],0,10) ?>"><button type="button">취소</button></a> 
+      <a href = "todo_delete.php?list_no=<?php echo $result_info["list_no"]."&list_start_date=".substr($result_info["list_start_date"],0,10) ?>"><button type="button">삭제</button></a>
+  <div>
 </form>
 <!-- <button type="button" ><a href= "list_detail.php" id="hii">목록</a></button> -->
 </body>
