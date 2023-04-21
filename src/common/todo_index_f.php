@@ -142,7 +142,25 @@ function li_display( $param_arr, $param_date )
 {
     foreach ($param_arr as $val)
     {
-    echo "<li><a href='todo_detail.php?list_no=".$val['list_no']."&list_start_date=".$param_date."'><div class='list_container'><i class='fa-regular fa-square-check'></i><span>".$val['list_title']."</span><span>".trim_date($val['list_start_date'])." ~ ".trim_date($val['list_due_date'])."</span><i class='fa-solid fa-angle-right'></i></div></a></li>";
+        if($val['list_clear_flg'] === '1')
+        {
+            $checkbox = "<i class='fa-solid fa-square-check'></i>";
+        }
+        else
+        {
+            $checkbox = "<i class='fa-regular fa-square'></i>";
+        }
+
+        if($val['list_imp_flg'] === '1')
+        {
+            $impmark = "<i class='fa-solid fa-star'></i>";
+        }
+        else
+        {
+            $impmark = "<i></i>";    
+        }
+
+        echo "<li><a href='todo_detail.php?list_no=".$val['list_no']."&list_start_date=".$param_date."'><div class='list_container'>".$checkbox.$impmark."<span class='list_title_s'>".$val['list_title']."</span><span class='list_date'>".trim_date($val['list_start_date'])." ~ ".trim_date($val['list_due_date'])."</span><i class='fa-solid fa-angle-right'></i></div></a></li>";
     }
 }
 
