@@ -43,13 +43,13 @@ else
       "list_due_date" => $arr_post["list_due_date"],
       "list_imp_flg" => $list_imp_flg
          );
+         
+    $result_cnt = update_todo_list_info_no( $arr_info );  
 
-    $result_cnt = update_todo_list_info_no( $arr_info );
-
-
+        
   header( "Location: todo_detail.php?list_no=".$arr_post["list_no"]."&list_start_date=".substr($arr_post["list_start_date"],0,10) );
   exit();
-  
+         
   }
 
 // if($arr_post["list_imp_flg"] == "1" )
