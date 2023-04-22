@@ -70,17 +70,17 @@ else
           <br>
           <div class="contents_detail">
           <label for="list_detail">내용</label>
-          <input type="text" name="list_detail" id="list_detail" value="<?php echo $result_info["list_detail"] ?>">
+          <input  class="list_detail_1" type="text" name="list_detail" id="list_detail" value="<?php echo $result_info["list_detail"] ?>">
           </div>
           <br>
           <div class="start_end_date">
           <span class="start_date_dir">
               <label for="list_start_date">시작 날짜</label>
-              <input type="datetime-local" name="list_start_date" id="list_start_date" value="<?php echo $result_info["list_start_date"] ?>" required>
+              <input class="start_1" type="datetime-local" name="list_start_date" id="list_start_date" value="<?php echo $result_info["list_start_date"] ?>" required>
           </span>
           <span class="end_date_dir">
               <label for="list_due_date">마감 날짜</label>
-              <input type="datetime-local" name="list_due_date" id="list_due_date" value="<?php echo$result_info["list_due_date"] ?>" required>
+              <input class="end_1" type="datetime-local" name="list_due_date" id="list_due_date" value="<?php echo$result_info["list_due_date"] ?>" required>
           </span>
           </div>
         <br>
@@ -89,9 +89,9 @@ else
               <input type="checkbox" name="list_imp_flg" id="list_imp_flg" value="1" <?php echo $one_1; ?>>
         </div>
         <div class="submit_button">
-            <button type="submit">수정</button>
-            <a href = "todo_detail.php?list_no=<?php echo $result_info["list_no"]."&list_start_date=".substr($result_info["list_start_date"],0,10) ?>"><button type="button">취소</button></a> 
-            <a href = "todo_delete.php?list_no=<?php echo $result_info["list_no"]."&list_start_date=".substr($result_info["list_start_date"],0,10) ?>"><button type="button">삭제</button></a>
+          <a href = "todo_delete.php?list_no=<?php echo $result_info["list_no"]."&list_start_date=".substr($result_info["list_start_date"],0,10) ?>"><button class="delete_1" type="button">삭제</button></a>
+          <a href = "todo_detail.php?list_no=<?php echo $result_info["list_no"]."&list_start_date=".substr($result_info["list_start_date"],0,10) ?>"><button class="cancel_1" type="button">취소</button></a> 
+          <button class="edit_1" type="submit">수정</button>
         </div>
       </form>
     </div>

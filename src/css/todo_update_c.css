@@ -18,9 +18,17 @@
   
 *{
     padding:0;
-    margin:0;
+    margin:0 auto;
     text-align: center;
   }
+
+  @media (max-width: 600px)
+  {
+    * {
+      
+    }
+  }
+
   body{
     background-color: #432C7A;
   }
@@ -95,3 +103,62 @@
     height: 70px;
     width: 1600px;
  }
+
+ .list_detail_1 {
+  height: 200px;
+  width: 1600px;
+ }
+
+.start_date_dir {
+  position: relative;
+  left: -203px;
+}
+
+.end_date_dir {
+  position: relative;
+  right: -167px;
+}
+
+.start_1 {
+  height: 100px;
+  width: 572px;
+}
+
+.end_1 {
+  height: 100px;
+  width: 572px;
+}
+
+.contents_imp {
+  position: relative;
+  right: 760px;
+}
+
+.submit_button {
+  position: relative;
+  top: 100px;
+}
+
+.delete_1 {
+  position: relative;
+  right:750px;
+  width: 70px;
+  height: 70px;
+  top: 30px;
+}
+
+.cancel_1 {
+  position: relative;
+  right:30px;
+  top:30px;
+  width: 70px;
+  height: 70px;
+}
+
+.edit_1 {
+  position: relative;
+  /* right:30px; */
+  top:30px;
+  width: 70px;
+  height: 70px;
+}
