@@ -134,9 +134,9 @@
                 <button type="submit" class="com">완료</button>
                 </div>
                 </form>
+                <a href="todo_update.php?list_no=<?php echo $arr_prepare["list_no"] ?>"><button class="modify_btn" type="button">수정</button></a>
+            <a href="todo_index.php"><button class="return_btn" type="button">돌아가기</button></a>
         </div>
-        <a href="todo_update.php?list_no=<?php echo $arr_prepare["list_no"] ?>"><button class="modify_btn" type="button">수정</button></a>
-        <a href="todo_index.php"><button class="return_btn" type="button">돌아가기</button></a>
     </div>
 </body>
 </html>

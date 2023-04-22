@@ -48,11 +48,11 @@ form{
 /* ****************** 프로필 영역 ****************** */
 .detail{
     background-color: #f0caa3;
-    height:65.5vh;
     border: 3px solid black;
     border-radius: 15px;
     padding:2em;
     margin-top:2em;
+    min-height: 40rem;
 }
 .prof_img{
     width: 80px;
@@ -74,6 +74,7 @@ form{
 }
 h3{
     font-family: 'NeoDunggeunmoPro-Regular';
+    font-weight: 100;
 }
 .detail_total_calender{
     margin-top:1em;
@@ -130,14 +131,16 @@ li{
 /* ****************** 상세 정보 영역 ****************** */
 .detail_info{
     background-color: #f0caa3;
-    /* min-width: 325px;
-    max-width: 1020px; */
-    height:65.5vh;
+    min-width: 20rem;
+    min-height: 40rem;
     border: 3px solid black;
     border-radius: 15px;
     padding:2em;
     margin-top:2em;
     margin-right: 5rem;
+    position: relative;
+    border-left:none;
+    box-shadow: 0 5px 5px 5px rgba(0, 0, 0, 0.253);
 }
 hr{
     border:1px solid #000;
@@ -147,7 +150,6 @@ hr{
     flex-direction: row-reverse;
     /* min-width: 200px;
     max-width: 980px; */
-    
 }
 .imp{
     font-size: 35px;
@@ -267,9 +269,9 @@ textarea{
     background-color: #FFDA56;
     box-shadow: 2px 2px 2px #3f3f3f;
     border-radius: 5px;
-    position: relative;
-    top:560px;
-    right:33px;
+    position: absolute;
+    top:540px;
+    right:-3.5rem;
     font-family: 'NeoDunggeunmoPro-Regular';
     font-size: 1em;
 }
@@ -279,9 +281,9 @@ textarea{
     background-color: #c2c2c2;
     box-shadow: 2px 2px 2px 1px #3f3f3f;
     border-radius: 5px;
-    position: relative;
-    top:620px;
-    right:105px;
+    position: absolute;
+    top:600px;
+    right:-4.5rem;
     font-family: 'NeoDunggeunmoPro-Regular';
     font-size: 1em;
 }
