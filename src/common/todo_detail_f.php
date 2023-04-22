@@ -177,7 +177,7 @@ function li_display_detail( $param_arr, $param_date )
 {
     foreach ($param_arr as $val)
     {
-        echo "<li><a href='todo_detail.php?list_no=".$val['list_no']."&list_start_date=".$param_date."'><div class='list_container'><span class='list_title_s'>".$val['list_title']."</span><span class='list_date'>".trim_date($val['list_start_date'])." ~ ".trim_date($val['list_due_date'])."</span></div></a></li>";
+        echo "<li><a href='todo_detail.php?list_no=".$val['list_no']."&list_start_date=".$param_date."'><div class='list_container'><span class='list_title_s'>".$val['list_title']." "."</span><span class='list_date'>".trim_date($val['list_start_date'])." ~ ".trim_date($val['list_due_date'])."</span></div></a></li>";
     }
 }
 

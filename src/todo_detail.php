@@ -127,14 +127,14 @@
                     <div class="detail_info_title">
                             <input type="hidden" value="<?= $arr_prepare["list_no"] ?>" name="list_no">
                             <?php if($detail_info["list_clear_flg"] === '1'){ ?>
-                                <input type="checkbox" value="0" checked>
+                                <input type="checkbox" id="check" value="0" checked>
                             <?php }else{ ?>
-                                <input type="checkbox" name="check" class="todo_check" value="check">
+                                <input type="checkbox" id="check" name="check" class="todo_check" value="check">
                             <?php } ?>
-                            <span class="todo_title"><?= $detail_info["list_title"] ?> <span>
-                            <span class="todo_date_time">
+                            <label for="check" class="todo_title"><?= $detail_info["list_title"] ?></label>
+                            <label for="check" class="todo_date_time">
                                 <?php echo date("H : i", strtotime($detail_info["list_start_date"]))." ~ ".date("H : i", strtotime($detail_info["list_due_date"])); ?>
-                            <span>
+                            <label>
                     </div>
                 </div>
                     <textarea name="" id="" cols="50" rows="10" readonly>

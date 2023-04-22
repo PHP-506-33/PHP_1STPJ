@@ -1,4 +1,26 @@
 /* ****************** 전체 적용 CSS ****************** */
+@font-face{ /* 타이틀 */
+    font-family:'bitbit';
+    src:url('//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff'),url('//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff2') ;
+}
+@font-face { /* 내용 */
+    font-family: 'NEXON Lv2 Gothic';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face { /* 강조용 1 */
+    font-family: 'NeoDunggeunmoPro-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/NeoDunggeunmoPro-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face { /* 강조용 2 */
+    font-family: 'GeekbleMalang2WOFF2';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/GeekbleMalang2WOFF2.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
 * {
     margin:0;
 }
@@ -36,8 +58,13 @@ form{
 }
 .prof_name_level{
     position: relative;
-    bottom:50px;
+    bottom:55px;
     left:100px;
+    font-family: 'NeoDunggeunmoPro-Regular';
+    font-size:1.5em;
+}
+h3{
+    font-family: 'NeoDunggeunmoPro-Regular';
 }
 .detail_total_calender{
     margin-top:1em;
@@ -77,13 +104,18 @@ td{
     text-align: center;
     margin-top:0.3em;
 }
-li{
-    list-style: circle;
-    /* text-align: center; */
-}
-.left_todo{
+a{
     text-decoration: none;
     color:#000;
+    font-family: 'NEXON Lv2 Gothic';
+}
+li{
+    list-style: circle;
+}
+.list_container{
+    margin-top:0.7em;
+    position: relative;
+    right:15px;
 }
 /* ****************** 상세 정보 영역 ****************** */
 .detail_info{
@@ -102,22 +134,18 @@ hr{
     border:1px solid #000;
 }
 .imp_star{
-    position: relative;
-    bottom:58px;
-    font-size: 20px;
+    display: flex;
+    flex-direction: row-reverse;
+    min-width: 200px;
+    max-width: 980px;
 }
 .imp{
-    position: absolute;
-    right:2px;
     color:#FFDA56;
-    /* border: 1px solid #000; */
     font-size: 50px;
 }
 .no_imp{
-    position: absolute;
-    right:2px;
-    color:#ccc;
-    /* border: 1px solid #000; */
+    color:#8a8787;
+    font-size: 50px;
 }
 .detail_content{
     border:2px solid #000;
@@ -137,11 +165,66 @@ hr{
     height:5vh;
     margin:1em;
 }
+input[type="checkbox"]{
+    -webkit-appearance: none;
+    position: relative;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    outline: none !important;
+    border: 1px solid #eeeeee;
+    border-radius: 2px;
+    background: #fbfbfb;
+}
+input[type="checkbox"]::before {
+    content: "\2713";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    overflow: hidden;
+    transform: scale(0) translate(-50%, -50%);
+    line-height: 1;
+}
+
+input[type="checkbox"]:hover {
+    border-color: rgba(170, 170, 170, 0.5);
+}
+
+input[type="checkbox"]:checked {
+    background-color: #ff8955;
+    border-color: rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+input[type="checkbox"]:checked::before {
+    border-radius: 2px;
+    transform: scale(1) translate(-50%, -50%)
+}
 .todo_date{
     font-size: 30px;
+    font-family: 'NeoDunggeunmoPro-Regular';
+}
+.todo_title{
+    font-size: 20px;
+    /* font-family: 'NEXON Lv2 Gothic'; */
+    font-family: 'GeekbleMalang2WOFF2';
+}
+.todo_date_time{
+    font-size: 13px;
+    font-family: 'GeekbleMalang2WOFF2';
+    /* display: flex;
+    flex-direction: row-reverse;
+    margin-bottom: 20px;
+    margin-right:20px; */
+    /* position: relative;
+    left:100px; */
+
 }
 .info_title{
     margin-top:30px;
+    position: relative;
+    top:62px;
+    left:3px;
 }
 .detail_info_title{
     position: relative;
@@ -157,21 +240,24 @@ textarea{
     text-align: left;
     position:relative;
     left:20px;
+    font-family: 'NEXON Lv2 Gothic';
 }
 /* ****************** 버튼 ****************** */
 .com_btn{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 15px;
+    margin-top: 45px;
 }
 .com{
     color:#fff;
-    width:55px;
+    width:65px;
     height:30px;
     background-color: #645cbb;
     border-radius: 20px;
-    
+    font-family: 'NeoDunggeunmoPro-Regular';
+    font-size: 1em;
+    border: 1px dotted #2e2a53;
 }
 .modify_btn{
     width:85px;
@@ -180,8 +266,10 @@ textarea{
     box-shadow: 2px 2px 2px #3f3f3f;
     border-radius: 5px;
     position: relative;
-    top:550px;
+    top:560px;
     right:33px;
+    font-family: 'NeoDunggeunmoPro-Regular';
+    font-size: 1em;
 }
 .return_btn{
     width:85px;
@@ -190,6 +278,8 @@ textarea{
     box-shadow: 2px 2px 2px 1px #3f3f3f;
     border-radius: 5px;
     position: relative;
-    top:610px;
+    top:620px;
     right:105px;
+    font-family: 'NeoDunggeunmoPro-Regular';
+    font-size: 1em;
 }
