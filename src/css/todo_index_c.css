@@ -37,6 +37,7 @@ ul {
 h2 {
     font-family: 'NeoDunggeunmoPro-Regular';
     font-size: 1.8rem;
+    font-weight: 100;
 }
 
 .header {
@@ -65,7 +66,6 @@ h2 {
 }
 
 .profile {
-    border: 3px solid black;
     border-radius: 1rem;
     margin-top: 0.5rem;
     padding: 0.5rem;
@@ -79,10 +79,30 @@ h2 {
     border: 3px solid black;
     border-radius: 1rem;
     padding: 0.5rem;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     display: grid;
     justify-content: center;
     align-items: start;
+}
+
+.calendar_text {
+    font-family: 'NeoDunggeunmoPro-Regular';
+    font-size: 1.2rem;
+    margin-left: 0.5rem;
+}
+
+.calendar_btn {
+    background-color: rgba(0, 0, 0, 0);
+    border: 0;
+}
+
+.calendar_title>span, .day_list>span, .day_list>a {
+    font-family: 'NeoDunggeunmoPro-Regular';
+}
+
+.day_list>span, .day_list>a
+{
+    margin-bottom: 0.5rem;
 }
 
 .main {
@@ -120,6 +140,10 @@ h2 {
     margin-top: 1.5rem;
 }
 
+.page_section>a {
+    font-family: 'NeoDunggeunmoPro-Regular';
+}
+
 .button_section {
     position: absolute;
     right: -4rem;
@@ -152,15 +176,21 @@ img[alt=grow] {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
     align-content: center;
-    align-items: center;
+}
+
+.level {
+    align-self: end;
+}
+
+.point {
+    align-self: start;
 }
 
 .profile_text>span {
     font-family: 'NeoDunggeunmoPro-Regular';
-}
-
-.nickname {
-    font-size: 1.2rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    margin-top: 0.3rem;
 }
 
 hr {
@@ -194,12 +224,18 @@ hr {
 
 .cle_imp>.list_title_s, .cle_nimp>.list_title_s {
     text-decoration: line-through;
+    color: #432C7A;
 }
 
 .list_title_s {
     margin-left: 0.5rem;
     margin-right: 0.5rem;
     place-self: start;
+}
+
+.list_date {
+    font-family: 'NeoDunggeunmoPro-Regular';
+    color: #432C7A;
 }
 
 input[type="search"] {
@@ -223,11 +259,22 @@ input[type="search"]:focus {
 }
 
 input[type="date"] {
-    border: 3px solid black;
+    border: 0;
+    background-color: #b18b64;
+    color: #F0CAA3;
 }
 
 .fa-square-check, .fa-square, .fa-star {
     margin-right: 0.4rem;
+}
+
+.fa-square-check, .fa-square {
+    color: #432C7A;
+}
+
+.fa-star {
+    color: #FFDA56;
+    -webkit-text-stroke: 2px #432C7A;
 }
 
 .d_day, .d_1 {

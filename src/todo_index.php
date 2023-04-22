@@ -94,19 +94,21 @@ $day_pick = date('w', strtotime($firstday));
                     <img class="grow_img" src="common/img/grow<?php echo level_cal() ?>.png" alt="grow">
                 </div>
                 <div class="profile_text">
-                    <span>Lv. <?php echo level_cal() ?></span>
-                    <span>Point : <?php echo point_cal() ?></span>
+                    <span class="level">Lv. <?php echo level_cal() ?></span>
+                    <span class="point">Point : <?php echo point_cal() ?></span>
                 </div>
             </div>
+            <hr>
+            <span class="calendar_text">Calendar</span>
             <div class="calendar">
                 <form method="get" action="todo_index.php">
                     <input type="date" name="list_start_date">
-                    <button type="submit">이동</button>
+                    <button type="submit" class="calendar_btn"><i class="fa-solid fa-angles-right"></i></button>
                 </form>
                 <div class="calendar_title">
-                    <a href="todo_index.php?list_start_date=<? echo $year_pick."-".date("m", strtotime($date_ymd." -1 month"))."-01" ?>">◀</a>
+                    <a href="todo_index.php?list_start_date=<? echo $year_pick."-".date("m", strtotime($date_ymd." -1 month"))."-01" ?>"><i class="fa-solid fa-chevron-left"></i></a>
                     <span><?php echo $month_pick ?>월</span>
-                    <a href="todo_index.php?list_start_date=<? echo $year_pick."-".date("m", strtotime($date_ymd." +1 month"))."-01" ?>">▶</a>
+                    <a href="todo_index.php?list_start_date=<? echo $year_pick."-".date("m", strtotime($date_ymd." +1 month"))."-01" ?>"><i class="fa-solid fa-chevron-right"></i></a>
                 </div>
                 <div class="day_list">
                     <span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span>
