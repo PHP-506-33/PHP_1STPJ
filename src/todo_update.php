@@ -85,8 +85,8 @@ else
           </div>
         <br>
         <div class="contents_imp">
-              <label for="list_imp_flg">중요</label>
               <input type="checkbox" name="list_imp_flg" id="list_imp_flg" value="1" <?php echo $one_1; ?>>
+              <label for="list_imp_flg">중요</label>
         </div>
         <div class="submit_button">
           <a href = "todo_delete.php?list_no=<?php echo $result_info["list_no"]."&list_start_date=".substr($result_info["list_start_date"],0,10) ?>"><button class="delete_1" type="button">삭제</button></a>

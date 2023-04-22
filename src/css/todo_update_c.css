@@ -141,24 +141,72 @@
 
 .delete_1 {
   position: relative;
-  right:750px;
-  width: 70px;
-  height: 70px;
+  right:730px;
+  width: 90px;
+  height: 50px;
   top: 30px;
+  border-radius: 20%;
+  background-color: rgb(194, 47, 47);
+  font-weight: 900;
+  border-style: solid;
 }
 
 .cancel_1 {
   position: relative;
   right:30px;
   top:30px;
-  width: 70px;
-  height: 70px;
+  width: 90px;
+  height: 50px;
+  border-radius: 20%;
+  background-color: rgb(161, 158, 158);
+  font-weight: 900;
+  border-style: solid;
 }
 
 .edit_1 {
   position: relative;
   /* right:30px; */
   top:30px;
-  width: 70px;
-  height: 70px;
+  width: 90px;
+  height: 50px;
+  border-radius: 20%;
+  background-color: rgb(182, 182, 56);
+  font-weight: 900;
+  border-style: solid;
+}
+
+@media (max-width: 1527px) {
+  /* 헤더 스타일 */
+  .header {
+    text-align: center;
+  }
+  .header h1 {
+    margin: 0;
+  }
+  /* 입력폼 스타일 */
+  .form_contents {
+    padding: 10px;
+  }
+  .contents_title label,
+  .contents_detail label,
+  .start_date_dir label,
+  .end_date_dir label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  .contents_title input,
+  .contents_detail input,
+  .start_date_dir input,
+  .end_date_dir input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .submit_button {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .submit_button button {
+    margin-right: 5px;
+    margin-bottom: 10px;
+  }
 }
