@@ -39,13 +39,14 @@
         <br>
             주의! 포기한 퀘스트는 사라집니다</p>
         </div>
-    </div>
+    
     <div class="submit_button">
     <form method="post" action="todo_delete.php?list_no=<?php echo $arr_get["list_no"]."&list_start_date=".$arr_get["list_start_date"] ?>">
         <a href="todo_detail.php?list_no=<?php echo $arr_get["list_no"]."&list_start_date=".$arr_get["list_start_date"] ?>"><button type="button">취소</button></a>
         <button type="submit">삭제</button>
         </form>
-    </div>
+        </div>
+        </div>
 </div>
 </body>
 </html>

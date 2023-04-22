@@ -48,13 +48,10 @@ body{
   padding: 2rem;
   box-shadow: 0 5px 5px 5px rgba(0, 0, 0, 0.253);
   display: grid;
-  /* align-content: space-between; */
-  min-width: 40rem;
   min-height: 20rem;
   text-align:center;
-  /* grid-template-columns: 250px minmax(300px, 800px);
-  justify-content: center; */
-  align-items: center;
+  grid-template-columns: minmax(30rem, 50rem);
+  justify-content: center;
 }
 .submit_button{
   text-align:center;
@@ -62,6 +59,7 @@ body{
 }
 p{
   font-family: 'NEXON Lv2 Gothic';
+  padding:8rem 0;
 }
 button{
   width:85px;

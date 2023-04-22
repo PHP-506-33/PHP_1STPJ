@@ -96,7 +96,7 @@
                     
                     <button type="submit">수락</button>
                 </div>
-                </form>
+                
         </form>
 </div>
         

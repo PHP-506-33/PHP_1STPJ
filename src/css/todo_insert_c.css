@@ -52,12 +52,10 @@ body{
   padding: 2rem;
   box-shadow: 0 5px 5px 5px rgba(0, 0, 0, 0.253);
   display: grid;
-  /* align-content: space-between; */
-  min-width: 50rem;
   min-height: 32rem;
   text-align:center;
-  /* grid-template-columns: 250px minmax(300px, 800px);
-  justify-content: center; */
+  grid-template-columns: minmax(45rem, 60rem);
+  justify-content: center;
 }
 
 #contents{
@@ -117,7 +115,7 @@ input[type=datetime-local]{
 }
 
 .start_date_dir{
-  margin-right:6rem;
+  margin-right:5rem;
 }
 .contents_imp{
   text-align: left;
