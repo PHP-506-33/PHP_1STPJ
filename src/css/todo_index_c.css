@@ -36,20 +36,20 @@ ul {
 
 h2 {
     font-family: 'NeoDunggeunmoPro-Regular';
-    font-size: 1.8rem;
+    font-size: 30px;
     font-weight: 100;
 }
 
 .header {
     background-color: #C060A1;
     height: 9rem;
-    margin-bottom: 2rem;
     display: grid;
     place-items: center;
     box-shadow: 0 5px 5px 5px rgba(0, 0, 0, 0.253);
 }
 
 .paper {
+    margin-top: 2em;
     display: grid;
     grid-template-columns: 250px minmax(300px, 800px);
     justify-content: center;
@@ -61,22 +61,21 @@ h2 {
     border-left: 3px solid black;
     border-bottom: 3px solid black;
     border-radius: 1rem;
-    padding: 1.5rem;
+    padding: 2em;
     box-shadow: 0 5px 5px 5px rgba(0, 0, 0, 0.253);
 }
 
 .profile {
     border-radius: 1rem;
     margin-top: 0.5rem;
-    padding: 0.5rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
 
 .calendar {
-    background-color: #D4A87F;
+    background-color: rgba(212, 168, 127, 0.5);
     height: 15rem;
-    border: 3px solid black;
+    border: 2px solid black;
     border-radius: 1rem;
     padding: 0.5rem;
     margin-top: 0.5rem;
@@ -116,7 +115,7 @@ h2 {
     display: grid;
     align-content: space-between;
     min-width: 20rem;
-    min-height: 35rem;
+    min-height: 40rem;
 }
 
 .move_section {
@@ -147,15 +146,16 @@ h2 {
 .button_section {
     position: absolute;
     right: -4rem;
-    top: 4.5rem;
+    top: 480px;
 }
 
 .insert_btn {
-    border: 3px solid black;
+    border: 2px solid rgb(49, 49, 49);
     background-color: #FFDA56;
-    padding: 0.5rem;
-    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.253);
+    padding: 0.7rem;
+    box-shadow: 2px 2px 2px #3f3f3f;
     font-family: 'NeoDunggeunmoPro-Regular';
+    border-radius: 5px;
 }
 .profile_img {
     width: 80px;
@@ -188,6 +188,7 @@ img[alt=grow] {
 
 .profile_text>span {
     font-family: 'NeoDunggeunmoPro-Regular';
+    font-size: 1.2em;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
     margin-top: 0.3rem;
@@ -195,13 +196,13 @@ img[alt=grow] {
 
 hr {
     border: 0;
-    border-top: 3px solid black;
+    border-top: 2px solid black;
     margin-top: 1rem;
     margin-bottom: 2rem;
 }
 
 .list_container {
-    border: 3px solid black;
+    border: 2px solid black;
     border-radius: 0.5rem;
     margin-bottom: 1rem;
     padding: 0.5rem;
@@ -240,7 +241,7 @@ hr {
 
 input[type="search"] {
     background-color: #D4A87F;
-    border: 3px solid black;
+    border: 2px solid black;
     width: 15rem;
     height: 1.7rem;
     border-radius: 0.5rem;
