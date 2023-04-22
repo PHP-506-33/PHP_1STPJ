@@ -64,7 +64,7 @@ function insert_todo_info( &$param_arr )
 //***********************************
 // 함수명 : delete_todo_info
 // 기능 : 해당 데이터 삭제
-// 파라미터 : &$param_no(삭제할 list_no)
+// 파라미터 : $param_no(삭제할 list_no)
 // 리턴 값 : $result_cnt(디버그에서 1나오면 정상작동)
 // **********************************
 

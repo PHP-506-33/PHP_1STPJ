@@ -21,21 +21,12 @@ textarea 최소 최대 가로 폭 값넣기
   vertical-align: top;
 } */
 
-
-/* 
-타이틀 배경색 C0601A1
-컨텐츠 바깥 배경색 00005C
-컨텐츠 안쪽 배경색 F0CAA3
-컨텐츠 입력 배경색 D4A87F
-취소버튼 C2C2C2
-수락버튼 FFDA56
-*/
 *{
   padding:0;
   margin:0;
 }
 body{
-  background-color: #00005C;
+  background-color: #432C7A;
 }
 
 .header {
@@ -47,7 +38,10 @@ body{
   box-shadow: 0 5px 5px 5px rgba(0, 0, 0, 0.253);
   min-width: 45rem;
 }
-
+.contents_outside{
+  display:grid;
+  place-items:center;
+}
 .contents_container{
   background-color: #F0CAA3;
   border: 3px solid black;
@@ -59,57 +53,84 @@ body{
   box-shadow: 0 5px 5px 5px rgba(0, 0, 0, 0.253);
   display: grid;
   /* align-content: space-between; */
-  min-width: 30rem;
-  min-height: 35rem;
+  min-width: 50rem;
+  min-height: 32rem;
+  text-align:center;
+  /* grid-template-columns: 250px minmax(300px, 800px);
+  justify-content: center; */
 }
-/* .contents_detail{
-  padding: 1rem;
-  background-color:#D4A87F;
+
+#contents{
+  min-width: 25rem;
+  max-width: 30rem;
+  max-height: 15rem;
+  min-height: 10rem;
+  border: 3px solid black;
 }
-.contents_title{
-  padding: 1rem;
-  background-color:#D4A87F;
+label{
+  vertical-align:center;
+  font-family: 'NeoDunggeunmoPro-Regular';
+  font-size: 1.3rem;
 }
-.start_end_date{
-  position:relative;
+.contents_detail > label{
+  vertical-align:top;
+}
+input{
+  border: 3px solid black;
+  font-family: 'NEXON Lv2 Gothic';
+  background-color: #eed6bf;
+}
+textarea{
+  font-family: 'NEXON Lv2 Gothic';
+  font-size: 1rem;
+  background-color: #eed6bf;
+}
+input:focus{
+  background-color: #c7a481;
+}
+textarea:focus{
+  background-color: #c7a481;
+}
+
+input[type=text]{
+  width:25rem;
+  height:1.5rem;
+  font-size: 1rem;
+}
+input[type=datetime-local]{
+  width: 15rem;
+  height:1.2rem;
+  font-size: 1rem;
 }
 .start_date_dir{
-  padding: 1rem;
-  background-color:#D4A87F;
-  position: absolute;
-
-
+  margin-right:6rem;
 }
-.end_date_dir{
-  padding: 1rem;
-  background-color:#D4A87F;
-  position: absolute;
-  right:0;
-
-}
-
 .contents_imp{
-  position: absolute;
-  bottom: 25rem;
-} */
+  text-align: left;
+  margin-left: 3rem;
+}
 
 .submit_button{
   text-align:center;
+  margin-top: 2rem;
+}
+button{
+  width:85px;
+  height:40px;
+  box-shadow: 2px 2px 2px #3f3f3f;
+  border-radius: 5px;
+  cursor:pointer;
+  font-family: 'NEXON Lv2 Gothic';
+}
+button[type=button]{
+  background-color: #C2C2C2;
+  margin-right: 2rem;
+}
+button[type=submit]{
+  background-color: #FFDA56;
 }
 
 a{
   text-decoration: none;
 }
 
-input{
-  background-color: red;
-}
-textarea{
-  background-color: red;
-}
-input:focus{
-  background-color: blue;
-}
-textarea:focus{
-  background-color: blue;
-}
