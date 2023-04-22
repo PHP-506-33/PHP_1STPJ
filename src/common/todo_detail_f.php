@@ -181,4 +181,61 @@ function li_display_detail( $param_arr, $param_date )
     }
 }
 
+function make_calendar_detail( $param_year, $param_month, $param_day )
+{
+    $temp_arr_31 = [1, 3, 5, 7, 8, 10, 12];
+    $temp_arr_30 = [4, 6, 9, 11];
+
+    if( in_array( $param_month, $temp_arr_31 ) )
+    {
+        $ii = 31;
+    }
+    else if( in_array( $param_month, $temp_arr_30 ) )
+    {
+        $ii = 30;
+    }
+    else
+    {
+        if( $param_year % 4 === 0 )
+        {
+            $ii = 29;
+        }
+        else
+        {
+            $ii = 28;
+        }
+    }
+
+    for ($i=1; $i <= $param_day; $i++)
+    {
+        echo "<span></span>";
+    }
+
+    for ($i=1; $i <= $ii; $i++)
+    { 
+        if($i < 10)
+        {
+            if($param_month < 10)
+            {
+                echo "<span>".$i."</span>";
+            }
+            else
+            {
+                echo "<span>".$i."</span>";
+            }
+        }
+        else
+        {
+            if($param_month < 10)
+            {
+                echo "<span>".$i."</span>";
+            }
+            else
+            {
+                echo "<span>".$i."</span>";
+            }
+        }
+    }
+}
+
 ?>

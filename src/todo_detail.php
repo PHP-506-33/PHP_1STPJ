@@ -18,8 +18,6 @@
         // strtotime() : 문자열 형태의 날짜를 입력받아 UNIX timestamp(초 단위로 세어지는 정수로 표현한 값) 형식의 값을 돌려주는 함수
         $today_list = date("Y-m-d", strtotime($detail_info["list_start_date"]));
         $today = date("Y-m-d", strtotime($detail_today[0]["list_start_date"]));
-        // $today_search = array_search(strtotime($detail_info["list_start_date"]) ,$today);
-        // var_dump($today_search);
     }else{
         // update
         $list_no_post = $_POST["list_no"];
@@ -36,6 +34,10 @@
     }
 
     $list_start_date = $arr_get["list_start_date"];
+    $year_pick = substr($list_start_date, 0, 4);
+    $month_pick = substr($list_start_date, 5, 2);
+    $firstday = $year_pick."-".$month_pick."-01";
+    $day_pick = date('w', strtotime($firstday));
     $limit_num = 5;
 
     $arr_prepare1 = array(
@@ -52,6 +54,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/todo_detail_c.css">
+    <script src="https://kit.fontawesome.com/8c69259d3d.js" crossorigin="anonymous"></script>
     <title>Detail</title>
 </head>
 <header>
@@ -67,36 +70,20 @@
                 </div>
                 <span class="prof_name_level">
                     Lv. <?php echo level_cal() ?><br>
-                    name
+                    point : <?php echo point_cal() ?>
                 </span>
                 <hr class="prof_hr">
             </div>
             <div class="detail_total_calender">
             <h3>Calender</h3>
                 <div class="detail_calender"> <!-- 달력 -->
-                    <table> <!-- html&css 달력(고정된 값의 달력) -->
-                            <p>< 23.04 ></p>
-                            <tr>
-                                <?php for ($i=1; $i<=7; $i++) { ?>
-                                    <td><?php echo " ○ " ?></td>
-                                <?php } ?>
-                            </tr>
-                            <tr>
-                            <?php for ($i=1; $i<=7; $i++) { ?>
-                                    <td><?php echo " ○ " ?></td>
-                                <?php } ?>
-                            </tr>
-                            <tr>
-                            <?php for ($i=1; $i<=7; $i++) { ?>
-                                    <td><?php echo " ○ " ?></td>
-                                <?php } ?>
-                            </tr>
-                            <tr>
-                            <?php for ($i=1; $i<=7; $i++) { ?>
-                                    <td><?php echo " ○ " ?></td>
-                                <?php } ?>
-                            </tr>
-                    </table>
+                <div class="calendar_title">
+                    <p><?php echo $month_pick ?>월</p>
+                </div>
+                <div class="day_list">
+                    <span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span>
+                    <?php make_calendar_detail( $year_pick, $month_pick, $day_pick ) ?>
+                </div>
                 </div>
             </div>
             <div class="detail_today"> <!-- 현재 선택한 할 일과 같은 날의 남은 할 일 표시 -->
@@ -117,9 +104,13 @@
             </div>
             <div class="imp_star">
                 <?php if($detail_info["list_imp_flg"] === '1'){ ?>
-                    <span class="imp">★</span>
-                <?php }else{ ?>
-                    <span class="no_imp">☆</span>
+                    <span class="imp">
+                        <i class="fa-solid fa-star" style="color: #FFDA56;"></i>
+                    </span>
+                    <?php }else{ ?>
+                    <span class="no_imp">
+                        <i class="fa-regular fa-star" style="color: #1d293f;"></i>
+                    </span>
                 <?php } ?>
             </div>
             <div class="detail_content">
@@ -137,9 +128,7 @@
                             <label>
                     </div>
                 </div>
-                    <textarea name="" id="" cols="50" rows="10" readonly>
-                        <?php echo $detail_info["list_detail"]?>
-                    </textarea>
+                    <textarea name="" id="" cols="50" rows="10" readonly><?php echo $detail_info["list_detail"]?></textarea>
             </div>
                 <div class="com_btn">
                 <button type="submit" class="com">완료</button>
