@@ -61,8 +61,7 @@
     <a href="todo_index.php"><img src="./common/img/title.png" alt="header_title"></a>
 </header>
 <body>
-    <div class="total_detail">
-    <form action="todo_detail.php" method="post">
+    <div class="total_container">
         <div class="detail">
             <div class="profile"> <!-- 프로필 -->
                 <div class="prof_img">
@@ -113,6 +112,7 @@
                     </span>
                 <?php } ?>
             </div>
+            <form action="todo_detail.php" method="post">
             <div class="detail_content">
                 <div class="detail_title">
                     <div class="detail_info_title">
@@ -133,10 +133,10 @@
                 <div class="com_btn">
                 <button type="submit" class="com">완료</button>
                 </div>
+                </form>
         </div>
         <a href="todo_update.php?list_no=<?php echo $arr_prepare["list_no"] ?>"><button class="modify_btn" type="button">수정</button></a>
         <a href="todo_index.php"><button class="return_btn" type="button">돌아가기</button></a>
-    </form>
     </div>
 </body>
 </html>
