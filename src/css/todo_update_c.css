@@ -14,21 +14,25 @@
     font-weight: normal;
     font-style: normal;
   }
-
   
 *{
     padding:0;
     margin:0 auto;
     text-align: center;
   }
-
-
-
   body
   {
     background-color: #432C7A;
   }
 
+  label {
+    font-family: 'NeoDunggeunmoPro-Regular';
+    font-size: 1.3rem;
+  }
+
+  input {
+    font-family: 'NEXON Lv2 Gothic';
+  }
 
   .header 
   {
@@ -39,11 +43,14 @@
     place-items: center;
     box-shadow: 0 5px 5px 5px rgba(0, 0, 0, 0.253);
   }
-  
+  .contents_outside{
+    display:grid;
+    place-items:center;
+  }
   .contents_container
   {
     background-color: #F0CAA3;
-    border: 3px solid black;
+    border: 2px solid black;
     border-radius: 1rem;
     margin-right: 5rem;
     margin-left: 5rem;
@@ -51,8 +58,9 @@
     padding: 2rem;
     box-shadow: 0 5px 5px 5px rgba(0, 0, 0, 0.253);
     display: grid;
-    min-width: 30rem;
-    min-height: 35rem;
+    min-height: 32rem;
+    grid-template-columns: minmax(51rem, 60rem);
+    justify-content: center;
   }
   
   .submit_button
@@ -68,21 +76,10 @@
   input
   {
     background-color: rgb(206, 172, 140);
+    font-family: 'NEXON Lv2 Gothic';
   }
-  textarea
-  {
-    background-color: rgb(206, 172, 140);
-  }
-  input:focus
-  {
-    background-color: rgb(206, 172, 140);
-  }
-  textarea:focus
-  {
-    background-color: rgb(206, 172, 140);
-  }
-  
-  
+
+
   .submit_button
   {
     text-align:center;
@@ -95,109 +92,125 @@
   
   input
   {
-    background-color: rgb(206, 172, 140);
+    background-color: rgba(212, 168, 127, 0.5);
+    outline: 0;
   }
-  textarea
-  {
-    background-color: rgb(206, 172, 140);
-  }
-  input:focus
-  {
-    background-color: rgb(206, 172, 140);
-  }
-  textarea:focus
-  {
-    background-color: rgb(206, 172, 140);
-  }
+input:focus{
+  background-color: #EBC7E6;
+}
+
 
  .list_title_1 
  {
-    height: 70px;
-    width: 800px;
+    width: 25rem;
+    height: 3.5rem;
+    font-size:1rem;
+    border-radius: 0.5rem;
  }
 
  .list_detail_1 
  {
-  height: 200px;
-  width: 800px;
+  width: 25rem;
+  height: 8.5rem;
+  font-size:1rem;
+  border-radius: 0.5rem;
  }
 
-.start_date_dir 
-{
-  position: relative;
-  left: -203px;
+ input[type=datetime-local]{
+  width: 15.5rem;
+  height:1.2rem;
+  font-size: 1rem;
+  background-color:rgba(212, 168, 127, 0.5);
+  font-family: 'NEXON Lv2 Gothic';
+  color: black;
+  outline: none;
+  border-radius: 5px;
+  padding: 0.5rem;
+  border:2px solid black;
+}
+::-webkit-calendar-picker-indicator{
+  background-color: #A084DC;
+  padding:5px;
+  cursor:pointer;
+  border-radius:3px;
+  border:2px solid black;
+}
+.start_date_dir{
+  margin-right:5rem;
 }
 
-.end_date_dir 
-{
-  position: relative;
-  right: -167px;
+.end_date_dir{
+  /* margin-right:5rem; */
 }
 
-.start_1 
-{
-  height: 100px;
-  width: 300px;
-}
-
-.end_1 
-{
-  height: 100px;
-  width: 300px;
-}
-
-.contents_imp 
-{
-  position: relative;
-  right: 760px;
+.contents_imp{
+  text-align: left;
+  margin-left: 2.5rem;
 }
 
 .submit_button 
 {
+  text-align:center;
+  margin-top: 2rem;
   position: relative;
-  top: 100px;
 }
 
 .delete_1 
 {
-  position: relative;
-  right:730px;
-  width: 90px;
+  /* width: 90px;
   height: 50px;
-  top: 30px;
   border-radius: 20%;
   background-color: rgb(194, 47, 47);
   font-weight: 900;
-  border-style: solid;
+  border-style: solid; */
+  width:85px;
+  height:40px;
+  box-shadow: 2px 2px 2px #3f3f3f;
+  border-radius: 5px;
+  cursor:pointer;
+  font-family: 'NEXON Lv2 Gothic';
+  background-color: #EB455F;
+  position:absolute;
+  top:0;
+  left: 100px;
 }
+
 
 .cancel_1 
 {
-  position: relative;
-  right:30px;
-  top:30px;
+  /* height: 50px;
   width: 90px;
-  height: 50px;
   border-radius: 20%;
   background-color: rgb(161, 158, 158);
   font-weight: 900;
-  border-style: solid;
+  border-style: solid; */
+  width:85px;
+  height:40px;
+  box-shadow: 2px 2px 2px #3f3f3f;
+  border-radius: 5px;
+  cursor:pointer;
+  font-family: 'NEXON Lv2 Gothic';
+  background-color: #C2C2C2;
 }
 
 .edit_1 
 {
-  position: relative;
-  top:30px;
-  width: 90px;
-  height: 50px;
+  /* width: 90px;
   border-radius: 20%;
   background-color: rgb(182, 182, 56);
   font-weight: 900;
-  border-style: solid;
+  border-style: solid; */
+  width:85px;
+  height:40px;
+  box-shadow: 2px 2px 2px #3f3f3f;
+  border-radius: 5px;
+  cursor:pointer;
+  font-family: 'NEXON Lv2 Gothic';
+  background-color: #FFDA56;
 }
 
 
-@media (max-width: 1450px) 
+/* @media (max-width: 1450px) 
 {
 
   *
@@ -220,35 +233,40 @@
   
   .list_title_1 
   {
-  height: auto;
+  height: 50%;
   width: 90%;
-  margin: 0 auto;
+  margin: 1 auto;
   }
   
   .list_detail_1 
   {
-  height: auto;
+  height: 100%;
   width: 90%;
-  margin: 0 auto;
+  margin: 10 auto;
   }
   
   .start_date_dir 
   {
   position: static;
   left: auto;
+  margin: 10 auto;
+  padding: 20 auto;
   }
   
   .end_date_dir 
   {
   position: static;
   right: auto;
+  margin: 10 auto;
+  padding: 20 auto;
   }
   
   .start_1,
   .end_1 
   {
-  width: 90%;
-  margin: 0 auto;
+  width: 50%;
+  height: 30%;
+  margin: 10 auto;
   }
   
   .contents_imp 
@@ -274,5 +292,5 @@
   top: auto;
   right: auto;
   }
-  }
-
+  } */
+ 

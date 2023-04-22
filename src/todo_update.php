@@ -63,38 +63,39 @@ else
       <form class="form_contents" method="post" action="todo_update.php">
         <div class="contents_container">
           <input type="hidden" name="list_no" value="<?php echo $result_info["list_no"] ?>">        
-          <div class="contents_title">
-          <label for="list_title">제목</label>
-          <input class="list_title_1" type="text" name="list_title" value="<?php echo $result_info["list_title"] ?>" required>
-          </div>
+            <div class="contents_title">
+            <label for="list_title">퀘스트 제목</label>
+            <input class="list_title_1" type="text" name="list_title" value="<?php echo $result_info["list_title"] ?>" required>
+            </div>
           <br>
-          <div class="contents_detail">
-          <label for="list_detail">내용</label>
-          <input  class="list_detail_1" type="text" name="list_detail" id="list_detail" value="<?php echo $result_info["list_detail"] ?>">
-          </div>
+            <div class="contents_detail">
+            <label for="list_detail">퀘스트 내용</label>
+            <input  class="list_detail_1" type="text" name="list_detail" id="list_detail" value="<?php echo $result_info["list_detail"] ?>">
+            </div>
           <br>
-          <div class="start_end_date">
-          <span class="start_date_dir">
-              <label for="list_start_date">시작 날짜</label>
-              <input class="start_1" type="datetime-local" name="list_start_date" id="list_start_date" value="<?php echo $result_info["list_start_date"] ?>" required>
-          </span>
-          <span class="end_date_dir">
-              <label for="list_due_date">마감 날짜</label>
-              <input class="end_1" type="datetime-local" name="list_due_date" id="list_due_date" value="<?php echo$result_info["list_due_date"] ?>" required>
-          </span>
-          </div>
+              <div class="start_end_date">
+            <span class="start_date_dir">
+                <label for="list_start_date">시작 날짜</label>
+                <input class="start_1" type="datetime-local" name="list_start_date" id="list_start_date" value="<?php echo $result_info["list_start_date"] ?>" required>
+            </span>
+            <span class="end_date_dir">
+                <label for="list_due_date">마감 날짜</label>
+                <input class="end_1" type="datetime-local" name="list_due_date" id="list_due_date" value="<?php echo$result_info["list_due_date"] ?>" required>
+            </span>
+            </div>
         <br>
-        <div class="contents_imp">
-              <input type="checkbox" name="list_imp_flg" id="list_imp_flg" value="1" <?php echo $one_1; ?>>
-              <label for="list_imp_flg">중요</label>
-        </div>
-        <div class="submit_button">
-          <a href = "todo_delete.php?list_no=<?php echo $result_info["list_no"]."&list_start_date=".substr($result_info["list_start_date"],0,10) ?>"><button class="delete_1" type="button">삭제</button></a>
-          <a href = "todo_detail.php?list_no=<?php echo $result_info["list_no"]."&list_start_date=".substr($result_info["list_start_date"],0,10) ?>"><button class="cancel_1" type="button">취소</button></a> 
-          <button class="edit_1" type="submit">수정</button>
-        </div>
+            <div class="contents_imp">
+                  <input type="checkbox" name="list_imp_flg" id="list_imp_flg" value="1" <?php echo $one_1; ?>>
+                  <label for="list_imp_flg">중요</label>
+            </div>
+            </div>
+          <div class="submit_button">
+            <a href = "todo_delete.php?list_no=<?php echo $result_info["list_no"]."&list_start_date=".substr($result_info["list_start_date"],0,10) ?>"><button class="delete_1" type="button">포기</button></a>
+            <a href = "todo_detail.php?list_no=<?php echo $result_info["list_no"]."&list_start_date=".substr($result_info["list_start_date"],0,10) ?>"><button class="cancel_1" type="button">취소</button></a> 
+            <button class="edit_1" type="submit">수정</button>
+          </div>
       </form>
     </div>
   <div>
-</body>
+</body> 
 </html>
