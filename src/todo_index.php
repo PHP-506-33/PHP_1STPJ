@@ -65,6 +65,11 @@ $arr_prepare2 = array(
 $result_cnt = select_list_cnt( $arr_prepare2 );
 $max_page_num = ceil( $result_cnt[0]["cnt"] / $limit_num );
 
+$year_pick = (int)substr($date_ymd, 0, 4);
+$month_pick = (int)substr($date_ymd, 5, 2);
+$firstday = $year_pick."-".$month_pick."-01";
+$day_pick = date('w', strtotime($firstday));
+
 ?>
 
 <!DOCTYPE html>
@@ -99,6 +104,15 @@ $max_page_num = ceil( $result_cnt[0]["cnt"] / $limit_num );
                     <input type="date" name="list_start_date">
                     <button type="submit">이동</button>
                 </form>
+                <div class="calendar_title">
+                    <a href="todo_index.php?list_start_date=<? echo $year_pick."-".date("m", strtotime($date_ymd." -1 month"))."-01" ?>">◀</a>
+                    <span><?php echo $month_pick ?>월</span>
+                    <a href="todo_index.php?list_start_date=<? echo $year_pick."-".date("m", strtotime($date_ymd." +1 month"))."-01" ?>">▶</a>
+                </div>
+                <div class="day_list">
+                    <span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span>
+                    <?php make_calendar( $year_pick, $month_pick, $day_pick ) ?>
+                </div>
             </div>
         </div>
         <div class="main">
