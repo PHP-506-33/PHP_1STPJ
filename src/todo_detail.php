@@ -38,7 +38,7 @@
     $month_pick = substr($list_start_date, 5, 2);
     $firstday = $year_pick."-".$month_pick."-01";
     $day_pick = date('w', strtotime($firstday));
-    $limit_num = 5;
+    $limit_num = 4;
 
     $arr_prepare1 = array(
         "list_start_date"   => $list_start_date

@@ -97,8 +97,6 @@ function todo_select_detail_list( &$param_date ){
         ." list_clear_flg = '0' "
         ." AND "
         ." DATE_SUB(list_start_date, INTERVAL 1 DAY) <= :list_start_date "
-        // ." AND "
-        // ." list_start_date = :list_start_date "
         ." ORDER BY list_start_date "
         ." LIMIT 3 ";
 
@@ -177,7 +175,7 @@ function li_display_detail( $param_arr, $param_date )
 {
     foreach ($param_arr as $val)
     {
-        echo "<li><a href='todo_detail.php?list_no=".$val['list_no']."&list_start_date=".$param_date."'><div class='list_container'>"."<span class='list_style'>>  </span>"."<span class='list_title_s'>".$val['list_title']." "."</span><span class='list_date'>".trim_date($val['list_start_date'])." ~ ".trim_date($val['list_due_date'])."</span></div></a></li>";
+        echo "<li><a href='todo_detail.php?list_no=".$val['list_no']."&list_start_date=".$param_date."'><div class='list_container'>"."<span class='list_style'>>  </span>"."<span class='list_title_s'>".$val['list_title']."<br>"."</span><span class='list_date'>".trim_date($val['list_start_date'])." ~ ".trim_date($val['list_due_date'])."</span></div></a></li>";
     }
 }
 
