@@ -72,7 +72,7 @@
             <br>    
                 <div class="contents_detail">
                     <label for="contents">퀘스트 내용</label>
-                    <textarea id="contents" name="todo_contents"></textarea>
+                    <input type="text" id="contents" name="todo_contents"></input>
                 </div>
             <br>
                 <div class="start_end_date">
