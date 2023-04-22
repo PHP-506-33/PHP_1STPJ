@@ -25,21 +25,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>todo_delete</title>
+    <link rel="stylesheet" href="css/todo_delete_c.css">
 </head>
 <body>
     <div class="container">
-        <h1>Todo List</h1>
-    <div class="delete_container">
-        <p>퀘스트를 포기하시겠습니까?</p>
-        <p>주의! 포기한 퀘스트는 사라집니다</p>
+        <div class="header">
+            <h1><a href="todo_index.php"><img src="common/img/title.png" alt="title"></a></h1>
+        </div>
+    <div class="delete_outside">
+        <div class="delete_container">
+            <p>퀘스트를 포기 하시겠습니까?
+        <br>
+        <br>
+            주의! 포기한 퀘스트는 사라집니다</p>
+        </div>
     </div>
-        
-        <a href="todo_detail.php?list_no=<?php echo $arr_get["list_no"]."&list_start_date=".$arr_get["list_start_date"] ?>">취소</a>
-        <form method="post" action="todo_delete.php?list_no=<?php echo $arr_get["list_no"]."&list_start_date=".$arr_get["list_start_date"] ?>">
+    <div class="submit_button">
+    <form method="post" action="todo_delete.php?list_no=<?php echo $arr_get["list_no"]."&list_start_date=".$arr_get["list_start_date"] ?>">
+        <a href="todo_detail.php?list_no=<?php echo $arr_get["list_no"]."&list_start_date=".$arr_get["list_start_date"] ?>"><button type="button">취소</button></a>
         <button type="submit">삭제</button>
         </form>
-        
     </div>
+</div>
 </body>
 </html>
 
