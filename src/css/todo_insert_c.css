@@ -98,16 +98,30 @@ input[type=text]{
   font-size: 1rem;
 }
 input[type=datetime-local]{
-  width: 15rem;
+  width: 15.5rem;
   height:1.2rem;
   font-size: 1rem;
+  background-color:black;
+  font-family: 'NEXON Lv2 Gothic';
+  color: white;
+  border:none;
+  outline: none;
+  border-radius: 5px;
+  padding: 0.5rem;
 }
+::-webkit-calendar-picker-indicator{
+  background-color: white;
+  padding:5px;
+  cursor:pointer;
+  border-radius:3px;
+}
+
 .start_date_dir{
   margin-right:6rem;
 }
 .contents_imp{
   text-align: left;
-  margin-left: 3rem;
+  margin-left: 2.5rem;
 }
 
 .submit_button{
