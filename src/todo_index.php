@@ -91,12 +91,11 @@ $day_pick = date('w', strtotime($firstday));
         <div class="sidebar">
             <div class="profile">
                 <div class="profile_img">
-                    <img class="grow_img" src="common/img/grow<?php echo level_cal() ?>.png" alt="grow1">
+                    <img class="grow_img" src="common/img/grow<?php echo level_cal() ?>.png" alt="grow">
                 </div>
                 <div class="profile_text">
-                    <span>이름</span>
-                    <br>
                     <span>Lv. <?php echo level_cal() ?></span>
+                    <span>Point : <?php echo point_cal() ?></span>
                 </div>
             </div>
             <div class="calendar">
