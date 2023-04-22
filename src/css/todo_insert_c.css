@@ -44,7 +44,7 @@ body{
 }
 .contents_container{
   background-color: #F0CAA3;
-  border: 3px solid black;
+  border: 2px solid black;
   border-radius: 1rem;
   margin-right: 5rem;
   margin-left: 5rem;
@@ -74,20 +74,24 @@ label{
   vertical-align:top;
 }
 input{
-  border: 3px solid black;
+  border: 2px solid black;
   font-family: 'NEXON Lv2 Gothic';
-  background-color: #eed6bf;
+  background-color: rgba(212, 168, 127, 0.5);
+  border-radius: 5px;
+  padding: 0.3rem;
 }
 textarea{
   font-family: 'NEXON Lv2 Gothic';
   font-size: 1rem;
-  background-color: #eed6bf;
+  background-color: rgba(212, 168, 127, 0.5);
 }
 input:focus{
-  background-color: #c7a481;
+  background-color: #EBC7E6;
+  outline:0;
 }
 textarea:focus{
-  background-color: #c7a481;
+  background-color: #EBC7E6;
+  outline:0;
 }
 
 input[type=text]{
@@ -99,19 +103,20 @@ input[type=datetime-local]{
   width: 15.5rem;
   height:1.2rem;
   font-size: 1rem;
-  background-color:black;
+  background-color:rgba(212, 168, 127, 0.5);
   font-family: 'NEXON Lv2 Gothic';
-  color: white;
-  border:none;
+  color: black;
   outline: none;
   border-radius: 5px;
   padding: 0.5rem;
+  border:2px solid black;
 }
 ::-webkit-calendar-picker-indicator{
-  background-color: white;
+  background-color: #A084DC;
   padding:5px;
   cursor:pointer;
   border-radius:3px;
+  border:2px solid black;
 }
 
 .start_date_dir{
