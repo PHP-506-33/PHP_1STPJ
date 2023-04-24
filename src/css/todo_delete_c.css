@@ -22,7 +22,7 @@
 body{
     background-color: #432C7A;
 }
-  
+/******** header영역 *********/
 .header {
     background-color: #C060A1;
     height: 9rem;
@@ -33,6 +33,7 @@ body{
     min-width: 45rem;
   }
 
+/******** contents영역 *********/
 .delete_outside{
   display:grid;
   place-items:center;
@@ -53,13 +54,14 @@ body{
   grid-template-columns: minmax(30rem, 50rem);
   justify-content: center;
 }
-.submit_button{
-  text-align:center;
-  margin-top: 2rem;
-}
 p{
   font-family: 'NEXON Lv2 Gothic';
   padding:8rem 0;
+}
+/********* 버튼영역 **********/
+.submit_button{
+  text-align:center;
+  margin-top: 2rem;
 }
 button{
   width:85px;
@@ -76,7 +78,6 @@ button[type=button]{
 button[type=submit]{
   background-color: #EB455F;
 }
-
 a{
   text-decoration: none;
 }
