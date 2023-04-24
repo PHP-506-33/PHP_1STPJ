@@ -92,11 +92,13 @@ input:focus{
  .list_title_1 
  {
     width: 25rem;
-    height: 2rem;
     font-size:1rem;
     border-radius: 0.5rem;
     border: 2px solid black;
  }
+#list_title{
+      height: 2.5rem;
+}
 
  .list_detail_1 
  {
