@@ -43,6 +43,8 @@ else
   header( "Location: todo_detail.php?list_no=".$arr_post["list_no"]."&list_start_date=".substr($arr_post["list_start_date"],0,10) );
   exit();
 }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -77,11 +79,11 @@ else
               <div class="start_end_date">
             <span class="start_date_dir">
                 <label for="list_start_date">시작 날짜</label>
-                <input class="start_1" type="datetime-local" name="list_start_date" id="list_start_date" value="<?php echo $result_info["list_start_date"] ?>" required>
+                <input class="start_1" type="datetime-local" name="list_start_date" id="list_start_date" value="<?php echo substr($result_info["list_start_date"],0,16) ?>" required>
             </span>
             <span class="end_date_dir">
                 <label for="list_due_date">마감 날짜</label>
-                <input class="end_1" type="datetime-local" name="list_due_date" id="list_due_date" value="<?php echo$result_info["list_due_date"] ?>" required>
+                <input class="end_1" type="datetime-local" name="list_due_date" id="list_due_date" value="<?php echo substr($result_info["list_due_date"],0,16) ?>" required>
             </span>
             </div>
         <br>
