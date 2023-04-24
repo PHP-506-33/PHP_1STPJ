@@ -63,7 +63,7 @@
     <title>Detail</title>
 </head>
 <header>
-    <a href="todo_index.php"><img src="./common/img/title.png" alt="header_title"></a>
+    <h1><a href="todo_index.php"><img src="./common/img/title.png" alt="header_title"></a></h1>
 </header>
 <body>
 <div class="total_container">
