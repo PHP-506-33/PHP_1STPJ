@@ -14,7 +14,7 @@ else
 
 $date_ymd = date("Y-m-d");
 $list_start_date = $date_ymd;
-$limit_num = 5;
+$limit_num = 6;
 $offset = ( $page_num - 1 ) * $limit_num;
 
 if( array_key_exists("list_start_date", $_GET))
@@ -36,20 +36,23 @@ if( array_key_exists("search", $_GET))
     if( $search === "" )
     {
         $list_start_date = $date_ymd;
+        $date_ymd2 = $date_ymd;
     }
     else
     {
         $list_start_date = "검색 결과";
+        $date_ymd2 = '1971-01-01';
     }
 }
 else
 {
     $search = "";
+    $date_ymd2 = $date_ymd;
 }
 
 $arr_prepare1 = array(
     "list_start_date"   => $date_ymd
-    ,"list_due_date"    => $date_ymd
+    ,"list_due_date"    => $date_ymd2
     ,"searchword"       => $search
     ,"limit_num"        => $limit_num
     ,"offset"           => $offset
@@ -58,7 +61,7 @@ $result_paging = select_list_search( $arr_prepare1 );
 
 $arr_prepare2 = array(
     "list_start_date"   => $date_ymd
-    ,"list_due_date"    => $date_ymd
+    ,"list_due_date"    => $date_ymd2
     ,"searchword"       => $search
     );
 
