@@ -224,16 +224,16 @@ function make_calendar_detail( $param_year, $param_month, $param_day )
         }
     }
 
-    for ($i=1; $i <= $param_day; $i++)
+    for ($i=1; $i <= $param_day; $i++) // 각 달의 첫번 째 날 앞의 공백
     {
         echo "<span></span>";
     }
 
-    for ($i=1; $i <= $ii; $i++)
+    for ($i=1; $i <= $ii; $i++) // 각 달의 마지막 날 만큼 
     { 
         if($i < 10)
         {
-            if($param_month < 10)
+            if($param_month < 10) // 현재 달이 10월 전일 때
             {
                 echo "<span>".$i."</span>";
             }
@@ -244,7 +244,7 @@ function make_calendar_detail( $param_year, $param_month, $param_day )
         }
         else
         {
-            if($param_month < 10)
+            if($param_month < 10) // 현재 달이 10월 이후 일 때
             {
                 echo "<span>".$i."</span>";
             }
