@@ -13,10 +13,7 @@
         header( "Location: todo_index.php" );
         exit;
     }
-    // $result_info = todo_select_detail_info($arr_get["list_no"]);
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -39,7 +36,6 @@
         <br>
             주의! 포기한 퀘스트는 사라집니다</p>
         </div>
-    
     <div class="submit_button">
     <form method="post" action="todo_delete.php?list_no=<?php echo $arr_get["list_no"]."&list_start_date=".$arr_get["list_start_date"] ?>">
         <a href="todo_detail.php?list_no=<?php echo $arr_get["list_no"]."&list_start_date=".$arr_get["list_start_date"] ?>"><button type="button">취소</button></a>
