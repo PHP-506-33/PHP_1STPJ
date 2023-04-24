@@ -10,10 +10,10 @@
     $insert_page_num = $result_no["list_no"] + 1;
 
     // 현재 시간을 시작 날짜의 기본 값으로
-    $start_time_def = date('Y-m-d\TH:i:s', time());
+    $start_time_def = date('Y-m-d\TH:i', time());
     
     // 현재 시간 + 1시간을 종료 날짜의 기본 값으로 
-    $due_time_def = date("Y-m-d\TH:i:s", strtotime( $start_time_def."+1 hour"));
+    $due_time_def = date("Y-m-d\TH:i", strtotime( $start_time_def."+1 hour"));
 
 
     $http_method = $_SERVER["REQUEST_METHOD"];
@@ -79,11 +79,11 @@
                 <div class="start_end_date">
                     <span class="start_date_dir">    
                         <label for="start_date">시작</label>
-                        <input type="datetime-local" id="start_date" name="todo_start" required value="<?php echo $start_time_def ?>">
+                        <input type="datetime-local" id="start_date" name="todo_start" required value="<?php echo substr($start_time_def,0,16) ?>">
                     </span>
                     <span class="end_date_dir">
                         <label for="end_date">종료</label>
-                        <input type="datetime-local" id="end_date" name="todo_end" required value="<?php echo $due_time_def ?>" >
+                        <input type="datetime-local" id="end_date" name="todo_end" required value="<?php echo substr($due_time_def,0,16) ?>" >
                     </span>
                 </div>
             <br>    
