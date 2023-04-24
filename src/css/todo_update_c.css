@@ -151,13 +151,13 @@ input:focus{
 
 .delete_1 
 {
- 
+  font-size: 1em;
   width:85px;
   height:40px;
   box-shadow: 2px 2px 2px #3f3f3f;
   border-radius: 5px;
   cursor:pointer;
-  font-family: 'NEXON Lv2 Gothic';
+  font-family: 'NeoDunggeunmoPro-Regular';
   background-color: #EB455F;
   position:absolute;
   top:0;
@@ -167,25 +167,25 @@ input:focus{
 
 .cancel_1 
 {
-  
+  font-size: 1em;
   width:85px;
   height:40px;
   box-shadow: 2px 2px 2px #3f3f3f;
   border-radius: 5px;
   cursor:pointer;
-  font-family: 'NEXON Lv2 Gothic';
+  font-family:'NeoDunggeunmoPro-Regular';
   background-color: #C2C2C2;
 }
 
 .edit_1 
 {
- 
+  font-size: 1em;
   width:85px;
   height:40px;
   box-shadow: 2px 2px 2px #3f3f3f;
   border-radius: 5px;
   cursor:pointer;
-  font-family: 'NEXON Lv2 Gothic';
+  font-family: 'NeoDunggeunmoPro-Regular';
   background-color: #FFDA56;
 }
 
