@@ -60,7 +60,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/todo_detail_c.css">
     <script src="https://kit.fontawesome.com/8c69259d3d.js" crossorigin="anonymous"></script>
-    <title>Detail</title>
+    <title>Todo List : 상세</title>
 </head>
 <header>
     <h1><a href="todo_index.php"><img src="./common/img/title.png" alt="header_title"></a></h1>
