@@ -14,7 +14,7 @@ else
 
 $date_ymd = date("Y-m-d");
 $list_start_date = $date_ymd;
-$limit_num = 6;
+$limit_num = 5;
 $offset = ( $page_num - 1 ) * $limit_num;
 
 if( array_key_exists("list_start_date", $_GET))
