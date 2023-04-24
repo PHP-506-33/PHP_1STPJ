@@ -20,6 +20,10 @@
 }
 body{
   background-color: #432C7A;
+  opacity: 1;
+  background-image:  radial-gradient(#C060A1 2px, transparent 2px), radial-gradient(#C060A1 2px, #432C7A 2px);
+  background-size: 60px 60px;
+  background-position: 0 0,30px 30px;
 }
 /******* header영역 *******/
 .header {

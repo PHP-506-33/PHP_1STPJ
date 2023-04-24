@@ -28,11 +28,16 @@
 }
 body{
     background-color: #432C7A;
+    opacity: 1;
+    background-image:  radial-gradient(#C060A1 2px, transparent 2px), radial-gradient(#C060A1 2px, #432C7A 2px);
+    background-size: 60px 60px;
+    background-position: 0 0,30px 30px;
 }
 header{
-    background-color: #c060a1;
-    text-align: center;
-    height:9rem;
+    background-color: #C060A1;
+    height: 9rem;
+    display: grid;
+    place-items: center;
     box-shadow: 0 5px 5px 5px rgba(0, 0, 0, 0.253);
     min-width: 45rem;
 }
