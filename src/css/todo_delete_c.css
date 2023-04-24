@@ -73,7 +73,8 @@ button{
   box-shadow: 2px 2px 2px #3f3f3f;
   border-radius: 5px;
   cursor:pointer;
-  font-family: 'NEXON Lv2 Gothic';
+  font-family: 'NeoDunggeunmoPro-Regular';
+  font-size:1em;
 }
 button[type=button]{
   background-color: #C2C2C2;
