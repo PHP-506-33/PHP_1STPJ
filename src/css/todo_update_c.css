@@ -48,6 +48,8 @@
     display:grid;
     place-items:center;
   }
+
+
   .contents_container
   {
     background-color: #F0CAA3;
@@ -76,26 +78,12 @@
   
   input
   {
-    background-color: rgb(206, 172, 140);
-    font-family: 'NEXON Lv2 Gothic';
-  }
-
-
-  .submit_button
-  {
-    text-align:center;
-  }
-  
-  a
-  {
-    text-decoration: none;
-  }
-  
-  input
-  {
     background-color: rgba(212, 168, 127, 0.5);
+    font-family: 'NEXON Lv2 Gothic';
     outline: 0;
   }
+
+
 input:focus{
   background-color: #EBC7E6;
 }
@@ -104,17 +92,20 @@ input:focus{
  .list_title_1 
  {
     width: 25rem;
-    height: 3.5rem;
+    height: 2rem;
     font-size:1rem;
     border-radius: 0.5rem;
+    border: 2px solid black;
  }
 
  .list_detail_1 
  {
   width: 25rem;
-  height: 8.5rem;
+  height: 10rem;
   font-size:1rem;
   border-radius: 0.5rem;
+  border: 2px solid black;
+  vertical-align: top;
  }
 
  input[type=datetime-local]{
@@ -140,10 +131,6 @@ input:focus{
   margin-right:5rem;
 }
 
-.end_date_dir{
-  /* margin-right:5rem; */
-}
-
 .contents_imp{
   text-align: left;
   margin-left: 2.5rem;
@@ -158,12 +145,7 @@ input:focus{
 
 .delete_1 
 {
-  /* width: 90px;
-  height: 50px;
-  border-radius: 20%;
-  background-color: rgb(194, 47, 47);
-  font-weight: 900;
-  border-style: solid; */
+ 
   width:85px;
   height:40px;
   box-shadow: 2px 2px 2px #3f3f3f;
@@ -179,12 +161,7 @@ input:focus{
 
 .cancel_1 
 {
-  /* height: 50px;
-  width: 90px;
-  border-radius: 20%;
-  background-color: rgb(161, 158, 158);
-  font-weight: 900;
-  border-style: solid; */
+  
   width:85px;
   height:40px;
   box-shadow: 2px 2px 2px #3f3f3f;
@@ -196,11 +173,7 @@ input:focus{
 
 .edit_1 
 {
-  /* width: 90px;
-  border-radius: 20%;
-  background-color: rgb(182, 182, 56);
-  font-weight: 900;
-  border-style: solid; */
+ 
   width:85px;
   height:40px;
   box-shadow: 2px 2px 2px #3f3f3f;
@@ -211,87 +184,3 @@ input:focus{
 }
 
 
-/* @media (max-width: 1450px) 
-{
-
-  *
-  {
-  text-align: center;
-  }
-  .header {
-  height: 7rem;
-  margin-bottom: 1.5rem;
-  }
-  
-  .contents_container 
-  {
-  margin-right: 2rem;
-  margin-left: 2rem;
-  padding: 1rem;
-  min-width: auto;
-  min-height: auto;
-  }
-  
-  .list_title_1 
-  {
-  height: 50%;
-  width: 90%;
-  margin: 1 auto;
-  }
-  
-  .list_detail_1 
-  {
-  height: 100%;
-  width: 90%;
-  margin: 10 auto;
-  }
-  
-  .start_date_dir 
-  {
-  position: static;
-  left: auto;
-  margin: 10 auto;
-  padding: 20 auto;
-  }
-  
-  .end_date_dir 
-  {
-  position: static;
-  right: auto;
-  margin: 10 auto;
-  padding: 20 auto;
-  }
-  
-  .start_1,
-  .end_1 
-  {
-  width: 50%;
-  height: 30%;
-  margin: 10 auto;
-  }
-  
-  .contents_imp 
-  {
-  position: static;
-  right: auto;
-  }
-  
-  .submit_button 
-  {
-  position: static;
-  top: auto;
-  }
-  
-  .delete_1,
-  .cancel_1,
-  .edit_1 
-  {
-  position: static;
-  width: 30%;
-  height: auto;
-  margin: 0 auto;
-  top: auto;
-  right: auto;
-  }
-  } */
- 

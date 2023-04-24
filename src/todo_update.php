@@ -65,7 +65,7 @@ else
           <input type="hidden" name="list_no" value="<?php echo $result_info["list_no"] ?>">        
             <div class="contents_title">
             <label for="list_title">퀘스트 제목</label>
-            <input class="list_title_1" type="text" name="list_title" value="<?php echo $result_info["list_title"] ?>" required>
+            <input class="list_title_1" type="text" name="list_title" id="list_title" value="<?php echo $result_info["list_title"] ?>" required>
             </div>
           <br>
             <div class="contents_detail">
