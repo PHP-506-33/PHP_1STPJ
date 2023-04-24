@@ -14,13 +14,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
-/* 나중에 textarea 따라 라벨 위로 붙도록 하기
-textarea 최소 최대 가로 폭 값넣기
-.imp_label{
-  vertical-align: top;
-} */
-
 *{
   padding:0;
   margin:0;
@@ -28,7 +21,7 @@ textarea 최소 최대 가로 폭 값넣기
 body{
   background-color: #432C7A;
 }
-
+/******* header영역 *******/
 .header {
   background-color: #C060A1;
   height: 9rem;
@@ -36,8 +29,9 @@ body{
   display: grid;
   place-items: center;
   box-shadow: 0 5px 5px 5px rgba(0, 0, 0, 0.253);
-  min-width: 45rem;
+  min-width: 60rem;
 }
+/******* contents영역 ********/
 .contents_outside{
   display:grid;
   place-items:center;
@@ -57,12 +51,12 @@ body{
   grid-template-columns: minmax(45rem, 60rem);
   justify-content: center;
 }
-
+#title{
+  height:2rem;
+}
 #contents{
-  /* min-width: 25rem;
-  max-width: 30rem;
-  max-height: 15rem;
-  min-height: 10rem; */
+  width: 25rem;
+  height: 10rem; 
   border: 2px solid black;
 }
 label{
@@ -80,13 +74,10 @@ input{
   border-radius: 5px;
   padding: 0.3rem;
 }
-
 input:focus{
   background-color: #EBC7E6;
   outline:0;
 }
-
-
 input[type=text]{
   width:25rem;
   height:1.5rem;
@@ -111,7 +102,6 @@ input[type=datetime-local]{
   border-radius:3px;
   border:2px solid black;
 }
-
 .start_date_dir{
   margin-right:5rem;
 }
@@ -119,7 +109,7 @@ input[type=datetime-local]{
   text-align: left;
   margin-left: 2.5rem;
 }
-
+/******* 버튼 영역 ********/
 .submit_button{
   text-align:center;
   margin-top: 2rem;
@@ -139,7 +129,6 @@ button[type=button]{
 button[type=submit]{
   background-color: #FFDA56;
 }
-
 a{
   text-decoration: none;
 }
