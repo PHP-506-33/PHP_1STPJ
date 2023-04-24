@@ -83,7 +83,8 @@ $day_pick = date('w', strtotime($firstday));
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/todo_index_c.css">
     <script src="https://kit.fontawesome.com/15c1734573.js" crossorigin="anonymous"></script>
-    <title>Index</title>
+    <title>Todo List</title>
+    <link rel="icon" href="common/img/magic-book.png">
 </head>
 <body>
     <div class="container">

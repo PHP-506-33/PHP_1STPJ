@@ -61,6 +61,7 @@
     <link rel="stylesheet" href="./css/todo_detail_c.css">
     <script src="https://kit.fontawesome.com/8c69259d3d.js" crossorigin="anonymous"></script>
     <title>Todo List : 상세</title>
+    <link rel="icon" href="common/img/magic-book.png">
 </head>
 <header>
     <h1><a href="todo_index.php"><img src="./common/img/title.png" alt="header_title"></a></h1>

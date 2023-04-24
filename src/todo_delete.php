@@ -23,6 +23,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo List : 삭제</title>
     <link rel="stylesheet" href="css/todo_delete_c.css">
+    <link rel="icon" href="common/img/magic-book.png">
 </head>
 <body>
     <div class="container">
