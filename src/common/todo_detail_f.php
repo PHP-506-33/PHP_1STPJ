@@ -83,6 +83,7 @@ function todo_update_detail_list( &$param_no ){
 기능 : 상세 페이지에 들어온 list_no의 남은 할 일 표시(최대 3개, 당일 할 일만 표시)
 파라미터 : &$parma_arr (레퍼런스 참조)
 리턴 값 : $result
+ * 시간 빼기 함수(date_sub) / interval 1 day : 기준 날짜에서 하루 뺀 날짜
 **********************************************/
 function todo_select_detail_list( &$param_date ){
     $sql =
@@ -117,6 +118,13 @@ function todo_select_detail_list( &$param_date ){
     return $result;
 }
 
+/*****************************************
+ * 
+함수 : select_list_detail
+기능 : 상세 페이지에 들어온 list_no의 남은 할 일 표시(최대 3개, 당일 할 일만 표시)
+파라미터 : &$parma_arr (레퍼런스 참조)
+리턴 값 : $result
+******************************************/
 function select_list_detail( &$param_arr )
 {
     $sql = 
@@ -171,6 +179,12 @@ function select_list_detail( &$param_arr )
     return $result;
 }
 
+/*****************************************
+ * 
+함수 : li_display_detail
+기능 : left to do 내용 출력 함수
+파라미터 : $parma_arr, $param_deta
+******************************************/
 function li_display_detail( $param_arr, $param_date )
 {
     foreach ($param_arr as $val)
@@ -179,20 +193,26 @@ function li_display_detail( $param_arr, $param_date )
     }
 }
 
+/*****************************************
+ * 
+함수 : make_calender_detail
+기능 : 달력 만들기
+파라미터 : $parma_year, $param_month, $param_day
+******************************************/
 function make_calendar_detail( $param_year, $param_month, $param_day )
 {
     $temp_arr_31 = [1, 3, 5, 7, 8, 10, 12];
     $temp_arr_30 = [4, 6, 9, 11];
 
-    if( in_array( $param_month, $temp_arr_31 ) )
+    if( in_array( $param_month, $temp_arr_31 ) ) // 달의 마지막 날이 31일 일 때
     {
         $ii = 31;
     }
-    else if( in_array( $param_month, $temp_arr_30 ) )
+    else if( in_array( $param_month, $temp_arr_30 ) ) // 달의 마지막 날이 30일 일 때
     {
         $ii = 30;
     }
-    else
+    else // 현재 달이 2월 일 때
     {
         if( $param_year % 4 === 0 )
         {

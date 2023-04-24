@@ -8,7 +8,7 @@
         // select
         $arr_get = $_GET;
         $arr_prepare = array(
-            "list_no"   => (int)$arr_get["list_no"]
+            "list_no"   => (int)$arr_get["list_no"] // get -> string 데이터형으로 넘어옴
         );
         $arr_prepare_2 = array(
             "list_start_date" => $arr_get["list_start_date"]
@@ -33,13 +33,17 @@
         }
     }
 
+    // calender
     $list_start_date = $arr_get["list_start_date"];
+    // substr : 문자열 자르기
     $year_pick = substr($list_start_date, 0, 4);
     $month_pick = substr($list_start_date, 5, 2);
     $firstday = $year_pick."-".$month_pick."-01";
+    // date('w') : 오늘의 요일(출력 순서 일(0) ~ 토(6))
     $day_pick = date('w', strtotime($firstday));
     $limit_num = 4;
 
+    // left to do
     $arr_prepare1 = array(
         "list_start_date"   => $list_start_date
         ,"list_due_date"    => $list_start_date
@@ -47,6 +51,7 @@
         );
     $result_paging = select_list_detail( $arr_prepare1 );
 ?>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -61,21 +66,21 @@
     <a href="todo_index.php"><img src="./common/img/title.png" alt="header_title"></a>
 </header>
 <body>
-    <div class="total_container">
-        <div class="detail">
-            <div class="profile"> <!-- 프로필 -->
-                <div class="prof_img">
-                    <img class="grow_img" src="./common/img/grow<?php echo level_cal() ?>.png" alt="grow1">
-                </div>
-                <span class="prof_name_level">
-                    Lv. <?php echo level_cal() ?><br>
-                    point : <?php echo point_cal() ?>
-                </span>
-                <hr class="prof_hr">
+<div class="total_container">
+    <div class="detail"> <!-- 프로필 영역 -->
+        <div class="profile"> <!-- 프로필 이미지, 레벨, 포인트 -->
+            <div class="prof_img"> 
+                <img class="grow_img" src="./common/img/grow<?php echo level_cal() ?>.png" alt="grow1">
             </div>
-            <div class="detail_total_calender">
+            <span class="prof_name_level">
+                Lv. <?php echo level_cal() ?><br>
+                point : <?php echo point_cal() ?>
+            </span>
+            <hr class="prof_hr">
+        </div>
+        <div class="detail_total_calender"> <!-- 달력 영역 -->
             <h3>Calender</h3>
-                <div class="detail_calender"> <!-- 달력 -->
+            <div class="detail_calender"> <!-- 달력 -->
                 <div class="calendar_title">
                     <p><?php echo $month_pick ?>월</p>
                 </div>
@@ -83,60 +88,63 @@
                     <span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span>
                     <?php make_calendar_detail( $year_pick, $month_pick, $day_pick ) ?>
                 </div>
-                </div>
-            </div>
-            <div class="detail_today"> <!-- 현재 선택한 할 일과 같은 날의 남은 할 일 표시 -->
-                <h3>Left to do</h3>
-                <div class="today_info"> <!-- foreach로 남은 할 일 출력하기/CSS : 할 일 당 색 다르게 설정 -->
-                    <ul>
-                        <?php li_display_detail( $result_paging, $list_start_date ) ?>
-                    </ul>
-                </div>
             </div>
         </div>
-        <div class="detail_info"> <!-- 현재 선택한 할 일 제목, 날짜, 상세 내용 -->
-            <div class="info_title"> 
-                <span class="todo_date">
-                    <?php echo date("m.d", strtotime($detail_info["list_start_date"]))." ~ ".date("m.d", strtotime($detail_info["list_due_date"])); ?>
-                <span>
-                <hr>
+        <div class="detail_today"> <!-- 현재 선택한 할 일과 같은 날의 남은 할 일을 표시하는 영역 -->
+            <h3>Left to do</h3>
+            <div class="today_info">
+                <ul>
+                    <?php li_display_detail( $result_paging, $list_start_date ) ?>
+                </ul>
             </div>
-            <div class="imp_star">
-                <?php if($detail_info["list_imp_flg"] === '1'){ ?>
-                    <span class="imp">
-                        <i class="fa-solid fa-star" style="color: #FFDA56;"></i>
-                    </span>
-                    <?php }else{ ?>
-                    <span class="no_imp">
-                        <i class="fa-regular fa-star" style="color: #1d293f;"></i>
-                    </span>
-                <?php } ?>
-            </div>
-            <form action="todo_detail.php" method="post">
-            <div class="detail_content">
-                <div class="detail_title">
-                    <div class="detail_info_title">
-                            <input type="hidden" value="<?= $arr_prepare["list_no"] ?>" name="list_no">
-                            <?php if($detail_info["list_clear_flg"] === '1'){ ?>
-                                <input type="checkbox" id="check" value="0" checked>
-                            <?php }else{ ?>
-                                <input type="checkbox" id="check" name="check" class="todo_check" value="check">
-                            <?php } ?>
-                            <label for="check" class="todo_title"><?= $detail_info["list_title"] ?></label>
-                            <label for="check" class="todo_date_time">
-                                <?php echo date("H : i", strtotime($detail_info["list_start_date"]))." ~ ".date("H : i", strtotime($detail_info["list_due_date"])); ?>
-                            <label>
-                    </div>
-                </div>
-                    <textarea name="" id="" cols="50" rows="10" readonly><?php echo $detail_info["list_detail"]?></textarea>
-            </div>
-                <div class="com_btn">
-                <button type="submit" class="com">완료</button>
-                </div>
-                </form>
-                <a href="todo_update.php?list_no=<?php echo $arr_prepare["list_no"] ?>"><button class="modify_btn" type="button">수정</button></a>
-            <a href="todo_index.php"><button class="return_btn" type="button">돌아가기</button></a>
         </div>
     </div>
+    <div class="detail_info"> <!-- 상세 내용 영역 -->
+        <div class="info_title"> <!-- 선택한 할 일의 시작 날짜, 마감 날짜 -->
+            <span class="todo_date">
+                <?php echo date("m.d", strtotime($detail_info["list_start_date"]))." ~ ".date("m.d", strtotime($detail_info["list_due_date"])); ?>
+            <span>
+            <hr>
+        </div>
+        <div class="imp_star"> <!-- 할 일의 중요도 표시 -->
+            <?php if($detail_info["list_imp_flg"] === '1'){ ?>
+                <span class="imp">
+                    <i class="fa-solid fa-star" style="color: #FFDA56;"></i>
+                </span>
+                <?php }else{ ?>
+                <span class="no_imp">
+                    <i class="fa-regular fa-star" style="color: #1d293f;"></i>
+                </span>
+            <?php } ?>
+        </div>
+        <form action="todo_detail.php" method="post">
+        <div class="detail_content"> <!-- 선택한 할 일의 제목, 시간, 내용 영역 -->
+            <div class="detail_info_title"> 
+                <!-- 할 일 완료 선택 체크박스 -->
+                <input type="hidden" value="<?= $arr_prepare["list_no"] ?>" name="list_no">
+                <?php if($detail_info["list_clear_flg"] === '1'){ ?>
+                    <input type="checkbox" id="check" value="0" checked>
+                <?php }else{ ?>
+                    <input type="checkbox" id="check" name="check" class="todo_check" value="check">
+                <?php } ?>
+                <!-- 상세 제목, 시간 -->
+                <label for="check" class="todo_title"><?= $detail_info["list_title"] ?></label>
+                <br>
+                <label for="check" class="todo_date_time">
+                    <?php echo date("H : i", strtotime($detail_info["list_start_date"]))." ~ ".date("H : i", strtotime($detail_info["list_due_date"])); ?>
+                <label>
+            </div>
+            <!-- 상세 내용 -->
+            <textarea name="" id="" cols="50" rows="10" readonly><?php echo $detail_info["list_detail"]?></textarea>
+        </div>
+        <div class="com_btn"> <!-- 체크 박스 체크 후 완료 버튼 -->
+            <button type="submit" class="com">완료</button>
+        </div>
+        </form>
+        <!-- 수장, 리스트 페이지 이동 버튼 -->
+        <a href="todo_update.php?list_no=<?php echo $arr_prepare["list_no"] ?>"><button class="modify_btn" type="button">수정</button></a>
+        <a href="todo_index.php"><button class="return_btn" type="button">돌아가기</button></a>
+    </div>
+</div>
 </body>
 </html>

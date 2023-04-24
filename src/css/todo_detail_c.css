@@ -118,10 +118,12 @@ td{
     background: rgba(212, 168, 127, 0.5);
     border:2px solid #000;
     border-radius: 15px;
-    height:180px;
+    height:auto;
+    min-height:180px;
     text-align: center;
     margin-top:0.3em;
     padding-left:1.5em;
+    padding-bottom: 0.5em;
 }
 a{
     text-decoration: none;
@@ -172,13 +174,6 @@ hr{
     margin-top:1em;
     background-color: rgba(239, 205, 207, 0.5);
 }
-.detail_title{
-    border:2px solid #000;
-    border-radius: 15px;
-    height:5vh;
-    margin:1em;
-    background-color: rgba(212, 170, 177, 0.3);
-}
 input[type="checkbox"]{
     -webkit-appearance: none;
     position: relative;
@@ -206,7 +201,7 @@ input[type="checkbox"]:hover {
 }
 
 input[type="checkbox"]:checked {
-    background-color: #c2979d;
+    background-color: #99777c;
     border-color: rgba(255, 255, 255, 0.3);
     color: white;
 }
@@ -234,9 +229,15 @@ input[type="checkbox"]:checked::before {
     left:3px;
 }
 .detail_info_title{
-    position: relative;
-    top:13px;
-    left:10px;
+    border:2px solid #000;
+    border-radius: 15px;
+    min-height:5vh;
+    height:auto;
+    margin:1em;
+    background-color: rgba(212, 170, 177, 0.3);
+    /* padding-top:0.5em;
+    padding-left: 0.5em; */
+    padding:0.5em;
 }
 textarea{
     border:none;
@@ -247,6 +248,7 @@ textarea{
     position:relative;
     left:20px;
     font-family: 'NEXON Lv2 Gothic';
+    width:90%;
 }
 /* ****************** 버튼 ****************** */
 .com_btn{
@@ -260,6 +262,7 @@ textarea{
     width:65px;
     height:30px;
     background-color: #645cbb;
+    /* background-color: #996589; */
     border-radius: 20px;
     font-family: 'NeoDunggeunmoPro-Regular';
     font-size: 1em;
