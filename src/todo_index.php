@@ -138,7 +138,7 @@ $day_pick = date('w', strtotime($firstday));
             </div>
             <div class="search_section">
                 <form method="get" action="todo_index.php">
-                    <input type="search" name="search">
+                    <input type="search" name="search" value=<?php echo $search ?>>
                     <button type="submit" class="search_btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
             </div>
