@@ -40,7 +40,7 @@
     <div class="submit_button">
     <form method="post" action="todo_delete.php?list_no=<?php echo $arr_get["list_no"]."&list_start_date=".$arr_get["list_start_date"] ?>">
         <a href="todo_detail.php?list_no=<?php echo $arr_get["list_no"]."&list_start_date=".$arr_get["list_start_date"] ?>"><button type="button">취소</button></a>
-        <button type="submit">삭제</button>
+        <button type="submit">포기</button>
         </form>
         </div>
         </div>
