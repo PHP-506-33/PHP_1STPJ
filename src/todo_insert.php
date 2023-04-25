@@ -4,17 +4,11 @@
     include_once( URL_DB );
     include_once( "common/todo_insert_f.php");
 
-    // DB의 가장 최근 list_no 구하기
-    $result_no = select_list_no_desc();
-    // 구해온 list_no에서 + 1해서 새로 작성한 리스트의 상세페이지 번호로
-    $insert_page_num = $result_no["list_no"] + 1;
-
     // 현재 시간을 시작 날짜의 기본 값으로
-    $start_time_def = date('Y-m-d\TH:i', time());
+    $start_time_def = date('Y-m-d\TH:i:s', time());
     
     // 현재 시간 + 1시간을 종료 날짜의 기본 값으로 
-    $due_time_def = date("Y-m-d\TH:i", strtotime( $start_time_def."+1 hour"));
-
+    $due_time_def = date("Y-m-d\TH:i:s", strtotime( $start_time_def."+1 hour"));
 
     $http_method = $_SERVER["REQUEST_METHOD"];
 
@@ -38,8 +32,8 @@
                 ,"list_imp_flg" => $imp_flg
             );
     $insert_list_info = insert_todo_info($arr_info);
-
-    header( "Location: todo_detail.php?list_no=".$insert_page_num."&list_start_date=".substr($arr_post["todo_start"], 0, 10)  );
+    $result_no = select_list_no_desc(); // 0425 오류 발견 후 수정
+    header( "Location: todo_detail.php?list_no=".$result_no["list_no"]."&list_start_date=".substr($arr_post["todo_start"], 0, 10)  );
     exit;
     }
     else
