@@ -64,11 +64,11 @@ function todo_update_detail_list( &$param_no ){
     $conn = null;
     try {
         db_conn($conn);
-        $conn->beginTransaction();
+        $conn->beginTransaction(); /* 트랜잭션 시작 */
         $stmt = $conn->prepare( $sql );
         $stmt->execute( $arr_prepare );
-        $result_cnt = $stmt->rowCount();
-        $conn->commit();
+        $result_cnt = $stmt->rowCount(); /* 변경한 내용의 수 */
+        $conn->commit(); /* 작업 내용 저장 */
     } catch (Exception $e) {
         $conn->rollback();
         return $e->getMessage();
