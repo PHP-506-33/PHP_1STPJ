@@ -4,6 +4,7 @@
     include_once( URL_DB );
 
     $http_method = $_SERVER["REQUEST_METHOD"];
+    
     $arr_get = $_GET;
 
     if($http_method === "POST")
