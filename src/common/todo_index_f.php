@@ -2,9 +2,12 @@
 
 include_once( "db_connect.php" );
 
-// --------------------
-// 리스트 제목 검색하는 함수
-// --------------------
+// ********************************
+// 함수명 : select_list_search
+// 기능 : 리스트 페이지 목록에 표시할 날짜별 할 일들을 배열로 가져오기
+// 파라미터 : $param_arr
+// 리턴 값 : $result
+// **********************************
 function select_list_search( &$param_arr )
 {
     $sql = 
@@ -61,6 +64,12 @@ function select_list_search( &$param_arr )
     return $result;
 }
 
+// ********************************
+// 함수명 : select_list_cnt
+// 기능 : 페이지 번호 매길 때 필요한 날짜별 할 일 개수 가져오기
+// 파라미터 : $param_arr
+// 리턴 값 : $result
+// **********************************
 function select_list_cnt( &$param_arr )
 {
     $sql = 
@@ -103,6 +112,12 @@ function select_list_cnt( &$param_arr )
     return $result;
 }
 
+// ********************************
+// 함수명 : select_list_paging
+// 기능 : <a> 태그로 페이지 번호 만드는 함수
+// 파라미터 : $param_page, $param_max, $param_date, $param_search
+// 리턴 값 : "<a href='todo_index.php?page_num=".$i."&list_start_date=".$param_date."&search=".$param_search."'>".$i."</a>"
+// **********************************
 function select_list_paging( $param_page, $param_max, $param_date, $param_search )
 {
     if($param_max > 1)
@@ -114,6 +129,12 @@ function select_list_paging( $param_page, $param_max, $param_date, $param_search
     }
 }
 
+// ********************************
+// 함수명 : li_display
+// 기능 : <li> 태그로 할 일 목록 띄우기
+// 파라미터 : $param_arr, $param_date
+// 리턴 값 : "<li><a href='todo_detail.php?list_no=".$val['list_no']."&list_start_date=".$param_date."'><div class='list_container ".$list_class."'>".$checkbox.$impmark."<span class='list_title_s'>".$val['list_title']."</span><span class='list_date'>".trim_date($val['list_start_date'])." ~ ".trim_date($val['list_due_date'])."</span>".$alert."</div></a></li>"
+// **********************************
 function li_display( $param_arr, $param_date )
 {
     foreach ($param_arr as $val)
@@ -163,9 +184,12 @@ function li_display( $param_arr, $param_date )
     }
 }
 
-// --------------------
-// 포인트 계산 함수
-// --------------------
+// ********************************
+// 함수명 : point_cal
+// 기능 : 완료한 할 일 개수 가져와서 포인트 계산하는 함수
+// 파라미터 : X
+// 리턴 값 : $result[0]["point"]
+// **********************************
 function point_cal()
 {
     $sql = 
@@ -199,9 +223,12 @@ function point_cal()
     return $result[0]["point"];
 }
 
-// --------------------
-// 레벨 계산 함수
-// --------------------
+// ********************************
+// 함수명 : level_cal
+// 기능 : 위의 point_cal 함수 이용해서 레벨 계산하는 함수
+// 파라미터 : X
+// 리턴 값 : $result
+// **********************************
 function level_cal()
 {
     if(point_cal() === 0)
@@ -219,15 +246,24 @@ function level_cal()
     return $result;
 }
 
-// --------------------
-// 날짜 다듬는 함수
-// --------------------
+// ********************************
+// 함수명 : trim_date
+// 기능 : yyyy-mm-dd 형식으로 되어 있는 날짜 string mm-dd 형식으로 자르는 함수
+// 파라미터 : $param_str
+// 리턴 값 : $result
+// **********************************
 function trim_date( $param_str )
 {
     $result = substr($param_str, 5, 5);
     return $result;
 }
 
+// ********************************
+// 함수명 : make_calendar
+// 기능 : 달력의 날짜 부분 <a> 태그로 생성하고, 각 월별 1일의 요일에 따라 앞에 더미로 <span> 태그 삽입하는 함수
+// 파라미터 : $param_year, $param_month, $param_day
+// 리턴 값 : "<a href='todo_index.php?list_start_date=".$param_year."-".$param_month."-".$i."'>".$i."</a>"
+// **********************************
 function make_calendar( $param_year, $param_month, $param_day )
 {
     $temp_arr_31 = [1, 3, 5, 7, 8, 10, 12];
@@ -284,21 +320,5 @@ function make_calendar( $param_year, $param_month, $param_day )
         }
     }
 }
-
-// TODO: start
-// $arr = array(
-//     "list_start_date"         => "2023-04-19 12:00:00"
-//     ,"list_due_date"           => "2023-04-19 12:00:00"
-//     ,"searchword"       => "중요"
-//     ,"limit_num"        => 5
-//     ,"offset"           => 0
-//     );
-// $result = select_list_search( $arr );
-// print_r( $result );
-// TODO: end
-
-// TODO: start
-// echo level_cal();
-// TODO: end
 
 ?>
