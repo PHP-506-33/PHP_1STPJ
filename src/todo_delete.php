@@ -9,7 +9,6 @@
 
     if($http_method === "POST")
     {
-        $result_list_no = $arr_get["list_no"];
         $result_cnt = delete_todo_info( $arr_get["list_no"] );
         header( "Location: todo_index.php" );
         exit;
@@ -29,23 +28,23 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1><a href="todo_index.php"><img src="common/img/title.png" alt="title"></a></h1>
+            <a href="todo_index.php"><img src="common/img/title.png" alt="title"></a>
         </div>
-    <div class="delete_outside">
-        <div class="delete_container">
-            <p>퀘스트를 포기 하시겠습니까?
-        <br>
-        <br>
-            주의! 포기한 퀘스트는 사라집니다</p>
+        <div class="delete_outside">
+            <div class="delete_container">
+                <p>퀘스트를 포기 하시겠습니까?
+            <br>
+            <br>
+                주의! 포기한 퀘스트는 사라집니다</p>
+            </div>
+            <div class="submit_button">
+                <form method="post" action="todo_delete.php?list_no=<?php echo $arr_get["list_no"]."&list_start_date=".$arr_get["list_start_date"] ?>">
+                    <a href="todo_detail.php?list_no=<?php echo $arr_get["list_no"]."&list_start_date=".$arr_get["list_start_date"] ?>"><button type="button">취소</button></a>
+                    <button type="submit">포기</button>
+                </form>
+            </div>
         </div>
-    <div class="submit_button">
-    <form method="post" action="todo_delete.php?list_no=<?php echo $arr_get["list_no"]."&list_start_date=".$arr_get["list_start_date"] ?>">
-        <a href="todo_detail.php?list_no=<?php echo $arr_get["list_no"]."&list_start_date=".$arr_get["list_start_date"] ?>"><button type="button">취소</button></a>
-        <button type="submit">포기</button>
-        </form>
-        </div>
-        </div>
-</div>
+    </div>
 </body>
 </html>
 

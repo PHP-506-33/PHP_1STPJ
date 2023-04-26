@@ -31,7 +31,7 @@
                 ,"list_imp_flg" => $imp_flg
             );
         $insert_list_info = insert_todo_info( $arr_info );
-        $result_no = select_list_no_desc(); // 0425 오류 발견 후 수정
+        $result_no = select_list_no_desc(); // 0425 오류 발견 후 수정(현재 작성된 list중에서 최신 list_no에 + 1 하는 형식으로 값을 받아 왔었음)
         header( "Location: todo_detail.php?list_no=".$result_no["list_no"]."&list_start_date=".substr($arr_post["todo_start"], 0, 10) );
         exit;
     }
@@ -54,7 +54,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1><a href="todo_index.php"><img src="common/img/title.png" alt="title"></a></h1>
+            <a href="todo_index.php"><img src="common/img/title.png" alt="title"></a>
         </div>
         <div class="contents_outside">
             <form class="form_contents" method="post" action="todo_insert.php">

@@ -107,8 +107,8 @@ function delete_todo_info( $param_no )
 }
 
 // ********************************
-// 함수명 : select_list_no_desc     // 0420 select_list_no_cnt(기능변경으로 함수명 변경)
-// 기능 : 가장 최신의 list_no를 가져옴   // 0420 list의 총 갯수를 구해서 가져옴
+// 함수명 : select_list_no_desc     // 0420 기능변경으로 함수명 변경(구 함수명: select_list_no_cnt)
+// 기능 : 가장 최신의 list_no를 가져옴   // 0420 함수기능 변경(구 기능 : list의 총 갯수를 구해서 가져옴)
 // 파라미터 : 없음
 // 리턴 값 : $result[0]
 // **********************************
