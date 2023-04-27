@@ -30,11 +30,14 @@
                 exit(); // 이 이후의 실행들을 모두 종료
             }
         }else{
-                $result_cnt = todo_nocom_update_detail_list( $list_no_post );
-                if($result_cnt === 1){
-                    header( "Location: todo_index.php" ); // 위의 실행을 실행한 후에 index 페이지로 이동
-                    exit();
-                }
+            $result_cnt = todo_nocom_update_detail_list( $list_no_post );
+            if($result_cnt === 1){
+                header( "Location: todo_index.php" ); // 위의 실행을 실행한 후에 index 페이지로 이동
+                exit();
+            }else{
+                header( "Location: todo_index.php" ); // 위의 실행을 실행한 후에 index 페이지로 이동
+                exit();
+            }
         }
     }
 
