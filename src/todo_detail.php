@@ -22,7 +22,6 @@
         $today = substr($detail_today[0]["list_start_date"], 0, 9);
     }else{
         // update
-        var_dump($_POST);
         $list_no_post = $_POST["list_no"]; // input type="hidden"으로 받은 list_no를 저장
         if(isset($_POST["ip_name_check"])){ // $_POST로 들어온 값이 'check'라면 밑의 실행문 실행
             $result_cnt = todo_com_update_detail_list( $list_no_post );
