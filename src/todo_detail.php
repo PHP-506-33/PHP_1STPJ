@@ -16,20 +16,26 @@
         $detail_info = todo_select_detail_info( $arr_prepare );
         $detail_today = todo_select_detail_list( $arr_prepare_2 );
         // strtotime() : 문자열 형태의 날짜를 입력받아 UNIX timestamp(초 단위로 세어지는 정수로 표현한 값) 형식의 값을 돌려주는 함수
-        $today_list = date("Y-m-d", strtotime($detail_info["list_start_date"]));
-        $today = date("Y-m-d", strtotime($detail_today[0]["list_start_date"]));
+        // $today_list = date("Y-m-d", strtotime($detail_info["list_start_date"]));
+        // $today = date("Y-m-d", strtotime($detail_today[0]["list_start_date"]));
+        $today_list = substr($detail_info["list_start_date"], 0, 9);
+        $today = substr($detail_today[0]["list_start_date"], 0, 9);
     }else{
         // update
-        $list_no_post = $_POST["list_no"]; // $_POST 방식으로 받은 데이터 중 checkbox로 온 값의 list_no를 저장
-        $check_post = null;
-        if($check_post = "check"){ // $_POST로 들어온 값이 'check'라면 밑의 실행문 실행
-            $result_cnt = todo_update_detail_list( $list_no_post );
+        var_dump($_POST);
+        $list_no_post = $_POST["list_no"]; // input type="hidden"으로 받은 list_no를 저장
+        if(isset($_POST["ip_name_check"])){ // $_POST로 들어온 값이 'check'라면 밑의 실행문 실행
+            $result_cnt = todo_com_update_detail_list( $list_no_post );
             if($result_cnt === 1){
                 header( "Location: todo_index.php" ); // 위의 실행을 실행한 후에 index 페이지로 이동
                 exit(); // 이 이후의 실행들을 모두 종료
             }
         }else{
-            $check_post = null;
+                $result_cnt = todo_nocom_update_detail_list( $list_no_post );
+                if($result_cnt === 1){
+                    header( "Location: todo_index.php" ); // 위의 실행을 실행한 후에 index 페이지로 이동
+                    exit();
+                }
         }
     }
 
@@ -103,7 +109,7 @@
     <div class="detail_info"> <!-- 상세 내용 영역 -->
         <div class="info_title"> <!-- 선택한 할 일의 시작 날짜, 마감 날짜 -->
             <span class="todo_date">
-                <?php echo date("m.d", strtotime($detail_info["list_start_date"]))." ~ ".date("m.d", strtotime($detail_info["list_due_date"])); ?>
+                <?php echo substr($detail_info["list_start_date"], 5, 5)." ~ ".substr($detail_info["list_due_date"], 5, 5); ?>
             <span>
             <hr>
         </div>
@@ -124,7 +130,7 @@
                 <!-- 할 일 완료 선택 체크박스 -->
                 <input type="hidden" value="<?= $arr_prepare["list_no"] ?>" name="list_no">
                 <?php if($detail_info["list_clear_flg"] === '1'){ ?>
-                    <input type="checkbox" checked disabled> <!-- disabled : checkbox를 수정 할 수 없게 처리 -->
+                    <input type="checkbox" checked> <!-- disabled : checkbox를 수정 할 수 없게 처리 -->
                 <?php }else{ ?>
                     <!-- checkbox를 클릭하고 완료 버튼을 누를 시 id(check)의 값(check)이 post 방식으로 보내짐 -->
                     <input type="checkbox" id="check_label" name="ip_name_check" value="check" class="todo_check">
@@ -133,7 +139,7 @@
                 <label for="check_label" class="todo_title"><?= $detail_info["list_title"] ?></label>
                 <br>
                 <label for="check_label" class="todo_date_time">
-                    <?php echo date("H : i", strtotime($detail_info["list_start_date"]))." ~ ".date("H : i", strtotime($detail_info["list_due_date"])); ?>
+                    <?php echo substr($detail_info["list_start_date"], 11, 5)." ~ ".substr($detail_info["list_due_date"], 11, 5); ?>
                 <label>
             </div>
             <!-- 상세 내용 -->

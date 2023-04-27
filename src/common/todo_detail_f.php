@@ -44,10 +44,10 @@ function todo_select_detail_info( &$param_arr ){
 /*********************************************
 함수 : todo_update_detail_list
 기능 : 할 일 완료로 변경(clear_flg를 0에서 1로 변경)
-파라미터 : &$parma_no (레퍼런스 참조)
+파라미터 : $parma_no
 리턴 값 : $result_cnt
 **********************************************/
-function todo_update_detail_list( &$param_no ){
+function todo_com_update_detail_list( $param_no ){
     $sql = 
         " UPDATE "
         ." todo_list_info "
@@ -78,6 +78,41 @@ function todo_update_detail_list( &$param_no ){
     return $result_cnt;
 }
 
+/*********************************************
+함수 : todo_update_detail_list
+기능 : 할 일 완료를 완료 취소로 변경(clear_flg를 0에서 1로 변경)
+파라미터 : $parma_no
+리턴 값 : $result_cnt
+**********************************************/
+function todo_nocom_update_detail_list( $param_no ){
+    $sql = 
+        " UPDATE "
+        ." todo_list_info "
+        ." SET "
+        ." list_clear_flg = '0' "
+        ." WHERE "
+        ." list_no = :list_no ";
+
+    $arr_prepare = 
+            array(
+                ":list_no" => $param_no
+            );
+    $conn = null;
+    try {
+        db_conn($conn);
+        $conn->beginTransaction(); /* 트랜잭션 시작 */
+        $stmt = $conn->prepare( $sql );
+        $stmt->execute( $arr_prepare );
+        $result_cnt = $stmt->rowCount(); /* 변경한 내용의 수 */
+        $conn->commit(); /* 작업 내용 저장 */
+    } catch (Exception $e) {
+        $conn->rollback();
+        return $e->getMessage();
+    } finally {
+        $conn = null;
+    }
+    return $result_cnt;
+}
 /*********************************************
 함수 : todo_select_detail_list
 기능 : 상세 페이지에 들어온 list_no의 남은 할 일 표시(최대 3개, 당일 할 일만 표시)
@@ -257,3 +292,4 @@ function make_calendar_detail( $param_year, $param_month, $param_day )
 }
 
 ?>
+
