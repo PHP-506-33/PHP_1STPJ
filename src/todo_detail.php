@@ -129,7 +129,7 @@
                 <!-- 할 일 완료 선택 체크박스 -->
                 <input type="hidden" value="<?= $arr_prepare["list_no"] ?>" name="list_no">
                 <?php if($detail_info["list_clear_flg"] === '1'){ ?>
-                    <input type="checkbox" checked> <!-- disabled : checkbox를 수정 할 수 없게 처리 -->
+                    <input type="checkbox" id="check_label" checked> <!-- disabled : checkbox를 수정 할 수 없게 처리 -->
                 <?php }else{ ?>
                     <!-- checkbox를 클릭하고 완료 버튼을 누를 시 id(check)의 값(check)이 post 방식으로 보내짐 -->
                     <input type="checkbox" id="check_label" name="ip_name_check" value="check" class="todo_check">
