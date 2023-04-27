@@ -45,7 +45,7 @@ body{
 
 .delete_container{
   background-color: #F0CAA3;
-  border: 3px solid black;
+  border: 2px solid black;
   border-radius: 1rem;
   margin-right: 5rem;
   margin-left: 5rem;
@@ -53,14 +53,48 @@ body{
   padding: 2rem;
   box-shadow: 0 5px 5px 5px rgba(0, 0, 0, 0.253);
   display: grid;
-  min-height: 20rem;
-  text-align:center;
-  grid-template-columns: minmax(30rem, 50rem);
+  min-height: 25rem;
+  text-align: center;
+  grid-template-columns: minmax(40rem, 50rem);
   justify-content: center;
 }
-p{
+#title{
+  height: 2rem;
+}
+#contents{
+  width: 25rem;
+  height: 10rem; 
+  border: 2px solid black;
+}
+.contents_title{
+  margin-bottom: 3rem;
+}
+label{
+  vertical-align: center;
+  font-family: 'NeoDunggeunmoPro-Regular';
+  font-size: 1.3rem;
+}
+.contents_detail > label{
+  vertical-align: top;
+}
+input{
+  border: 2px solid black;
   font-family: 'NEXON Lv2 Gothic';
-  padding:8rem 0;
+  background-color: rgba(212, 168, 127, 0.5);
+  border-radius: 5px;
+  padding: 0.3rem;
+}
+input[type=text]{
+  width: 25rem;
+  height: 1.5rem;
+  font-size: 1rem;
+  outline:0;
+}
+p{
+  font-family: 'NeoDunggeunmoPro-Regular';
+  padding-top: 2rem;
+  font-size: 1.2rem;
+
 }
 /********* 버튼영역 **********/
 .submit_button{
