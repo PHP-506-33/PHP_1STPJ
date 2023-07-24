@@ -2,7 +2,7 @@
 캐릭터 성장을 통한 동기부여형 투두리스트
 
 # 시연 영상
-https://youtu.be/VAoJOxkBHT4
+https://youtu.be/2BJAUwpk7so
 
 # 개발 기간
 2023-04-18 ~ 2023-04-27
